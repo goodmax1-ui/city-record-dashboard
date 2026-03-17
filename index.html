@@ -1,0 +1,2728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The City Record — Daily Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <style>
+    :root {
+      --bg: #f5f3ef;
+      --surface: #ffffff;
+      --text: #1a1a1a;
+      --text-secondary: #5a5a5a;
+      --text-muted: #8a8a8a;
+      --accent: #1a3a5c;
+      --accent-light: #e8eef4;
+      --border: #e0ddd8;
+      --parks-green: #2d6a4f;
+      --parks-green-light: #e8f5e9;
+      --parks-green-border: #b7e4c7;
+      --procurement-blue: #1565c0;
+      --procurement-bg: #e3f2fd;
+      --personnel-amber: #e65100;
+      --personnel-bg: #fff3e0;
+      --hearing-purple: #6a1b9a;
+      --hearing-bg: #f3e5f5;
+      --agency-teal: #00695c;
+      --agency-bg: #e0f2f1;
+      --rule-red: #b71c1c;
+      --rule-bg: #fce4ec;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+      --radius: 10px;
+      --radius-lg: 16px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Masthead ── */
+    .masthead {
+      background: var(--accent);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem 1.5rem;
+      border-bottom: 4px solid #c9a84c;
+    }
+
+    .masthead h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.25rem;
+    }
+
+    .masthead .subtitle {
+      font-size: 0.85rem;
+      opacity: 0.7;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 500;
+    }
+
+    /* ── Date Bar ── */
+    .date-bar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .date-bar button {
+      background: var(--accent-light);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem;
+      cursor: pointer;
+      font-size: 1rem;
+      color: var(--accent);
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+    }
+
+    .date-bar button:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    .date-display {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--text);
+      min-width: 260px;
+      text-align: center;
+    }
+
+    .date-display input[type="date"] {
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.4rem 0.6rem;
+      color: var(--text);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .date-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── Container ── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem;
+    }
+
+    /* ── Loading / Error / Empty ── */
+    .loading-state, .error-state, .empty-state {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .loading-state .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 1rem;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .loading-state p { color: var(--text-muted); font-size: 0.95rem; }
+
+    .error-state { color: #c0392b; }
+    .error-state h2 { margin-bottom: 0.5rem; }
+
+    .empty-state h2 {
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .empty-state p { color: var(--text-muted); }
+
+    /* ── Tab Bar ── */
+    .tab-bar {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tab-bar::-webkit-scrollbar { display: none; }
+
+    .tab-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.15s;
+      white-space: nowrap;
+      flex-shrink: 0;
+      min-width: 0;
+      position: relative;
+      user-select: none;
+    }
+
+    .tab-item:hover {
+      background: #fafaf8;
+    }
+
+    .tab-item.active {
+      border-bottom-color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    .tab-item .tab-count {
+      font-size: 1.3rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .tab-item .tab-label {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .tab-item.active .tab-label {
+      color: var(--accent);
+    }
+
+    .tab-item.tab-overview .tab-count { color: var(--accent); }
+    .tab-item.tab-overview.active { border-bottom-color: var(--accent); }
+
+    .tab-item.tab-procurement .tab-count { color: var(--procurement-blue); }
+    .tab-item.tab-procurement.active { border-bottom-color: var(--procurement-blue); background: var(--procurement-bg); }
+
+    .tab-item.tab-contract-award-hearings .tab-count { color: #283593; }
+    .tab-item.tab-contract-award-hearings.active { border-bottom-color: #283593; background: #e8eaf6; }
+
+    .tab-item.tab-public-comment .tab-count { color: #4527a0; }
+    .tab-item.tab-public-comment.active { border-bottom-color: #4527a0; background: #ede7f6; }
+
+    .tab-item.tab-hearings .tab-count { color: var(--hearing-purple); }
+    .tab-item.tab-hearings.active { border-bottom-color: var(--hearing-purple); background: var(--hearing-bg); }
+
+    .tab-item.tab-rules .tab-count { color: var(--rule-red); }
+    .tab-item.tab-rules.active { border-bottom-color: var(--rule-red); background: var(--rule-bg); }
+
+    .tab-item.tab-personnel .tab-count { color: var(--personnel-amber); }
+    .tab-item.tab-personnel.active { border-bottom-color: var(--personnel-amber); background: var(--personnel-bg); }
+
+    .tab-item.tab-property .tab-count { color: var(--agency-teal); }
+    .tab-item.tab-property.active { border-bottom-color: var(--agency-teal); background: var(--agency-bg); }
+
+    .tab-item.tab-court .tab-count { color: #4e342e; }
+    .tab-item.tab-court.active { border-bottom-color: #4e342e; background: #efebe9; }
+
+    .tab-item.tab-special .tab-count { color: #616161; }
+    .tab-item.tab-special.active { border-bottom-color: #616161; background: #f5f5f5; }
+
+    .tab-item.tab-parks .tab-count { color: var(--parks-green); }
+    .tab-item.tab-parks.active { border-bottom-color: var(--parks-green); background: var(--parks-green-light); }
+
+    /* ── Overview Panel ── */
+    .overview-panel {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .overview-panel h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .overview-text {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    .overview-text p {
+      margin-bottom: 0.75rem;
+    }
+
+    .overview-text strong {
+      color: var(--text);
+    }
+
+    .overview-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .overview-highlight-card {
+      padding: 1rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .overview-highlight-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    .overview-highlight-card h3 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .overview-highlight-card p {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ── Section Blocks ── */
+    .section-block {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: background 0.15s;
+      user-select: none;
+    }
+
+    .section-header:hover {
+      background: #fafaf8;
+    }
+
+    .section-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .section-count {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .section-toggle {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      transition: transform 0.2s;
+    }
+
+    .section-block.expanded .section-toggle {
+      transform: rotate(180deg);
+    }
+
+    .section-summary {
+      padding: 0 1.25rem 0.75rem;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .section-items {
+      display: none;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-block.expanded .section-items {
+      display: block;
+    }
+
+    /* ── Item Cards ── */
+    .item-card {
+      padding: 0.9rem 1.25rem;
+      border-bottom: 1px solid #f0ede8;
+      cursor: pointer;
+      transition: background 0.12s;
+    }
+
+    .item-card:last-child { border-bottom: none; }
+
+    .item-card:hover { background: #fafaf8; }
+
+    .item-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .item-title {
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--text);
+      flex: 1;
+    }
+
+    .item-agency {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .item-meta {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 0.4rem;
+    }
+
+    .item-tag {
+      font-size: 0.72rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .tag-procurement { background: var(--procurement-bg); color: var(--procurement-blue); }
+    .tag-personnel { background: var(--personnel-bg); color: var(--personnel-amber); }
+    .tag-hearing { background: var(--hearing-bg); color: var(--hearing-purple); }
+    .tag-parks { background: var(--parks-green-light); color: var(--parks-green); }
+    .tag-amount { background: #f0f0f0; color: var(--text-secondary); }
+    .tag-due { background: #fff8e1; color: #f57f17; }
+    .tag-category { background: #f5f5f5; color: var(--text-secondary); }
+
+    .parks-highlight {
+      border-left: 3px solid var(--parks-green) !important;
+      background: var(--parks-green-light) !important;
+    }
+
+    .parks-highlight:hover {
+      background: #d5edda !important;
+    }
+
+    .item-expand-icon {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+
+    /* ── Detail Panel (expanded item) ── */
+    .item-detail {
+      display: none;
+      padding: 0.75rem 1.25rem 1rem;
+      background: #fafaf8;
+      border-top: 1px solid #eee;
+      font-size: 0.88rem;
+      animation: slideDown 0.2s ease;
+    }
+
+    .item-card.detail-open .item-detail {
+      display: block;
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .detail-field label {
+      display: block;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+      margin-bottom: 0.1rem;
+    }
+
+    .detail-field span {
+      color: var(--text);
+      font-size: 0.85rem;
+    }
+
+    .detail-description {
+      margin-top: 0.5rem;
+      padding: 0.75rem;
+      background: white;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      white-space: pre-wrap;
+    }
+
+    /* ── Modal Overlay ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      max-width: 700px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      animation: modalIn 0.2s ease;
+    }
+
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-header {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .modal-header h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-muted);
+      padding: 0.25rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .modal-close:hover { color: var(--text); }
+
+    .modal-body {
+      padding: 1.5rem;
+    }
+
+    .modal-body .detail-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .modal-body .detail-description {
+      margin-top: 1rem;
+    }
+
+    .modal-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+    }
+
+    /* ── Past Records Link ── */
+    .past-records {
+      text-align: center;
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+    }
+
+    .past-records h3 {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .past-records p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ── Charts ── */
+    .chart-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .chart-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 1rem;
+    }
+
+    .chart-card h3 {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.75rem;
+    }
+
+    .bar-chart {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .bar-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .bar-label {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      min-width: 120px;
+      text-align: right;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .bar-track {
+      flex: 1;
+      height: 18px;
+      background: #f0f0f0;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.4s ease;
+      min-width: 2px;
+    }
+
+    .bar-value {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      min-width: 30px;
+    }
+
+    .donut-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .donut-svg {
+      width: 120px;
+      height: 120px;
+      flex-shrink: 0;
+    }
+
+    .donut-legend {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .donut-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    .donut-legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    /* ── AI Summary ── */
+    .ai-summary {
+      background: linear-gradient(135deg, #f8f6ff 0%, #f0f4ff 100%);
+      border: 1px solid #d4d0f0;
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .ai-summary-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #6a5acd;
+      margin-bottom: 0.6rem;
+    }
+
+    .ai-summary-badge .dot {
+      width: 6px;
+      height: 6px;
+      background: #6a5acd;
+      border-radius: 50%;
+    }
+
+    .ai-summary-text {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    .ai-summary-text p { margin-bottom: 0.5rem; }
+    .ai-summary-text p:last-child { margin-bottom: 0; }
+    .ai-summary-text strong { color: var(--text); }
+
+    .ai-loading {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #6a5acd;
+      font-size: 0.88rem;
+    }
+
+    .ai-loading .spinner {
+      width: 16px;
+      height: 16px;
+      border: 2px solid #d4d0f0;
+      border-top-color: #6a5acd;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    /* ── Settings Button ── */
+    .settings-btn {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      transition: transform 0.15s;
+    }
+
+    .settings-btn:hover { transform: scale(1.1); }
+
+    .settings-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1001;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .settings-modal.active { display: flex; }
+
+    .settings-panel {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      max-width: 480px;
+      width: 100%;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .settings-panel h2 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .settings-panel label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 0.3rem;
+    }
+
+    .settings-panel input {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .settings-panel .btn-row {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: flex-end;
+    }
+
+    .settings-panel button {
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .settings-panel .btn-primary {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .settings-panel .status {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .settings-panel .status.connected { color: #2d6a4f; }
+
+    /* ── Inline Map ── */
+    .map-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      background: #e8f5e9;
+      color: #2e7d32;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      transition: background 0.12s;
+    }
+
+    .map-btn:hover { background: #c8e6c9; }
+
+    .inline-map-container {
+      margin-top: 0.5rem;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      animation: slideDown 0.2s ease;
+    }
+
+    .inline-map {
+      height: 200px;
+      width: 100%;
+    }
+
+    .map-address-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.4rem 0.6rem;
+      background: #f9f9f7;
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    .map-address-bar a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .map-address-bar a:hover { text-decoration: underline; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .masthead h1 { font-size: 1.8rem; }
+      .chart-row { grid-template-columns: 1fr; }
+      .detail-grid { grid-template-columns: 1fr; }
+      .modal { margin: 1rem; max-height: 90vh; }
+      .modal-body .detail-grid { grid-template-columns: 1fr; }
+      .date-display { min-width: auto; }
+    }
+
+    @media (max-width: 480px) {
+      .summary-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+      .summary-card { padding: 0.8rem; }
+      .summary-card .count { font-size: 1.6rem; }
+      .container { padding: 1rem 0.75rem; }
+    }
+
+    /* Overview Section Digests */
+    .overview-section-digests {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .overview-section-digest {
+      background: white;
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .overview-section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding-left: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .overview-section-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .overview-section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0;
+    }
+    .overview-section-count {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .overview-section-summary {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 0.5rem;
+    }
+    .overview-section-addresses {
+      margin-top: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .overview-address-item {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      color: var(--text);
+      padding: 0.4rem 0.6rem;
+      background: var(--bg);
+      border-radius: 6px;
+    }
+    .overview-address-pin { font-size: 0.9rem; }
+    .overview-address-text { flex: 1; min-width: 150px; }
+    .overview-address-item .map-toggle-btn {
+      font-size: 0.72rem;
+      padding: 0.2rem 0.5rem;
+      border: 1px solid var(--border);
+      background: white;
+      border-radius: 4px;
+      cursor: pointer;
+      color: var(--primary);
+    }
+    .overview-address-item .map-toggle-btn:hover { background: var(--bg); }
+    .overview-address-item .inline-map-container {
+      width: 100%;
+      margin-top: 0.4rem;
+    }
+    .overview-section-digest .chart-row {
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Masthead -->
+  <header class="masthead">
+    <h1>The City Record</h1>
+    <div class="subtitle">Unofficial Dashboard &middot; New York City Open Data</div>
+  </header>
+
+  <!-- Date Navigation -->
+  <nav class="date-bar">
+    <button id="prev-day" aria-label="Previous day">&#8592;</button>
+    <div class="date-display">
+      <div class="date-label">Publication Date</div>
+      <input type="date" id="date-picker" />
+    </div>
+    <button id="next-day" aria-label="Next day">&#8594;</button>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div id="loading" class="loading-state">
+      <div class="spinner"></div>
+      <p>Loading today's City Record&hellip;</p>
+    </div>
+
+    <div id="error" class="error-state" style="display:none;"></div>
+    <div id="empty" class="empty-state" style="display:none;">
+      <h2>No City Record Published</h2>
+      <p>There's no City Record for this date. The City Record publishes Monday through Friday, excluding holidays.</p>
+    </div>
+
+    <!-- Tab Bar -->
+    <div id="tab-bar" class="tab-bar" style="display:none;"></div>
+
+    <!-- Overview Panel -->
+    <div id="overview-panel" class="overview-panel" style="display:none;"></div>
+
+    <!-- Section Blocks -->
+    <div id="sections"></div>
+
+    <!-- Past Records -->
+    <div class="past-records" id="past-records" style="display:none;">
+      <h3>Browse Past City Records</h3>
+      <p>Use the date picker above to navigate to any past publication date.</p>
+    </div>
+  </main>
+
+  <!-- Detail Modal -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <h2 id="modal-title"></h2>
+        <button class="modal-close" id="modal-close">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Settings Button -->
+  <button class="settings-btn" id="settings-btn" title="Settings">&#9881;</button>
+
+  <!-- Settings Modal -->
+  <div class="settings-modal" id="settings-modal">
+    <div class="settings-panel">
+      <h2>Dashboard Settings</h2>
+      <div class="status" id="api-status">No API key configured — AI summaries disabled</div>
+      <label for="api-key-input">Claude API Key</label>
+      <input type="password" id="api-key-input" placeholder="sk-ant-..." />
+      <p style="font-size:0.75rem;color:var(--text-muted);margin-bottom:1rem;">Your key is stored locally in your browser and never sent anywhere except the Anthropic API.</p>
+      <div class="btn-row">
+        <button onclick="closeSettings()">Cancel</button>
+        <button class="btn-primary" onclick="saveApiKey()">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    Data sourced from <a href="https://data.cityofnewyork.us/City-Government/City-Record-Online/dg92-zbpx" target="_blank">NYC Open Data — City Record Online</a>.
+    Published by the Department of Citywide Administrative Services (DCAS).
+    AI summaries powered by Claude.
+  </footer>
+
+  <script>
+    // ── Configuration ──
+    const API_BASE = 'https://data.cityofnewyork.us/resource/dg92-zbpx.json';
+    const APP_TOKEN = ''; // Optional: add a Socrata app token for higher rate limits
+
+    // Section configuration: icon, color theme, and sort priority
+    const SECTION_CONFIG = {
+      'Procurement': {
+        icon: '📋', bg: '#e3f2fd', color: '#1565c0', priority: 1,
+        tagClass: 'tag-procurement'
+      },
+      'Contract Award Hearings': {
+        icon: '🔨', bg: '#e8eaf6', color: '#283593', priority: 2,
+        tagClass: 'tag-procurement'
+      },
+      'Public Comment on Contract Awards': {
+        icon: '💬', bg: '#ede7f6', color: '#4527a0', priority: 3,
+        tagClass: 'tag-hearing'
+      },
+      'Public Hearings and Meetings': {
+        icon: '🏛️', bg: '#f3e5f5', color: '#6a1b9a', priority: 4,
+        tagClass: 'tag-hearing'
+      },
+      'Agency Rules': {
+        icon: '⚖️', bg: '#fce4ec', color: '#b71c1c', priority: 5,
+        tagClass: 'tag-category'
+      },
+      'Changes in Personnel': {
+        icon: '👤', bg: '#fff3e0', color: '#e65100', priority: 6,
+        tagClass: 'tag-personnel'
+      },
+      'Property Disposition': {
+        icon: '🏢', bg: '#e0f2f1', color: '#00695c', priority: 7,
+        tagClass: 'tag-category'
+      },
+      'Court Notices': {
+        icon: '🏛️', bg: '#efebe9', color: '#4e342e', priority: 8,
+        tagClass: 'tag-category'
+      },
+      'Special Materials': {
+        icon: '📄', bg: '#f5f5f5', color: '#616161', priority: 9,
+        tagClass: 'tag-category'
+      },
+      '_default': {
+        icon: '📌', bg: '#f5f5f5', color: '#616161', priority: 99,
+        tagClass: 'tag-category'
+      }
+    };
+
+    // Parks-related keywords for highlighting
+    // Agencies that are definitively parks-related
+    const PARKS_AGENCIES = [
+      'parks and recreation',
+      'parks & recreation',
+      'dept of parks & recreation',
+    ];
+
+    // Keywords to match in title/description (but NOT agency name alone)
+    const PARKS_TITLE_KEYWORDS = [
+      'playground', 'greenway', 'botanical garden',
+      'conservancy', 'urban forest', 'street tree',
+    ];
+
+    // Regex pattern to catch "_____ Park" references in text (e.g., "Stuyvesant Square Park")
+    const PARKS_NAME_REGEX = /\b\w[\w\s]*?\bpark\b/i;
+
+    // Tab CSS class mapping for section names
+    const TAB_CLASS_MAP = {
+      'overview': 'tab-overview',
+      'Procurement': 'tab-procurement',
+      'Contract Award Hearings': 'tab-contract-award-hearings',
+      'Public Comment on Contract Awards': 'tab-public-comment',
+      'Public Hearings and Meetings': 'tab-hearings',
+      'Agency Rules': 'tab-rules',
+      'Changes in Personnel': 'tab-personnel',
+      'Property Disposition': 'tab-property',
+      'Court Notices': 'tab-court',
+      'Special Materials': 'tab-special',
+      'parks': 'tab-parks',
+    };
+
+    // Short labels for tabs
+    const TAB_LABELS = {
+      'overview': 'Overview',
+      'Procurement': 'Procurement',
+      'Contract Award Hearings': 'Awards',
+      'Public Comment on Contract Awards': 'Public Comment',
+      'Public Hearings and Meetings': 'Hearings',
+      'Agency Rules': 'Rules',
+      'Changes in Personnel': 'Personnel',
+      'Property Disposition': 'Property',
+      'Court Notices': 'Courts',
+      'Special Materials': 'Special',
+      'parks': 'Parks',
+    };
+
+    // Chart colors
+    const CHART_COLORS = ['#1565c0', '#6a1b9a', '#e65100', '#2d6a4f', '#283593', '#b71c1c', '#00695c', '#4e342e', '#616161', '#f57f17'];
+
+    // ── State ──
+    let currentDate = getDefaultDate();
+    let currentData = [];
+    let currentTab = 'overview';
+    let currentSections = {};
+    let currentParksItems = new Set();
+    const aiCache = {}; // Cache AI summaries by date+type
+
+    // ── Claude API ──
+    function getApiKey() {
+      return localStorage.getItem('claude_api_key') || '';
+    }
+
+    function hasApiKey() {
+      return getApiKey().length > 0;
+    }
+
+    async function callClaude(prompt, systemPrompt) {
+      const apiKey = getApiKey();
+      if (!apiKey) return null;
+
+      try {
+        const response = await fetch('https://api.anthropic.com/v1/messages', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': apiKey,
+            'anthropic-version': '2023-06-01',
+            'anthropic-dangerous-direct-browser-access': 'true',
+          },
+          body: JSON.stringify({
+            model: 'claude-haiku-4-5-20251001',
+            max_tokens: 1024,
+            system: systemPrompt,
+            messages: [{ role: 'user', content: prompt }],
+          }),
+        });
+
+        if (!response.ok) {
+          const err = await response.json();
+          console.error('Claude API error:', err);
+          return null;
+        }
+
+        const result = await response.json();
+        return result.content[0].text;
+      } catch (err) {
+        console.error('Claude API call failed:', err);
+        return null;
+      }
+    }
+
+    const AI_SYSTEM = `You are an expert NYC government analyst. Write punchy, scannable briefings — not essays. Rules:
+- Use SHORT paragraphs (2-3 sentences max each)
+- Lead each paragraph with the key takeaway in bold using **text** markdown
+- Include specific $ amounts and dates
+- Skip filler ("today's record shows...", "the city is...") — get to the point
+- Max 3-4 short paragraphs for overviews, 1-2 for sections
+- Plain English, no bureaucratic jargon
+- Do NOT use markdown headers — just paragraphs with **bold** leads`;
+
+    function formatAIText(text) {
+      return text.split('\n').filter(p => p.trim()).map(p => {
+        let safe = escapeHtml(p);
+        // Convert **bold** to <strong>
+        safe = safe.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+        return `<p>${safe}</p>`;
+      }).join('');
+    }
+
+    async function getAISummary(type, data) {
+      const dateKey = formatDateForAPI(currentDate);
+      const cacheKey = `${dateKey}_${type}`;
+      if (aiCache[cacheKey]) return aiCache[cacheKey];
+
+      // Build a concise data payload for Claude
+      let prompt = '';
+      if (type === 'overview') {
+        const summary = buildDataSummaryForAI(data);
+        prompt = `Briefing for ${formatDateDisplay(currentDate)}. Data:\n\n${summary}\n\nWrite 3-4 SHORT paragraphs. Each paragraph should bold the lead phrase. Cover: biggest money moves, notable hearings/deadlines, and one "so what" insight. Be specific with numbers.`;
+      } else if (type === 'section') {
+        const sectionData = data.slice(0, 30).map(item => {
+          let line = `- ${item.short_title || 'Untitled'} (${item.agency_name || 'Unknown'})`;
+          if (item.contract_amount && parseFloat(item.contract_amount) > 0) line += ` — $${formatCurrency(parseFloat(item.contract_amount))}`;
+          if (item.type_of_notice_description) line += ` [${item.type_of_notice_description}]`;
+          if (item.category_description) line += ` (${item.category_description})`;
+          if (item.additional_description_1) line += `\n  ${item.additional_description_1.substring(0, 200)}`;
+          return line;
+        }).join('\n');
+        prompt = `Summarize these "${data[0]?.section_name || 'Unknown'}" notices (${formatDateDisplay(currentDate)}) in 1-2 SHORT paragraphs. Bold the lead phrase of each paragraph. Be specific — name agencies, $ amounts, deadlines. Skip filler.\n\n${sectionData}`;
+      }
+
+      const result = await callClaude(prompt, AI_SYSTEM);
+      if (result) {
+        aiCache[cacheKey] = result;
+      }
+      return result;
+    }
+
+    function buildDataSummaryForAI(data) {
+      const sections = groupBySection(data);
+      let summary = '';
+
+      for (const [sectionName, items] of Object.entries(sections)) {
+        summary += `\n## ${sectionName} (${items.length} notices)\n`;
+        // For personnel, just summarize counts
+        if (sectionName === 'Changes in Personnel') {
+          const reasons = {};
+          items.forEach(item => {
+            const desc = item.additional_description_1 || '';
+            const match = desc.match(/Reason For Change:\s*([^;]+)/i);
+            if (match) reasons[match[1].trim()] = (reasons[match[1].trim()] || 0) + 1;
+          });
+          summary += Object.entries(reasons).sort((a,b) => b[1]-a[1]).map(([r,c]) => `${c} ${r}`).join(', ') + '\n';
+          continue;
+        }
+        // For other sections, list items
+        items.slice(0, 15).forEach(item => {
+          let line = `- ${item.short_title || 'Untitled'} (${item.agency_name || ''})`;
+          if (item.contract_amount && parseFloat(item.contract_amount) > 0) line += ` $${formatCurrency(parseFloat(item.contract_amount))}`;
+          if (item.type_of_notice_description) line += ` [${item.type_of_notice_description}]`;
+          if (item.due_date) line += ` Due: ${formatDate(item.due_date)}`;
+          if (item.additional_description_1) line += `\n  ${item.additional_description_1.substring(0, 150)}`;
+          summary += line + '\n';
+        });
+      }
+      return summary;
+    }
+
+    // ── Settings UI ──
+    function openSettings() {
+      document.getElementById('settings-modal').classList.add('active');
+      document.getElementById('api-key-input').value = getApiKey();
+      updateApiStatus();
+    }
+
+    function closeSettings() {
+      document.getElementById('settings-modal').classList.remove('active');
+    }
+
+    function saveApiKey() {
+      const key = document.getElementById('api-key-input').value.trim();
+      if (key) {
+        localStorage.setItem('claude_api_key', key);
+      } else {
+        localStorage.removeItem('claude_api_key');
+      }
+      updateApiStatus();
+      closeSettings();
+      // Re-render current tab to trigger AI summaries
+      if (currentData.length > 0) {
+        renderCurrentTab();
+      }
+    }
+
+    function updateApiStatus() {
+      const el = document.getElementById('api-status');
+      if (hasApiKey()) {
+        el.textContent = 'API key configured — AI summaries enabled';
+        el.className = 'status connected';
+      } else {
+        el.textContent = 'No API key configured — AI summaries disabled';
+        el.className = 'status';
+      }
+    }
+
+    // ── Init ──
+    document.addEventListener('DOMContentLoaded', () => {
+      initDatePicker();
+      fetchData(currentDate);
+      document.getElementById('settings-btn').addEventListener('click', openSettings);
+      document.getElementById('settings-modal').addEventListener('click', (e) => {
+        if (e.target === e.currentTarget) closeSettings();
+      });
+      updateApiStatus();
+    });
+
+    function getDefaultDate() {
+      const now = new Date();
+      const day = now.getDay();
+      // If weekend, go back to Friday
+      if (day === 0) now.setDate(now.getDate() - 2);
+      if (day === 6) now.setDate(now.getDate() - 1);
+      return now;
+    }
+
+    function formatDateForAPI(date) {
+      return date.toISOString().split('T')[0];
+    }
+
+    function formatDateDisplay(date) {
+      return date.toLocaleDateString('en-US', {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+      });
+    }
+
+    function formatDateInput(date) {
+      return date.toISOString().split('T')[0];
+    }
+
+    // ── Date Navigation ──
+    function initDatePicker() {
+      const picker = document.getElementById('date-picker');
+      picker.value = formatDateInput(currentDate);
+
+      picker.addEventListener('change', (e) => {
+        const parts = e.target.value.split('-');
+        currentDate = new Date(parts[0], parts[1] - 1, parts[2]);
+        fetchData(currentDate);
+      });
+
+      document.getElementById('prev-day').addEventListener('click', () => {
+        navigateDay(-1);
+      });
+
+      document.getElementById('next-day').addEventListener('click', () => {
+        navigateDay(1);
+      });
+    }
+
+    function navigateDay(direction) {
+      currentDate.setDate(currentDate.getDate() + direction);
+      // Skip weekends
+      const day = currentDate.getDay();
+      if (direction > 0) {
+        if (day === 6) currentDate.setDate(currentDate.getDate() + 2);
+        if (day === 0) currentDate.setDate(currentDate.getDate() + 1);
+      } else {
+        if (day === 0) currentDate.setDate(currentDate.getDate() - 2);
+        if (day === 6) currentDate.setDate(currentDate.getDate() - 1);
+      }
+      document.getElementById('date-picker').value = formatDateInput(currentDate);
+      fetchData(currentDate);
+    }
+
+    // ── API Fetch ──
+    async function fetchData(date) {
+      showLoading(true);
+      hideError();
+      hideEmpty();
+      hideTabBar();
+      clearSections();
+
+      const dateStr = formatDateForAPI(date);
+      const url = `${API_BASE}?$where=start_date='${dateStr}T00:00:00.000'&$limit=50000` +
+        (APP_TOKEN ? `&$$app_token=${APP_TOKEN}` : '');
+
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        currentData = data;
+        showLoading(false);
+
+        if (data.length === 0) {
+          showEmpty();
+          return;
+        }
+
+        renderDashboard(data);
+      } catch (err) {
+        showLoading(false);
+        showError(`Failed to load City Record data. ${err.message}`);
+        console.error(err);
+      }
+    }
+
+    // ── Rendering ──
+    function renderDashboard(data) {
+      currentSections = groupBySection(data);
+      currentParksItems = findParksItems(data);
+      currentTab = 'overview';
+
+      renderTabBar(data, currentSections, currentParksItems);
+      renderCurrentTab();
+      document.getElementById('past-records').style.display = 'block';
+    }
+
+    function groupBySection(data) {
+      const groups = {};
+      data.forEach(item => {
+        const section = item.section_name || 'Other';
+        if (!groups[section]) groups[section] = [];
+        groups[section].push(item);
+      });
+      return groups;
+    }
+
+    function findParksItems(data) {
+      const ids = new Set();
+      data.forEach(item => {
+        const agency = (item.agency_name || '').toLowerCase();
+        const titleText = [
+          item.short_title,
+          item.additional_description_1, item.additional_description_2
+        ].filter(Boolean).join(' ').toLowerCase();
+
+        // Match if agency is parks-related
+        const isParksAgency = PARKS_AGENCIES.some(a => agency.includes(a));
+        // Or if title/description mentions specific parks features or a named park
+        const hasParksKeyword = PARKS_TITLE_KEYWORDS.some(kw => titleText.includes(kw));
+        const mentionsNamedPark = PARKS_NAME_REGEX.test(item.short_title || '');
+
+        if (isParksAgency || hasParksKeyword || mentionsNamedPark) {
+          ids.add(item.request_id);
+        }
+      });
+      return ids;
+    }
+
+    function isParksItem(item, parksIds) {
+      return parksIds.has(item.request_id);
+    }
+
+    // ── Tab Bar ──
+    function renderTabBar(data, sections, parksItems) {
+      const container = document.getElementById('tab-bar');
+      container.innerHTML = '';
+      container.style.display = 'flex';
+
+      // Build tab list: Overview first, then sections by priority, then Parks
+      const tabs = [{ key: 'overview', count: data.length }];
+
+      const sortedSections = Object.entries(sections).sort((a, b) => {
+        const pa = (SECTION_CONFIG[a[0]] || SECTION_CONFIG._default).priority;
+        const pb = (SECTION_CONFIG[b[0]] || SECTION_CONFIG._default).priority;
+        return pa - pb;
+      });
+
+      sortedSections.forEach(([name, items]) => {
+        tabs.push({ key: name, count: items.length });
+      });
+
+      if (parksItems.size > 0) {
+        tabs.push({ key: 'parks', count: parksItems.size });
+      }
+
+      tabs.forEach(tab => {
+        const el = document.createElement('div');
+        const cls = TAB_CLASS_MAP[tab.key] || 'tab-overview';
+        el.className = `tab-item ${cls}${tab.key === currentTab ? ' active' : ''}`;
+        const config = SECTION_CONFIG[tab.key];
+        const icon = tab.key === 'overview' ? '📊' : (tab.key === 'parks' ? '🌳' : (config ? config.icon : '📌'));
+        el.innerHTML = `
+          <div class="tab-count">${tab.count.toLocaleString()}</div>
+          <div class="tab-label">${icon} ${TAB_LABELS[tab.key] || tab.key}</div>
+        `;
+        el.addEventListener('click', () => {
+          currentTab = tab.key;
+          container.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+          el.classList.add('active');
+          renderCurrentTab();
+        });
+        container.appendChild(el);
+      });
+    }
+
+    function renderCurrentTab() {
+      const sectionsContainer = document.getElementById('sections');
+      const overviewPanel = document.getElementById('overview-panel');
+      sectionsContainer.innerHTML = '';
+      overviewPanel.style.display = 'none';
+
+      if (currentTab === 'overview') {
+        overviewPanel.style.display = 'block';
+        renderOverview(currentData, currentSections, currentParksItems);
+      } else if (currentTab === 'parks') {
+        const parksData = currentData.filter(item => currentParksItems.has(item.request_id));
+        // Parks charts: by section type
+        const bySection = {};
+        parksData.forEach(i => { const s = i.section_name || 'Other'; bySection[s] = (bySection[s] || 0) + 1; });
+        const sectionEntries = Object.entries(bySection).sort((a, b) => b[1] - a[1]);
+        if (sectionEntries.length > 1) {
+          const chartsDiv = document.createElement('div');
+          chartsDiv.innerHTML = '<div class="chart-row">' + renderChartCard({ title: 'Parks Notices by Type', type: 'donut', data: sectionEntries }) + '</div>';
+          sectionsContainer.appendChild(chartsDiv);
+        }
+        renderParksSpotlight(sectionsContainer, parksData, currentParksItems);
+        // Auto-expand
+        const block = sectionsContainer.querySelector('.section-block');
+        if (block) block.classList.add('expanded');
+      } else {
+        // Single section view — charts first, then items
+        const items = currentSections[currentTab] || [];
+        const chartsHtml = renderSectionCharts(currentTab, items);
+        if (chartsHtml) {
+          const chartsDiv = document.createElement('div');
+          chartsDiv.innerHTML = chartsHtml;
+          sectionsContainer.appendChild(chartsDiv);
+        }
+        renderSection(sectionsContainer, currentTab, items, currentParksItems);
+        // Auto-expand
+        const block = sectionsContainer.querySelector('.section-block');
+        if (block) block.classList.add('expanded');
+      }
+    }
+
+    // ── Overview Panel ──
+    function renderOverview(data, sections, parksItems) {
+      const panel = document.getElementById('overview-panel');
+      const dateStr = formatDateDisplay(currentDate);
+
+      // Generate overview text
+      const overviewText = generateOverviewText(data, sections, parksItems);
+
+      // Build per-section mini-overviews with charts
+      const sortedSections = Object.entries(sections).sort((a, b) => {
+        const pa = (SECTION_CONFIG[a[0]] || SECTION_CONFIG._default).priority;
+        const pb = (SECTION_CONFIG[b[0]] || SECTION_CONFIG._default).priority;
+        return pa - pb;
+      });
+
+      let sectionDigests = '';
+      sortedSections.forEach(([sectionName, items]) => {
+        const config = SECTION_CONFIG[sectionName] || SECTION_CONFIG._default;
+        const sectionId = slugify(sectionName);
+        const chartsHtml = renderSectionCharts(sectionName, items);
+        const summaryText = generateSectionSummary(sectionName, items);
+
+        // Find items with addresses for map previews
+        const addressItems = items.filter(i => {
+          const desc1 = i.additional_description_1 || '';
+          const desc2 = i.additional_description_2 || '';
+          return /\d+\s+\w+.*(?:street|avenue|boulevard|road|place|drive|broadway|plaza)/i.test(desc1 + ' ' + desc2);
+        }).slice(0, 3);
+
+        let addressHtml = '';
+        if (addressItems.length > 0) {
+          addressHtml = `<div class="overview-section-addresses">
+            ${addressItems.map(item => {
+              const desc = (item.additional_description_1 || '') + ' ' + (item.additional_description_2 || '');
+              const addrMatch = desc.match(/(\d+\s+[\w\s]+(?:Street|Avenue|Boulevard|Road|Place|Drive|Broadway|Plaza)[^,]*(?:,\s*[\w\s]+)?(?:,\s*(?:NY|New York)\s*\d*)?)/i);
+              if (!addrMatch) return '';
+              const addr = addrMatch[1].trim();
+              const mapId = 'overview-map-' + sectionId + '-' + Math.random().toString(36).substr(2, 6);
+              return `<div class="overview-address-item" style="cursor:pointer;" onclick="if(!event.target.classList.contains('map-toggle-btn')){navigateToItem('${item.request_id}')}">
+                <span class="overview-address-pin">📍</span>
+                <span class="overview-address-text">${escapeHtml(item.short_title || 'Untitled')} — ${escapeHtml(addr)}</span>
+                <button class="map-toggle-btn" onclick="event.stopPropagation();toggleInlineMap('${mapId}', '${escapeHtml(addr).replace(/'/g, "\\'")}')">Map</button>
+                <div id="${mapId}" class="inline-map-container" style="display:none;"></div>
+              </div>`;
+            }).filter(Boolean).join('')}
+          </div>`;
+        }
+
+        sectionDigests += `
+          <div class="overview-section-digest">
+            <div class="overview-section-header" style="border-left: 4px solid ${config.color};">
+              <span class="overview-section-icon" style="background:${config.bg};color:${config.color};">${config.icon}</span>
+              <div>
+                <h3 class="overview-section-title">${sectionName}</h3>
+                <span class="overview-section-count">${items.length} notice${items.length !== 1 ? 's' : ''}</span>
+              </div>
+            </div>
+            <div class="ai-section-overview" id="ai-overview-section-${sectionId}">
+              <div class="overview-section-summary">${summaryText}</div>
+            </div>
+            ${chartsHtml}
+            ${addressHtml}
+          </div>
+        `;
+      });
+
+      // Parks digest if any
+      let parksDigest = '';
+      if (parksItems.size > 0) {
+        const parksData = data.filter(i => parksItems.has(i.request_id));
+        const parksSummary = generateParksSummary(parksData);
+        parksDigest = `
+          <div class="overview-section-digest">
+            <div class="overview-section-header" style="border-left: 4px solid #2d6a4f;">
+              <span class="overview-section-icon" style="background:#e8f5e9;color:#2d6a4f;">🌳</span>
+              <div>
+                <h3 class="overview-section-title">Parks & Recreation</h3>
+                <span class="overview-section-count">${parksItems.size} notice${parksItems.size !== 1 ? 's' : ''} across sections</span>
+              </div>
+            </div>
+            <div class="overview-section-summary">${parksSummary}</div>
+          </div>
+        `;
+      }
+
+      panel.innerHTML = `
+        <h2>Daily Briefing &mdash; ${dateStr}</h2>
+        <div class="ai-summary" id="ai-overview">
+          ${hasApiKey()
+            ? '<div class="ai-loading"><div class="spinner"></div>Generating AI briefing...</div>'
+            : `<div class="ai-summary-badge"><div class="dot"></div>Summary</div><div class="ai-summary-text">${overviewText}</div>`}
+        </div>
+        ${renderOverviewHighlights(data, sections, parksItems)}
+        <div class="overview-section-digests">
+          ${sectionDigests}
+          ${parksDigest}
+        </div>
+      `;
+
+      // Trigger AI overview briefing
+      if (hasApiKey()) {
+        getAISummary('overview', data).then(aiText => {
+          const el = document.getElementById('ai-overview');
+          if (el && aiText) {
+            const formatted = formatAIText(aiText);
+            el.innerHTML = `<div class="ai-summary-badge"><div class="dot"></div>AI Briefing</div><div class="ai-summary-text">${formatted}</div>`;
+          } else if (el && !aiText) {
+            el.innerHTML = `<div class="ai-summary-badge"><div class="dot"></div>Summary</div><div class="ai-summary-text">${overviewText}</div>`;
+          }
+        });
+
+        // Trigger per-section AI summaries sequentially to avoid rate limits
+        (async () => {
+          for (const [sectionName, items] of sortedSections) {
+            const sectionId = slugify(sectionName);
+            const elId = `ai-overview-section-${sectionId}`;
+            const dateKey = formatDateForAPI(currentDate);
+            const cacheKey = `${dateKey}_section_${sectionName}`;
+
+            let cached = aiCache[cacheKey];
+            if (cached) {
+              const el = document.getElementById(elId);
+              if (el) {
+                const formatted = formatAIText(cached);
+                el.innerHTML = `<div class="ai-summary" style="margin:0;"><div class="ai-summary-badge"><div class="dot"></div>AI Summary</div><div class="ai-summary-text">${formatted}</div></div>`;
+              }
+            } else {
+              const aiText = await getAISummary('section', items);
+              if (aiText) {
+                aiCache[cacheKey] = aiText;
+                const el = document.getElementById(elId);
+                if (el) {
+                  const formatted = formatAIText(aiText);
+                  el.innerHTML = `<div class="ai-summary" style="margin:0;"><div class="ai-summary-badge"><div class="dot"></div>AI Summary</div><div class="ai-summary-text">${formatted}</div></div>`;
+                }
+              }
+            }
+          }
+        })();
+      }
+    }
+
+    // ── Section-specific Charts ──
+    function renderSectionCharts(sectionName, items) {
+      const charts = [];
+
+      if (sectionName === 'Procurement' || sectionName === 'Contract Award Hearings') {
+        // Spending by category
+        const spendByCategory = {};
+        items.forEach(item => {
+          const amt = parseFloat(item.contract_amount || 0);
+          if (amt > 0) {
+            const cat = item.category_description || 'Uncategorized';
+            spendByCategory[cat] = (spendByCategory[cat] || 0) + amt;
+          }
+        });
+        const spendEntries = Object.entries(spendByCategory).sort((a, b) => b[1] - a[1]);
+        if (spendEntries.length > 0) {
+          charts.push({ title: 'Spending by Category', type: 'bar-dollar', data: spendEntries });
+        }
+
+        // Procurement method breakdown
+        const methodCounts = {};
+        items.forEach(item => {
+          if (item.selection_method_description) {
+            methodCounts[item.selection_method_description] = (methodCounts[item.selection_method_description] || 0) + 1;
+          }
+        });
+        const methodEntries = Object.entries(methodCounts).sort((a, b) => b[1] - a[1]);
+        if (methodEntries.length > 0) {
+          charts.push({ title: 'How Contracts Are Awarded', type: 'donut', data: methodEntries });
+        }
+
+        // Deadlines
+        const withDue = items.filter(i => i.due_date).sort((a, b) => new Date(a.due_date) - new Date(b.due_date));
+        if (withDue.length > 0) {
+          charts.push({ title: 'Upcoming Bid Deadlines', type: 'timeline', data: withDue.slice(0, 6) });
+        }
+
+        // By agency
+        const byAgency = {};
+        items.forEach(i => { if (i.agency_name) byAgency[i.agency_name] = (byAgency[i.agency_name] || 0) + 1; });
+        const agencyEntries = Object.entries(byAgency).sort((a, b) => b[1] - a[1]).slice(0, 8);
+        if (agencyEntries.length > 1) {
+          charts.push({ title: 'Notices by Agency', type: 'bar', data: agencyEntries });
+        }
+
+      } else if (sectionName === 'Changes in Personnel') {
+        // Personnel actions breakdown
+        const reasons = {};
+        items.forEach(item => {
+          const desc = item.additional_description_1 || '';
+          const match = desc.match(/Reason For Change:\s*([^;]+)/i);
+          if (match) {
+            const reason = match[1].trim();
+            reasons[reason] = (reasons[reason] || 0) + 1;
+          }
+        });
+        const reasonEntries = Object.entries(reasons).sort((a, b) => b[1] - a[1]).slice(0, 8);
+        if (reasonEntries.length > 0) {
+          charts.push({ title: 'Personnel Actions', type: 'bar', data: reasonEntries });
+        }
+
+        // By agency
+        const byAgency = {};
+        items.forEach(i => { if (i.agency_name) byAgency[i.agency_name] = (byAgency[i.agency_name] || 0) + 1; });
+        const agencyEntries = Object.entries(byAgency).sort((a, b) => b[1] - a[1]).slice(0, 8);
+        if (agencyEntries.length > 1) {
+          charts.push({ title: 'Personnel Changes by Agency', type: 'donut', data: agencyEntries });
+        }
+
+      } else if (sectionName === 'Public Hearings and Meetings') {
+        // By agency
+        const byAgency = {};
+        items.forEach(i => { if (i.agency_name) byAgency[i.agency_name] = (byAgency[i.agency_name] || 0) + 1; });
+        const agencyEntries = Object.entries(byAgency).sort((a, b) => b[1] - a[1]).slice(0, 8);
+        if (agencyEntries.length > 1) {
+          charts.push({ title: 'Hearings by Agency', type: 'donut', data: agencyEntries });
+        }
+
+        // Hearing dates timeline
+        const withEnd = items.filter(i => i.end_date).sort((a, b) => new Date(a.end_date) - new Date(b.end_date));
+        if (withEnd.length > 0) {
+          charts.push({ title: 'Hearing Schedule', type: 'timeline', data: withEnd.slice(0, 6) });
+        }
+
+      } else if (sectionName === 'Public Comment on Contract Awards') {
+        // Spending on contracts up for comment
+        const spendByAgency = {};
+        items.forEach(item => {
+          const amt = parseFloat(item.contract_amount || 0);
+          if (amt > 0) {
+            const agency = item.agency_name || 'Unknown';
+            spendByAgency[agency] = (spendByAgency[agency] || 0) + amt;
+          }
+        });
+        const spendEntries = Object.entries(spendByAgency).sort((a, b) => b[1] - a[1]);
+        if (spendEntries.length > 0) {
+          charts.push({ title: 'Contract Values Under Review', type: 'bar-dollar', data: spendEntries });
+        }
+
+        // Comment deadlines
+        const withDue = items.filter(i => i.due_date).sort((a, b) => new Date(a.due_date) - new Date(b.due_date));
+        if (withDue.length > 0) {
+          charts.push({ title: 'Comment Deadlines', type: 'timeline', data: withDue.slice(0, 6) });
+        }
+
+      } else if (sectionName === 'Agency Rules') {
+        // By agency
+        const byAgency = {};
+        items.forEach(i => { if (i.agency_name) byAgency[i.agency_name] = (byAgency[i.agency_name] || 0) + 1; });
+        const agencyEntries = Object.entries(byAgency).sort((a, b) => b[1] - a[1]).slice(0, 8);
+        if (agencyEntries.length > 1) {
+          charts.push({ title: 'Rules by Agency', type: 'donut', data: agencyEntries });
+        }
+
+      } else if (sectionName === 'Property Disposition') {
+        // By agency
+        const byAgency = {};
+        items.forEach(i => { if (i.agency_name) byAgency[i.agency_name] = (byAgency[i.agency_name] || 0) + 1; });
+        const agencyEntries = Object.entries(byAgency).sort((a, b) => b[1] - a[1]).slice(0, 8);
+        if (agencyEntries.length > 1) {
+          charts.push({ title: 'Dispositions by Agency', type: 'donut', data: agencyEntries });
+        }
+
+      } else if (sectionName === 'Special Materials') {
+        // By agency
+        const byAgency = {};
+        items.forEach(i => { if (i.agency_name) byAgency[i.agency_name] = (byAgency[i.agency_name] || 0) + 1; });
+        const agencyEntries = Object.entries(byAgency).sort((a, b) => b[1] - a[1]).slice(0, 8);
+        if (agencyEntries.length > 1) {
+          charts.push({ title: 'By Agency', type: 'donut', data: agencyEntries });
+        }
+      }
+
+      if (charts.length === 0) return '';
+
+      let html = '';
+      for (let i = 0; i < charts.length; i += 2) {
+        html += '<div class="chart-row">';
+        html += renderChartCard(charts[i]);
+        if (charts[i + 1]) html += renderChartCard(charts[i + 1]);
+        html += '</div>';
+      }
+      return html;
+    }
+
+    function renderChartCard(chart) {
+      let content = '';
+      if (chart.type === 'bar-dollar') {
+        content = renderDollarBarChart(chart.data);
+      } else if (chart.type === 'bar') {
+        content = `<div class="bar-chart">${renderBarChart(chart.data)}</div>`;
+      } else if (chart.type === 'donut') {
+        content = `<div class="donut-container">${renderDonutFromEntries(chart.data)}</div>`;
+      } else if (chart.type === 'timeline') {
+        content = renderTimelineChart(chart.data);
+      }
+      return `<div class="chart-card"><h3>${chart.title}</h3>${content}</div>`;
+    }
+
+    function renderDollarBarChart(entries) {
+      if (entries.length === 0) return '';
+      const maxVal = entries[0][1];
+      return `<div class="bar-chart">${entries.map(([label, value], i) => {
+        const pct = Math.max((value / maxVal) * 100, 2);
+        const color = CHART_COLORS[i % CHART_COLORS.length];
+        return `
+          <div class="bar-row">
+            <div class="bar-label" title="${escapeHtml(label)}">${escapeHtml(label)}</div>
+            <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${color}"></div></div>
+            <div class="bar-value">$${formatCurrency(value)}</div>
+          </div>`;
+      }).join('')}</div>`;
+    }
+
+    function renderDonutFromEntries(entries) {
+      const total = entries.reduce((s, [, c]) => s + c, 0);
+      const cx = 60, cy = 60, r = 45, r2 = 25;
+      let currentAngle = -90;
+      let paths = '';
+      let legendHtml = '';
+
+      entries.forEach(([name, count], i) => {
+        const pct = count / total;
+        const angle = pct * 360;
+        const color = CHART_COLORS[i % CHART_COLORS.length];
+        const startAngle = currentAngle;
+        const endAngle = currentAngle + angle;
+        const largeArc = angle > 180 ? 1 : 0;
+        const x1 = cx + r * Math.cos(startAngle * Math.PI / 180);
+        const y1 = cy + r * Math.sin(startAngle * Math.PI / 180);
+        const x2 = cx + r * Math.cos(endAngle * Math.PI / 180);
+        const y2 = cy + r * Math.sin(endAngle * Math.PI / 180);
+        const ix1 = cx + r2 * Math.cos(endAngle * Math.PI / 180);
+        const iy1 = cy + r2 * Math.sin(endAngle * Math.PI / 180);
+        const ix2 = cx + r2 * Math.cos(startAngle * Math.PI / 180);
+        const iy2 = cy + r2 * Math.sin(startAngle * Math.PI / 180);
+
+        if (angle > 0.5) {
+          paths += `<path d="M${x1},${y1} A${r},${r} 0 ${largeArc},1 ${x2},${y2} L${ix1},${iy1} A${r2},${r2} 0 ${largeArc},0 ${ix2},${iy2} Z" fill="${color}" opacity="0.85"/>`;
+        }
+        currentAngle = endAngle;
+        legendHtml += `<div class="donut-legend-item"><div class="donut-legend-dot" style="background:${color}"></div>${escapeHtml(name)} (${count})</div>`;
+      });
+
+      return `<svg class="donut-svg" viewBox="0 0 120 120">${paths}</svg><div class="donut-legend">${legendHtml}</div>`;
+    }
+
+    function renderTimelineChart(items) {
+      return `<div style="display:flex;flex-direction:column;gap:0.5rem;">
+        ${items.map((item, i) => {
+          const due = new Date(item.due_date);
+          const dueStr = due.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+          const daysOut = Math.ceil((due - currentDate) / (1000 * 60 * 60 * 24));
+          const urgency = daysOut <= 7 ? '#e53935' : daysOut <= 30 ? '#f57f17' : '#43a047';
+          return `
+            <div style="display:flex;align-items:center;gap:0.6rem;">
+              <div style="min-width:90px;font-size:0.78rem;font-weight:700;color:${urgency};">${dueStr}</div>
+              <div style="width:3px;height:28px;background:${urgency};border-radius:2px;flex-shrink:0;"></div>
+              <div style="flex:1;">
+                <div style="font-size:0.82rem;font-weight:600;color:var(--text);">${escapeHtml(item.short_title || 'Untitled')}</div>
+                <div style="font-size:0.7rem;color:var(--text-muted);">${escapeHtml(item.agency_name || '')}${daysOut > 0 ? ` · ${daysOut} days` : ' · Today'}</div>
+              </div>
+            </div>`;
+        }).join('')}
+      </div>`;
+    }
+
+    function generateOverviewText(data, sections, parksItems) {
+      let html = '';
+
+      // Procurement — describe WHAT is being procured
+      const proc = sections['Procurement'];
+      if (proc && proc.length > 0) {
+        const withAmount = proc.filter(i => i.contract_amount && parseFloat(i.contract_amount) > 0);
+        const totalAmount = withAmount.reduce((s, i) => s + parseFloat(i.contract_amount || 0), 0);
+        // Find the biggest contracts by name
+        const sorted = withAmount.sort((a, b) => parseFloat(b.contract_amount) - parseFloat(a.contract_amount));
+        const topContracts = sorted.slice(0, 3);
+        let procText = `<p><strong>Procurement:</strong> The city is `;
+        const solicitations = proc.filter(i => i.type_of_notice_description === 'Solicitation');
+        const awards = proc.filter(i => i.type_of_notice_description === 'Award');
+        if (awards.length && solicitations.length) {
+          procText += `awarding contracts and seeking bids`;
+        } else if (awards.length) {
+          procText += `awarding contracts`;
+        } else if (solicitations.length) {
+          procText += `seeking bids`;
+        } else {
+          procText += `posting procurement notices`;
+        }
+        if (totalAmount > 0) procText += ` worth <strong>$${formatCurrency(totalAmount)}</strong>`;
+        procText += '. ';
+        if (topContracts.length > 0) {
+          procText += 'Notable: ' + topContracts.map(c =>
+            `${escapeHtml(c.short_title || 'Untitled')} ($${formatCurrency(parseFloat(c.contract_amount))})`
+          ).join('; ');
+        }
+        html += procText + '.</p>';
+      }
+
+      // Contract Award Hearings — describe what's up for public review
+      const cah = sections['Contract Award Hearings'];
+      if (cah && cah.length > 0) {
+        const cahAgencies = [...new Set(cah.map(c => c.agency_name))].filter(Boolean);
+        const cahNames = cah.slice(0, 3).map(c => escapeHtml(c.short_title || 'Untitled'));
+        html += `<p><strong>Contract Award Hearings:</strong> Public hearings are scheduled for contracts at ${cahAgencies.slice(0, 3).join(', ')}${cahAgencies.length > 3 ? ', and others' : ''}, including ${cahNames.join('; ')}.</p>`;
+      }
+
+      // Hearings & Meetings — describe the topics
+      const hearings = sections['Public Hearings and Meetings'];
+      if (hearings && hearings.length > 0) {
+        const hearingTitles = hearings.slice(0, 3).map(h => escapeHtml(h.short_title || h.agency_name || 'Untitled'));
+        html += `<p><strong>Public Hearings & Meetings:</strong> ${hearingTitles.join('; ')}${hearings.length > 3 ? '; and more' : ''}.</p>`;
+      }
+
+      // Agency Rules — describe what's changing
+      const rules = sections['Agency Rules'];
+      if (rules && rules.length > 0) {
+        const ruleDescs = rules.slice(0, 2).map(r => escapeHtml(r.short_title || 'Untitled'));
+        html += `<p><strong>Agency Rules:</strong> ${ruleDescs.join('; ')}.</p>`;
+      }
+
+      // Personnel — describe the nature of changes
+      const personnel = sections['Changes in Personnel'];
+      if (personnel && personnel.length > 0) {
+        const reasons = {};
+        personnel.forEach(item => {
+          const desc = item.additional_description_1 || '';
+          const match = desc.match(/Reason For Change:\s*([^;]+)/i);
+          if (match) reasons[match[1].trim()] = (reasons[match[1].trim()] || 0) + 1;
+        });
+        const topReasons = Object.entries(reasons).sort((a, b) => b[1] - a[1]).slice(0, 3);
+        const topAgencies = {};
+        personnel.forEach(p => { if (p.agency_name) topAgencies[p.agency_name] = (topAgencies[p.agency_name] || 0) + 1; });
+        const biggestAgency = Object.entries(topAgencies).sort((a, b) => b[1] - a[1])[0];
+        let persText = `<p><strong>Personnel:</strong> `;
+        if (topReasons.length > 0) {
+          persText += topReasons.map(([r, c]) => `${c.toLocaleString()} ${r.toLowerCase()}`).join(', ');
+        }
+        if (biggestAgency) {
+          persText += `. Largest volume at ${escapeHtml(biggestAgency[0])}`;
+        }
+        html += persText + '.</p>';
+      }
+
+      // Parks
+      if (parksItems.size > 0) {
+        const parksData = data.filter(i => parksItems.has(i.request_id));
+        const parksTitles = parksData.slice(0, 2).map(p => escapeHtml(p.short_title || 'Untitled'));
+        html += `<p><strong>Parks & Recreation:</strong> ${parksTitles.join('; ')}.</p>`;
+      }
+
+      return html;
+    }
+
+    function renderBarChart(entries, defaultColor) {
+      if (entries.length === 0) return '<p style="color:var(--text-muted);font-size:0.85rem;">No data</p>';
+      const maxVal = entries[0][1];
+      return entries.map(([label, value], i) => {
+        const pct = Math.max((value / maxVal) * 100, 2);
+        const color = CHART_COLORS[i % CHART_COLORS.length];
+        return `
+          <div class="bar-row">
+            <div class="bar-label" title="${escapeHtml(label)}">${escapeHtml(label)}</div>
+            <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${color}"></div></div>
+            <div class="bar-value">${value}</div>
+          </div>`;
+      }).join('');
+    }
+
+    function renderOverviewHighlights(data, sections, parksItems) {
+      const cards = [];
+
+      // Biggest contract
+      const allWithAmount = data.filter(i => i.contract_amount && parseFloat(i.contract_amount) > 0);
+      if (allWithAmount.length > 0) {
+        const biggest = allWithAmount.reduce((max, i) =>
+          parseFloat(i.contract_amount) > parseFloat(max.contract_amount) ? i : max);
+        cards.push({
+          bg: '#e3f2fd',
+          title: '💰 Largest Contract',
+          text: `$${formatCurrency(parseFloat(biggest.contract_amount))} — ${biggest.short_title || 'Untitled'} (${biggest.agency_name || 'Unknown Agency'})`,
+          requestId: biggest.request_id
+        });
+      }
+
+      // Upcoming deadlines
+      const withDue = data.filter(i => i.due_date);
+      if (withDue.length > 0) {
+        const soonest = withDue.sort((a, b) => new Date(a.due_date) - new Date(b.due_date))[0];
+        cards.push({
+          bg: '#fff8e1',
+          title: '📅 Next Deadline',
+          text: `${formatDate(soonest.due_date)} — ${soonest.short_title || 'Untitled'}`,
+          requestId: soonest.request_id
+        });
+      }
+
+      // Parks highlight
+      if (parksItems.size > 0) {
+        const parksData = data.filter(i => parksItems.has(i.request_id));
+        const parksText = parksData.slice(0, 2).map(i => i.short_title || 'Untitled').join('; ');
+        cards.push({
+          bg: '#e8f5e9',
+          title: '🌳 Parks Spotlight',
+          text: `${parksItems.size} notice${parksItems.size !== 1 ? 's' : ''}: ${parksText}`,
+          requestId: parksData[0].request_id,
+          tab: 'parks'
+        });
+      }
+
+      if (cards.length === 0) return '';
+
+      return `
+        <div class="overview-highlights">
+          ${cards.map(c => `
+            <div class="overview-highlight-card" style="background:${c.bg};cursor:pointer;" onclick="navigateToItem('${c.requestId}')">
+              <h3>${c.title}</h3>
+              <p>${escapeHtml(c.text)}</p>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    // ── Section Rendering ──
+    function renderSections(sections, parksItems, showParksSpotlight) {
+      const container = document.getElementById('sections');
+
+      // Parks spotlight section (if any) — only on overview
+      if (showParksSpotlight !== false && parksItems.size > 0) {
+        const parksData = currentData.filter(item => parksItems.has(item.request_id));
+        renderParksSpotlight(container, parksData, parksItems);
+      }
+
+      // Sort sections by priority
+      const sortedSections = Object.entries(sections).sort((a, b) => {
+        const pa = (SECTION_CONFIG[a[0]] || SECTION_CONFIG._default).priority;
+        const pb = (SECTION_CONFIG[b[0]] || SECTION_CONFIG._default).priority;
+        return pa - pb;
+      });
+
+      sortedSections.forEach(([sectionName, items]) => {
+        renderSection(container, sectionName, items, parksItems);
+      });
+    }
+
+    function renderParksSpotlight(container, items, parksItems) {
+      const block = document.createElement('div');
+      block.className = 'section-block';
+      block.id = 'section-parks-spotlight';
+
+      const config = { icon: '🌳', bg: '#e8f5e9', color: '#2d6a4f' };
+
+      block.innerHTML = `
+        <div class="section-header" style="background: ${config.bg};">
+          <div class="section-header-left">
+            <div class="section-icon" style="background: ${config.color}; color: white; font-size: 1.3rem;">
+              ${config.icon}
+            </div>
+            <div>
+              <div class="section-title" style="color: ${config.color};">Parks & Recreation Spotlight</div>
+              <div class="section-count">${items.length} notice${items.length !== 1 ? 's' : ''} across all sections</div>
+            </div>
+          </div>
+          <div class="section-toggle">▼</div>
+        </div>
+        <div class="section-summary" style="background: ${config.bg};">
+          ${generateParksSummary(items)}
+        </div>
+        <div class="section-items"></div>
+      `;
+
+      const header = block.querySelector('.section-header');
+      header.addEventListener('click', () => block.classList.toggle('expanded'));
+
+      const itemsContainer = block.querySelector('.section-items');
+      items.forEach(item => {
+        itemsContainer.appendChild(createItemCard(item, parksItems, true));
+      });
+
+      container.appendChild(block);
+    }
+
+    function generateParksSummary(items) {
+      const types = {};
+      items.forEach(item => {
+        const section = item.section_name || 'Other';
+        types[section] = (types[section] || 0) + 1;
+      });
+      const parts = Object.entries(types).map(([k, v]) => `${v} in ${k}`);
+      return parts.join(' &middot; ');
+    }
+
+    function renderSection(container, sectionName, items, parksItems) {
+      const config = SECTION_CONFIG[sectionName] || SECTION_CONFIG._default;
+      const block = document.createElement('div');
+      block.className = 'section-block';
+      block.id = 'section-' + slugify(sectionName);
+
+      const sectionId = slugify(sectionName);
+      block.innerHTML = `
+        <div class="section-header">
+          <div class="section-header-left">
+            <div class="section-icon" style="background: ${config.bg}; color: ${config.color};">
+              ${config.icon}
+            </div>
+            <div>
+              <div class="section-title">${sectionName}</div>
+              <div class="section-count">${items.length} notice${items.length !== 1 ? 's' : ''}</div>
+            </div>
+          </div>
+          <div class="section-toggle">▼</div>
+        </div>
+        <div class="section-summary">
+          ${generateSectionSummary(sectionName, items)}
+        </div>
+        <div class="ai-section-summary" id="ai-section-${sectionId}" style="display:none;"></div>
+        <div class="section-items"></div>
+      `;
+
+      const header = block.querySelector('.section-header');
+      header.addEventListener('click', () => {
+        block.classList.toggle('expanded');
+        // Load AI summary on first expand
+        if (block.classList.contains('expanded') && hasApiKey()) {
+          loadSectionAISummary(sectionId, sectionName, items);
+        }
+      });
+
+      const itemsContainer = block.querySelector('.section-items');
+      items.forEach(item => {
+        itemsContainer.appendChild(createItemCard(item, parksItems, false));
+      });
+
+      container.appendChild(block);
+
+      // If already expanded (e.g., from tab click), trigger AI summary
+      if (block.classList.contains('expanded') && hasApiKey()) {
+        loadSectionAISummary(sectionId, sectionName, items);
+      }
+    }
+
+    async function loadSectionAISummary(sectionId, sectionName, items) {
+      const el = document.getElementById(`ai-section-${sectionId}`);
+      if (!el || el.dataset.loaded) return;
+      el.dataset.loaded = 'true';
+      el.style.display = 'block';
+      el.innerHTML = `<div class="ai-summary" style="margin:0 1.25rem 0.75rem;"><div class="ai-loading"><div class="spinner"></div>Generating AI summary...</div></div>`;
+
+      const dateKey = formatDateForAPI(currentDate);
+      const cacheKey = `${dateKey}_section_${sectionName}`;
+
+      let aiText = aiCache[cacheKey];
+      if (!aiText) {
+        aiText = await getAISummary('section', items);
+        if (aiText) aiCache[cacheKey] = aiText;
+      }
+
+      if (aiText) {
+        const formatted = formatAIText(aiText);
+        el.innerHTML = `<div class="ai-summary" style="margin:0 1.25rem 0.75rem;">
+          <div class="ai-summary-badge"><div class="dot"></div>AI Summary</div>
+          <div class="ai-summary-text">${formatted}</div>
+        </div>`;
+      } else {
+        el.style.display = 'none';
+      }
+    }
+
+    function generateSectionSummary(sectionName, items) {
+      const agencies = {};
+      const types = {};
+      const categories = {};
+      items.forEach(item => {
+        const agency = item.agency_name || 'Unknown';
+        agencies[agency] = (agencies[agency] || 0) + 1;
+        if (item.type_of_notice_description) {
+          types[item.type_of_notice_description] = (types[item.type_of_notice_description] || 0) + 1;
+        }
+        if (item.category_description) {
+          categories[item.category_description] = (categories[item.category_description] || 0) + 1;
+        }
+      });
+
+      const topAgencies = Object.entries(agencies)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 4);
+
+      const topTypes = Object.entries(types)
+        .sort((a, b) => b[1] - a[1]);
+
+      let summary = '';
+
+      if (sectionName === 'Procurement') {
+        const withAmount = items.filter(i => i.contract_amount && parseFloat(i.contract_amount) > 0);
+        const totalAmount = withAmount.reduce((sum, i) =>
+          sum + parseFloat(i.contract_amount || 0), 0);
+        const withDue = items.filter(i => i.due_date);
+        summary = `${items.length} procurement notice${items.length !== 1 ? 's' : ''}`;
+        if (topTypes.length > 0) {
+          summary += ': ' + topTypes.map(([t, c]) => `${c} ${t}${c !== 1 ? 's' : ''}`).join(', ');
+        }
+        if (totalAmount > 0) {
+          summary += ` · $${formatCurrency(totalAmount)} in listed contract values`;
+        }
+        if (withDue.length > 0) {
+          summary += ` · ${withDue.length} with upcoming deadlines`;
+        }
+      } else if (sectionName === 'Contract Award Hearings') {
+        const withAmount = items.filter(i => i.contract_amount && parseFloat(i.contract_amount) > 0);
+        const totalAmount = withAmount.reduce((sum, i) =>
+          sum + parseFloat(i.contract_amount || 0), 0);
+        summary = `${items.length} contract award${items.length !== 1 ? 's' : ''} scheduled for public hearing`;
+        if (totalAmount > 0) {
+          summary += ` · $${formatCurrency(totalAmount)} total value`;
+        }
+        summary += '. ' + topAgencies.map(([name, count]) => `${name}: ${count}`).join(' · ');
+      } else if (sectionName === 'Public Comment on Contract Awards') {
+        summary = `${items.length} contract award${items.length !== 1 ? 's' : ''} open for public comment. `;
+        summary += topAgencies.map(([name, count]) => `${name}: ${count}`).join(' · ');
+      } else if (sectionName === 'Public Hearings and Meetings') {
+        summary = `${items.length} public hearing${items.length !== 1 ? 's' : ''} and meeting${items.length !== 1 ? 's' : ''} scheduled. `;
+        summary += topAgencies.map(([name, count]) => `${name}: ${count}`).join(' · ');
+      } else if (sectionName === 'Agency Rules') {
+        const ruleTypes = topTypes.length > 0
+          ? topTypes.map(([t, c]) => `${c} ${t}`).join(', ')
+          : '';
+        summary = `${items.length} rule${items.length !== 1 ? 's' : ''} published`;
+        if (ruleTypes) summary += ': ' + ruleTypes;
+        summary += '. ' + topAgencies.map(([name, count]) => `${name}: ${count}`).join(' · ');
+      } else if (sectionName === 'Changes in Personnel') {
+        // Summarize by reason (appointed, resigned, etc.) from additional_description_1
+        const reasons = {};
+        items.forEach(item => {
+          const desc = item.additional_description_1 || '';
+          const match = desc.match(/Reason For Change:\s*([^;]+)/i);
+          if (match) {
+            const reason = match[1].trim();
+            reasons[reason] = (reasons[reason] || 0) + 1;
+          }
+        });
+        const topReasons = Object.entries(reasons).sort((a, b) => b[1] - a[1]).slice(0, 5);
+        summary = `${items.length.toLocaleString()} personnel action${items.length !== 1 ? 's' : ''} today`;
+        if (topReasons.length > 0) {
+          summary += ': ' + topReasons.map(([r, c]) => `${c.toLocaleString()} ${r.toLowerCase()}`).join(', ');
+        }
+        summary += '. ' + topAgencies.map(([name, count]) => `${name}: ${count.toLocaleString()}`).join(' · ');
+      } else if (sectionName === 'Property Disposition') {
+        summary = `${items.length} propert${items.length !== 1 ? 'ies' : 'y'} listed for public sale or disposition. `;
+        summary += topAgencies.map(([name, count]) => `${name}: ${count}`).join(' · ');
+      } else if (sectionName === 'Court Notices') {
+        summary = `${items.length} court notice${items.length !== 1 ? 's' : ''} published. `;
+        summary += topAgencies.map(([name, count]) => `${name}: ${count}`).join(' · ');
+      } else if (sectionName === 'Special Materials') {
+        summary = `${items.length} special notice${items.length !== 1 ? 's' : ''} and announcement${items.length !== 1 ? 's' : ''}. `;
+        summary += topAgencies.map(([name, count]) => `${name}: ${count}`).join(' · ');
+      } else {
+        summary = `${items.length} notice${items.length !== 1 ? 's' : ''} from `;
+        summary += topAgencies.map(([name, count]) => `${name} (${count})`).join(', ');
+      }
+
+      return summary;
+    }
+
+    // ── Item Card ──
+    function createItemCard(item, parksItems, isParksSection) {
+      const card = document.createElement('div');
+      const isPark = isParksItem(item, parksItems);
+      card.className = `item-card${isPark && !isParksSection ? ' parks-highlight' : ''}`;
+
+      const title = item.short_title || item.type_of_notice_description || 'Untitled Notice';
+      const agency = item.agency_name || '';
+      const tags = buildItemTags(item, isPark && !isParksSection);
+
+      card.innerHTML = `
+        <div class="item-card-header">
+          <div>
+            <div class="item-title">${escapeHtml(title)}</div>
+            ${agency ? `<div class="item-agency">${escapeHtml(agency)}</div>` : ''}
+            <div class="item-meta">${tags}</div>
+          </div>
+          <div class="item-expand-icon">▸</div>
+        </div>
+        <div class="item-detail">
+          ${buildItemDetail(item)}
+        </div>
+      `;
+
+      card.addEventListener('click', (e) => {
+        // Toggle inline detail on mobile, open modal on desktop
+        if (window.innerWidth < 768) {
+          card.classList.toggle('detail-open');
+          const icon = card.querySelector('.item-expand-icon');
+          icon.textContent = card.classList.contains('detail-open') ? '▾' : '▸';
+        } else {
+          openModal(item);
+        }
+      });
+
+      return card;
+    }
+
+    function buildItemTags(item, showParksTag) {
+      const tags = [];
+
+      if (item.type_of_notice_description) {
+        tags.push(`<span class="item-tag tag-category">${escapeHtml(item.type_of_notice_description)}</span>`);
+      }
+      if (item.category_description) {
+        tags.push(`<span class="item-tag tag-category">${escapeHtml(item.category_description)}</span>`);
+      }
+      if (item.contract_amount && parseFloat(item.contract_amount) > 0) {
+        tags.push(`<span class="item-tag tag-amount">$${formatCurrency(parseFloat(item.contract_amount))}</span>`);
+      }
+      if (item.due_date) {
+        const due = new Date(item.due_date);
+        tags.push(`<span class="item-tag tag-due">Due ${due.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>`);
+      }
+      if (item.selection_method_description) {
+        tags.push(`<span class="item-tag tag-procurement">${escapeHtml(item.selection_method_description)}</span>`);
+      }
+      if (showParksTag) {
+        tags.push(`<span class="item-tag tag-parks">🌳 Parks</span>`);
+      }
+
+      return tags.join('');
+    }
+
+    function buildItemDetail(item) {
+      const fields = [];
+
+      if (item.agency_name) fields.push(['Agency', item.agency_name]);
+      if (item.section_name) fields.push(['Section', item.section_name]);
+      if (item.type_of_notice_description) fields.push(['Notice Type', item.type_of_notice_description]);
+      if (item.category_description) fields.push(['Category', item.category_description]);
+      if (item.selection_method_description) fields.push(['Selection Method', item.selection_method_description]);
+      if (item.special_case_reason_description) fields.push(['Special Case', item.special_case_reason_description]);
+      if (item.pin) fields.push(['PIN', item.pin]);
+      if (item.contract_amount && parseFloat(item.contract_amount) > 0) {
+        fields.push(['Contract Amount', '$' + formatCurrency(parseFloat(item.contract_amount))]);
+      }
+      if (item.start_date) fields.push(['Published', formatDate(item.start_date)]);
+      if (item.end_date) fields.push(['End Date', formatDate(item.end_date)]);
+      if (item.due_date) fields.push(['Due Date', formatDate(item.due_date)]);
+      if (item.contact_name) fields.push(['Contact', item.contact_name]);
+      if (item.contact_phone) fields.push(['Phone', item.contact_phone]);
+      if (item.email) fields.push(['Email', item.email]);
+      if (item.address_to_request) fields.push(['Address', item.address_to_request]);
+      if (item.contact_fax) fields.push(['Fax', item.contact_fax]);
+
+      let html = '<div class="detail-grid">';
+      fields.forEach(([label, value]) => {
+        if (label === 'Address') {
+          const mapId = 'map-' + (item.request_id || Math.random().toString(36).substring(2));
+          const addr = value;
+          html += `<div class="detail-field"><label>Address</label><span>${escapeHtml(addr)} <button class="map-btn" onclick="event.stopPropagation(); toggleInlineMap('${mapId}', '${escapeHtml(addr).replace(/'/g, "\\'")}')">📍 Map</button></span>
+            <div id="${mapId}-container" class="inline-map-container" style="display:none;">
+              <div id="${mapId}" class="inline-map"></div>
+              <div class="map-address-bar">
+                <span>${escapeHtml(addr)}</span>
+                <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addr + ', New York, NY')}" target="_blank">Open in Google Maps</a>
+              </div>
+            </div>
+          </div>`;
+        } else {
+          html += `<div class="detail-field"><label>${label}</label><span>${escapeHtml(value)}</span></div>`;
+        }
+      });
+      html += '</div>';
+
+      if (item.additional_description_1) {
+        html += `<div class="detail-description">${sanitizeHtml(item.additional_description_1)}</div>`;
+      }
+      if (item.additional_description_2) {
+        html += `<div class="detail-description">${sanitizeHtml(item.additional_description_2)}</div>`;
+      }
+
+      return html;
+    }
+
+    // ── Inline Map ──
+    const mapInstances = {};
+
+    function toggleInlineMap(mapId, address) {
+      const container = document.getElementById(mapId + '-container');
+      if (!container) return;
+
+      if (container.style.display === 'none') {
+        container.style.display = 'block';
+        if (!mapInstances[mapId]) {
+          initInlineMap(mapId, address);
+        }
+      } else {
+        container.style.display = 'none';
+      }
+    }
+
+    async function initInlineMap(mapId, address) {
+      const el = document.getElementById(mapId);
+      if (!el) return;
+
+      // Append ", New York, NY" for better geocoding
+      const fullAddress = address + ', New York, NY';
+
+      // Geocode via Nominatim
+      try {
+        const resp = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(fullAddress)}&limit=1`);
+        const results = await resp.json();
+
+        let lat = 40.7128, lng = -74.006; // Default to NYC center
+        let found = false;
+
+        if (results.length > 0) {
+          lat = parseFloat(results[0].lat);
+          lng = parseFloat(results[0].lon);
+          found = true;
+        }
+
+        const map = L.map(mapId, { scrollWheelZoom: false }).setView([lat, lng], found ? 16 : 12);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; OpenStreetMap contributors',
+          maxZoom: 19,
+        }).addTo(map);
+
+        if (found) {
+          L.marker([lat, lng]).addTo(map)
+            .bindPopup(escapeHtml(address))
+            .openPopup();
+        }
+
+        mapInstances[mapId] = map;
+
+        // Fix rendering when container was hidden
+        setTimeout(() => map.invalidateSize(), 100);
+      } catch (err) {
+        console.error('Geocoding failed:', err);
+        el.innerHTML = '<p style="padding:1rem;color:var(--text-muted);text-align:center;">Could not load map</p>';
+      }
+    }
+
+    // ── Modal ──
+    function navigateToItem(requestId) {
+      // Find the item in currentData
+      const item = currentData.find(i => i.request_id === requestId);
+      if (!item) return;
+
+      const sectionName = item.section_name || 'Other';
+
+      // Switch to the right tab
+      const tabs = document.querySelectorAll('.tab-item');
+      for (const tab of tabs) {
+        const label = tab.querySelector('.tab-label');
+        if (label) {
+          const tabKey = Object.keys(TAB_LABELS).find(k => TAB_LABELS[k] && label.textContent.includes(TAB_LABELS[k]));
+          if (tabKey === sectionName) {
+            tab.click();
+            break;
+          }
+        }
+      }
+
+      // After tab renders, find and open the item card
+      setTimeout(() => {
+        const cards = document.querySelectorAll('.item-card');
+        for (const card of cards) {
+          const titleEl = card.querySelector('.item-title');
+          if (titleEl && titleEl.textContent === (item.short_title || item.type_of_notice_description || 'Untitled Notice')) {
+            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            // Open it
+            if (window.innerWidth < 768) {
+              card.classList.add('detail-open');
+              const icon = card.querySelector('.item-expand-icon');
+              if (icon) icon.textContent = '▾';
+            } else {
+              openModal(item);
+            }
+            break;
+          }
+        }
+      }, 100);
+    }
+
+    function openModal(item) {
+      const overlay = document.getElementById('modal-overlay');
+      const title = document.getElementById('modal-title');
+      const body = document.getElementById('modal-body');
+
+      title.textContent = item.short_title || item.type_of_notice_description || 'Notice Details';
+
+      let tagsHtml = '';
+      if (item.section_name) {
+        const config = SECTION_CONFIG[item.section_name] || SECTION_CONFIG._default;
+        tagsHtml += `<span class="item-tag" style="background:${config.bg};color:${config.color}">${item.section_name}</span>`;
+      }
+
+      body.innerHTML = `
+        <div class="modal-tags">${tagsHtml}</div>
+        ${buildItemDetail(item)}
+      `;
+
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('modal-overlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    document.getElementById('modal-overlay').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // ── Helpers ──
+    function showLoading(show) {
+      document.getElementById('loading').style.display = show ? 'block' : 'none';
+    }
+
+    function showError(msg) {
+      const el = document.getElementById('error');
+      el.innerHTML = `<h2>Error</h2><p>${msg}</p>`;
+      el.style.display = 'block';
+    }
+
+    function hideError() {
+      document.getElementById('error').style.display = 'none';
+    }
+
+    function showEmpty() {
+      document.getElementById('empty').style.display = 'block';
+    }
+
+    function hideEmpty() {
+      document.getElementById('empty').style.display = 'none';
+    }
+
+    function hideTabBar() {
+      document.getElementById('tab-bar').style.display = 'none';
+      document.getElementById('overview-panel').style.display = 'none';
+    }
+
+    function clearSections() {
+      document.getElementById('sections').innerHTML = '';
+      document.getElementById('past-records').style.display = 'none';
+    }
+
+    function slugify(text) {
+      return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function sanitizeHtml(html) {
+      // Parse the HTML and keep only safe tags, strip scripts/styles/events
+      const div = document.createElement('div');
+      div.innerHTML = html;
+      // Remove script, style, iframe, object, embed tags
+      div.querySelectorAll('script,style,iframe,object,embed,link').forEach(el => el.remove());
+      // Remove event handler attributes from all elements
+      div.querySelectorAll('*').forEach(el => {
+        for (const attr of [...el.attributes]) {
+          if (attr.name.startsWith('on') || attr.name === 'href' && attr.value.startsWith('javascript:')) {
+            el.removeAttribute(attr.name);
+          }
+        }
+      });
+      return div.innerHTML;
+    }
+
+    function formatCurrency(num) {
+      if (num >= 1e9) return (num / 1e9).toFixed(1) + 'B';
+      if (num >= 1e6) return (num / 1e6).toFixed(1) + 'M';
+      if (num >= 1e3) return num.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+      return num.toFixed(2);
+    }
+
+    function formatDate(dateStr) {
+      if (!dateStr) return '';
+      const d = new Date(dateStr);
+      return d.toLocaleDateString('en-US', {
+        weekday: 'short', year: 'numeric', month: 'short', day: 'numeric'
+      });
+    }
+  </script>
+</body>
+</html>
