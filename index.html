@@ -2853,20 +2853,16 @@
         if (ruleTypes) summary += ': ' + ruleTypes;
         summary += '. ' + topAgencies.map(([name, count]) => `${name}: ${count}`).join(' · ');
       } else if (sectionName === 'Changes in Personnel') {
-        // Summarize by reason (appointed, resigned, etc.) from additional_description_1
-        const reasons = {};
+        // Summarize by action type (appointed, resigned, etc.) from type_of_notice_description
+        const actions = {};
         items.forEach(item => {
-          const desc = item.additional_description_1 || '';
-          const match = desc.match(/Reason For Change:\s*([^;]+)/i);
-          if (match) {
-            const reason = match[1].trim();
-            reasons[reason] = (reasons[reason] || 0) + 1;
-          }
+          const action = item.type_of_notice_description || 'Other';
+          actions[action] = (actions[action] || 0) + 1;
         });
-        const topReasons = Object.entries(reasons).sort((a, b) => b[1] - a[1]).slice(0, 5);
+        const topActions = Object.entries(actions).sort((a, b) => b[1] - a[1]).slice(0, 5);
         summary = `${items.length.toLocaleString()} personnel action${items.length !== 1 ? 's' : ''} today`;
-        if (topReasons.length > 0) {
-          summary += ': ' + topReasons.map(([r, c]) => `${c.toLocaleString()} ${r.toLowerCase()}`).join(', ');
+        if (topActions.length > 0) {
+          summary += ': ' + topActions.map(([a, c]) => `${c.toLocaleString()} ${a.toLowerCase()}`).join(', ');
         }
         summary += '. ' + topAgencies.map(([name, count]) => `${name}: ${count.toLocaleString()}`).join(' · ');
       } else if (sectionName === 'Property Disposition') {
