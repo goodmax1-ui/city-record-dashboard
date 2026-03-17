@@ -11,14 +11,14 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
     :root {
-      --bg: #f8fafc;
+      --bg: #f0f4f8;
       --surface: #ffffff;
       --text: #0f172a;
       --text-secondary: #475569;
       --text-muted: #94a3b8;
-      --accent: #3b82f6;
-      --accent-dark: #1e40af;
-      --accent-light: #eff6ff;
+      --accent: #6366f1;
+      --accent-dark: #4338ca;
+      --accent-light: #eef2ff;
       --border: #e2e8f0;
       --parks-green: #059669;
       --parks-green-light: #ecfdf5;
@@ -33,18 +33,19 @@
       --agency-bg: #f0fdfa;
       --rule-red: #dc2626;
       --rule-bg: #fef2f2;
-      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04), 0 1px 4px rgba(0,0,0,0.03);
-      --shadow-md: 0 4px 16px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
-      --shadow-lg: 0 12px 40px rgba(0,0,0,0.1), 0 4px 12px rgba(0,0,0,0.04);
-      --radius: 12px;
-      --radius-lg: 20px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
+      --shadow-lg: 0 16px 48px rgba(0,0,0,0.12), 0 6px 16px rgba(0,0,0,0.06);
+      --radius: 14px;
+      --radius-lg: 22px;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg);
+      background: linear-gradient(180deg, #e8ecf4 0%, #f0f4f8 30%, #f8fafc 100%);
+      background-attachment: fixed;
       color: var(--text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -52,10 +53,10 @@
 
     /* ── Masthead ── */
     .masthead {
-      background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #1e293b 100%);
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #312e81 100%);
       color: white;
       text-align: center;
-      padding: 1.75rem 1rem 1.25rem;
+      padding: 2rem 1rem 1.5rem;
       position: relative;
       overflow: hidden;
     }
@@ -66,24 +67,37 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b);
+      height: 4px;
+      background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899, #f59e0b, #10b981);
+    }
+
+    .masthead::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%);
+      pointer-events: none;
     }
 
     .masthead h1 {
-      font-family: 'Inter', sans-serif;
-      font-size: 1.75rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
       font-weight: 800;
       letter-spacing: -0.02em;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.3rem;
+      position: relative;
     }
 
     .masthead .subtitle {
-      font-size: 0.72rem;
-      opacity: 0.5;
+      font-size: 0.7rem;
+      opacity: 0.45;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.25em;
       font-weight: 500;
+      position: relative;
     }
 
     /* ── Date Bar ── */
@@ -189,15 +203,15 @@
     /* ── Tab Bar ── */
     .tab-bar {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.4rem;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
-      padding: 0.5rem;
-      background: var(--surface);
+      padding: 0.4rem;
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
       border-radius: var(--radius-lg);
       margin-bottom: 1.5rem;
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow-sm), inset 0 1px 2px rgba(0,0,0,0.04);
       border: 1px solid var(--border);
     }
 
@@ -209,8 +223,8 @@
       align-items: center;
       padding: 0.6rem 1rem;
       cursor: pointer;
-      border-radius: 14px;
-      transition: all 0.2s ease;
+      border-radius: 16px;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       white-space: nowrap;
       flex-shrink: 0;
       min-width: 0;
@@ -219,12 +233,14 @@
     }
 
     .tab-item:hover {
-      background: var(--bg);
+      background: rgba(99,102,241,0.08);
+      transform: translateY(-1px);
     }
 
     .tab-item.active {
-      background: var(--accent);
-      box-shadow: 0 2px 8px rgba(59,130,246,0.25);
+      background: linear-gradient(135deg, var(--accent), #818cf8);
+      box-shadow: 0 4px 12px rgba(99,102,241,0.35);
+      transform: translateY(-1px);
     }
 
     .tab-item.active .tab-count,
@@ -233,17 +249,17 @@
     }
 
     .tab-item .tab-count {
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       font-weight: 800;
       line-height: 1.2;
     }
 
     .tab-item .tab-label {
-      font-size: 0.6rem;
+      font-size: 0.58rem;
       color: var(--text-muted);
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
     }
 
     .tab-item.tab-overview .tab-count { color: var(--accent); }
@@ -266,10 +282,23 @@
       padding: 2rem;
       margin-bottom: 1.5rem;
       box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .overview-panel::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
     }
 
     .overview-panel h2 {
-      font-size: 1.3rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
       font-weight: 800;
       margin-bottom: 1.25rem;
       color: var(--text);
@@ -302,9 +331,19 @@
       border-radius: var(--radius);
       border: none;
       cursor: pointer;
-      transition: all 0.25s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
+      backdrop-filter: blur(4px);
+    }
+
+    .overview-highlight-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
+      transition: opacity 0.3s;
     }
 
     .overview-highlight-card::after {
@@ -312,22 +351,28 @@
       position: absolute;
       top: 1rem;
       right: 1rem;
-      font-size: 0.85rem;
-      color: rgba(0,0,0,0.2);
-      transition: transform 0.2s;
+      font-size: 0.9rem;
+      color: rgba(0,0,0,0.15);
+      transition: all 0.3s;
+      font-weight: 700;
     }
 
     .overview-highlight-card:hover {
-      box-shadow: var(--shadow-md);
-      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px) scale(1.02);
+    }
+
+    .overview-highlight-card:hover::before {
+      opacity: 1;
     }
 
     .overview-highlight-card:hover::after {
-      transform: translateX(3px);
+      transform: translateX(4px);
+      color: rgba(0,0,0,0.3);
     }
 
     .overview-highlight-card h3 {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 700;
       margin-bottom: 0.35rem;
       display: flex;
@@ -350,11 +395,12 @@
       margin-bottom: 1.25rem;
       overflow: hidden;
       box-shadow: var(--shadow-sm);
-      transition: box-shadow 0.2s;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .section-block:hover {
       box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
     }
 
     .section-header {
@@ -378,18 +424,20 @@
     }
 
     .section-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
     .section-title {
-      font-size: 1.05rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
       font-weight: 700;
     }
 
@@ -429,13 +477,18 @@
     .item-card {
       padding: 0.9rem 1.25rem;
       border-bottom: 1px solid var(--border);
+      border-left: 3px solid transparent;
       cursor: pointer;
-      transition: all 0.15s;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .item-card:last-child { border-bottom: none; }
 
-    .item-card:hover { background: var(--bg); }
+    .item-card:hover {
+      background: linear-gradient(90deg, #f8fafc, transparent);
+      border-left-color: var(--accent);
+      padding-left: 1.5rem;
+    }
 
     .item-card-header {
       display: flex;
@@ -673,16 +726,21 @@
     }
 
     .chart-card {
-      background: var(--surface);
+      background: linear-gradient(135deg, #fafbff, #f8fafc);
       border-radius: var(--radius);
       border: 1px solid var(--border);
       padding: 1.25rem;
+      transition: all 0.2s;
+    }
+
+    .chart-card:hover {
+      box-shadow: var(--shadow-sm);
     }
 
     .chart-card h3 {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 700;
-      color: var(--text-muted);
+      color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.06em;
       margin-bottom: 0.85rem;
@@ -979,21 +1037,214 @@
 
     .map-address-bar a:hover { text-decoration: underline; }
 
-    /* ── Responsive ── */
+    /* ── Overview City Map ── */
+    .overview-city-map {
+      background: var(--card-bg);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .overview-city-map-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .overview-city-map-header h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0;
+    }
+    .overview-city-map-header .map-legend {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .map-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+    .map-legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    #overview-city-map-container {
+      height: 350px;
+      width: 100%;
+    }
     @media (max-width: 768px) {
-      .masthead h1 { font-size: 1.8rem; }
-      .chart-row { grid-template-columns: 1fr; }
-      .detail-grid { grid-template-columns: 1fr; }
-      .modal { margin: 1rem; max-height: 90vh; }
-      .modal-body .detail-grid { grid-template-columns: 1fr; }
-      .date-display { min-width: auto; }
+      #overview-city-map-container { height: 260px; }
+    }
+    .leaflet-popup-content {
+      font-family: inherit;
+      font-size: 0.82rem;
+      line-height: 1.4;
+      max-width: 250px;
+    }
+    .map-popup-title {
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-bottom: 0.3rem;
+      color: var(--text);
+    }
+    .map-popup-agency {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+    .map-popup-section {
+      display: inline-block;
+      font-size: 0.65rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 100px;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .map-popup-link {
+      display: inline-block;
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .map-popup-link:hover { text-decoration: underline; }
+
+    /* ── Detail Links ── */
+    .detail-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+    }
+    .detail-links a {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 0.35rem 0.75rem;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      transition: all 0.15s;
+    }
+    .detail-links a:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+    .detail-links .zoom-link {
+      background: #dbeafe;
+      border-color: #93c5fd;
+      color: #1d4ed8;
+    }
+    .detail-links .zoom-link:hover {
+      background: #2563eb;
+      color: white;
     }
 
-    @media (max-width: 480px) {
-      .summary-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
-      .summary-card { padding: 0.8rem; }
-      .summary-card .count { font-size: 1.6rem; }
-      .container { padding: 1rem 0.75rem; }
+    /* ── Quick Links on Cards ── */
+    .item-quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.5rem;
+    }
+    .item-quick-links a {
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.2rem 0.55rem;
+      border-radius: 100px;
+      transition: all 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .item-quick-links a:hover { transform: translateY(-1px); }
+    .qlink-wiki {
+      background: #f0f0f0;
+      color: #333;
+      border: 1px solid #ddd;
+    }
+    .qlink-wiki:hover { background: #333; color: white !important; border-color: #333; }
+    .qlink-agency {
+      background: #e3f2fd;
+      color: #1565c0;
+      border: 1px solid #bbdefb;
+    }
+    .qlink-agency:hover { background: #1565c0; color: white !important; border-color: #1565c0; }
+    .qlink-record {
+      background: #e8f5e9;
+      color: #2e7d32;
+      border: 1px solid #c8e6c9;
+    }
+    .qlink-record:hover { background: #2e7d32; color: white !important; border-color: #2e7d32; }
+    .qlink-passport {
+      background: #fff3e0;
+      color: #e65100;
+      border: 1px solid #ffe0b2;
+    }
+    .qlink-passport:hover { background: #e65100; color: white !important; border-color: #e65100; }
+    .qlink-zoom {
+      background: #dbeafe;
+      color: #1d4ed8;
+      border: 1px solid #93c5fd;
+    }
+    .qlink-zoom:hover { background: #1d4ed8; color: white !important; border-color: #1d4ed8; }
+    .qlink-form {
+      background: #fce4ec;
+      color: #c62828;
+      border: 1px solid #f8bbd0;
+    }
+    .qlink-form:hover { background: #c62828; color: white !important; border-color: #c62828; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .masthead { padding: 1.25rem 1rem 1rem; }
+      .masthead h1 { font-size: 1.35rem; }
+      .masthead .subtitle { font-size: 0.6rem; letter-spacing: 0.12em; }
+      .chart-row { grid-template-columns: 1fr; }
+      .detail-grid { grid-template-columns: 1fr; }
+      .modal { margin: 0.5rem; max-height: 95vh; border-radius: 16px; }
+      .modal-overlay { padding: 0.5rem; }
+      .modal-body .detail-grid { grid-template-columns: 1fr; }
+      .date-display { min-width: auto; }
+      .date-bar { padding: 0.5rem 0.75rem; gap: 0.5rem; }
+      .date-label { font-size: 0.65rem; }
+      .date-display input[type="date"] { font-size: 0.9rem; padding: 0.3rem 0.5rem; }
+      .tab-bar { gap: 0.25rem; padding: 0.35rem; margin-bottom: 1rem; }
+      .tab-item { padding: 0.5rem 0.7rem; border-radius: 10px; }
+      .tab-item .tab-count { font-size: 1rem; }
+      .tab-item .tab-label { font-size: 0.5rem; }
+      .container { padding: 0.75rem; }
+      .overview-panel { padding: 1.25rem; border-radius: 16px; }
+      .overview-panel h2 { font-size: 1.1rem; margin-bottom: 0.75rem; }
+      .ai-summary { padding: 1rem; }
+      .ai-summary-text { font-size: 0.85rem; line-height: 1.55; }
+      .overview-highlights { grid-template-columns: 1fr; gap: 0.6rem; }
+      .overview-section-digest { padding: 1rem; border-radius: 14px; }
+      .overview-section-title { font-size: 0.95rem; }
+      .donut-container { flex-direction: column; align-items: flex-start; }
+      .donut-svg { width: 100px; height: 100px; }
+      .settings-btn { width: 38px; height: 38px; border-radius: 12px; font-size: 1rem; bottom: 1rem; right: 1rem; }
+    }
+
+    @media (max-width: 380px) {
+      .tab-item { padding: 0.4rem 0.5rem; }
+      .tab-item .tab-count { font-size: 0.9rem; }
+      .tab-item .tab-label { font-size: 0.45rem; }
     }
 
     /* Overview Section Digests */
@@ -1009,11 +1260,14 @@
       padding: 1.5rem;
       box-shadow: var(--shadow-sm);
       border: 1px solid var(--border);
-      transition: box-shadow 0.2s;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
     }
 
     .overview-section-digest:hover {
       box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
     }
     .overview-section-header {
       display: flex;
@@ -1023,17 +1277,19 @@
       margin-bottom: 0.75rem;
     }
     .overview-section-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
     .overview-section-title {
-      font-size: 1.05rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
       font-weight: 700;
       color: var(--text);
       margin: 0;
@@ -1041,6 +1297,7 @@
     .overview-section-count {
       font-size: 0.8rem;
       color: var(--text-muted);
+      font-weight: 500;
     }
     .overview-section-summary {
       font-size: 0.88rem;
@@ -1217,6 +1474,88 @@
       }
     };
 
+    // Known NYC agency websites for direct linking
+    const AGENCY_URLS = {
+      'police department': 'https://www.nyc.gov/site/nypd/index.page',
+      'fire department': 'https://www.nyc.gov/site/fdny/index.page',
+      'health and mental hygiene': 'https://www.nyc.gov/site/doh/index.page',
+      'transportation': 'https://www.nyc.gov/html/dot/html/home/home.shtml',
+      'education': 'https://www.schools.nyc.gov',
+      'parks and recreation': 'https://www.nycgovparks.org',
+      'dept of parks & recreation': 'https://www.nycgovparks.org',
+      'housing authority': 'https://www.nyc.gov/site/nycha/index.page',
+      'housing preservation and development': 'https://www.nyc.gov/site/hpd/index.page',
+      'environmental protection': 'https://www.nyc.gov/site/dep/index.page',
+      'sanitation': 'https://www.nyc.gov/site/dsny/index.page',
+      'city planning': 'https://www.nyc.gov/site/planning/index.page',
+      'buildings': 'https://www.nyc.gov/site/buildings/index.page',
+      'social services': 'https://www.nyc.gov/site/hra/index.page',
+      'citywide administrative services': 'https://www.nyc.gov/site/dcas/index.page',
+      'information technology and telecommunications': 'https://www.nyc.gov/site/doitt/index.page',
+      'homeless services': 'https://www.nyc.gov/site/dhs/index.page',
+      'youth and community development': 'https://www.nyc.gov/site/dycd/index.page',
+      'school construction authority': 'https://www.nycsca.org',
+      'human resources administration': 'https://www.nyc.gov/site/hra/index.page',
+      'small business services': 'https://www.nyc.gov/site/sbs/index.page',
+      'consumer and worker protection': 'https://www.nyc.gov/site/dca/index.page',
+      'correction': 'https://www.nyc.gov/site/doc/index.page',
+      'finance': 'https://www.nyc.gov/site/finance/index.page',
+      'law department': 'https://www.nyc.gov/site/law/index.page',
+      'taxi and limousine commission': 'https://www.nyc.gov/site/tlc/index.page',
+    };
+
+    function getAgencyUrl(agencyName) {
+      if (!agencyName) return null;
+      const lower = agencyName.toLowerCase();
+      for (const [key, url] of Object.entries(AGENCY_URLS)) {
+        if (lower.includes(key)) return url;
+      }
+      return null;
+    }
+
+    // Build quick-link pills for item cards
+    function buildQuickLinks(item) {
+      const links = [];
+
+      // Agency website — always useful
+      const agencyUrl = getAgencyUrl(item.agency_name);
+      if (agencyUrl) {
+        links.push(`<a href="${agencyUrl}" target="_blank" rel="noopener" class="qlink-agency" onclick="event.stopPropagation()">🏛 Agency</a>`);
+      }
+
+      // City Record Online link
+      if (item.request_id) {
+        links.push(`<a href="https://a856-cityrecord.nyc.gov/RequestDetail/${item.request_id}" target="_blank" rel="noopener" class="qlink-record" onclick="event.stopPropagation()">📋 Official</a>`);
+      }
+
+      // PASSPort for procurement
+      if (item.section_name === 'Procurement' || item.section_name === 'Contract Award Hearings') {
+        links.push(`<a href="https://a858-login.nyc.gov/osp/a/th/page.html" target="_blank" rel="noopener" class="qlink-passport" onclick="event.stopPropagation()">🔑 PASSPort</a>`);
+      }
+
+      // Wikipedia — only for specific named places, buildings, parks (not generic titles)
+      const title = item.short_title || '';
+      const namedPlaceMatch = title.match(/\b([A-Z][\w'-]+(?:\s+[A-Z][\w'-]+)*\s+(?:Park|Bridge|Building|Tower|Center|Centre|Hospital|School|University|College|Museum|Library|Plaza|Garden|House|Station|Terminal|Island|Beach|Pool|Pier|Cemetery|Zoo))\b/);
+      if (namedPlaceMatch) {
+        links.push(`<a href="https://en.wikipedia.org/wiki/${encodeURIComponent(namedPlaceMatch[1])}" target="_blank" rel="noopener" class="qlink-wiki" onclick="event.stopPropagation()">W ${escapeHtml(namedPlaceMatch[1])}</a>`);
+      }
+
+      // Zoom/meeting links extracted from descriptions
+      const allText = [item.additional_description_1, item.additional_description_2].filter(Boolean).join(' ');
+      const urlMatches = allText.match(/https?:\/\/[^\s<>"',)]+/gi) || [];
+      urlMatches.forEach(url => {
+        if (/zoom\.(us|gov)/i.test(url)) {
+          links.push(`<a href="${escapeHtml(url)}" target="_blank" rel="noopener" class="qlink-zoom" onclick="event.stopPropagation()">📹 Zoom</a>`);
+        } else if (/webex|teams\.microsoft|meet\.google/i.test(url)) {
+          links.push(`<a href="${escapeHtml(url)}" target="_blank" rel="noopener" class="qlink-zoom" onclick="event.stopPropagation()">📹 Join</a>`);
+        } else if (/forms?\.|survey|register|signup|application/i.test(url)) {
+          links.push(`<a href="${escapeHtml(url)}" target="_blank" rel="noopener" class="qlink-form" onclick="event.stopPropagation()">📝 Form</a>`);
+        }
+      });
+
+      return links.length > 0 ? `<div class="item-quick-links">${links.join('')}</div>` : '';
+    }
+
     // Parks-related keywords for highlighting
     // Agencies that are definitively parks-related
     const PARKS_AGENCIES = [
@@ -1229,10 +1568,17 @@
     const PARKS_TITLE_KEYWORDS = [
       'playground', 'greenway', 'botanical garden',
       'conservancy', 'urban forest', 'street tree',
+      'recreation center', 'rec center', 'ball field',
+      'dog run', 'skate park', 'swimming pool',
+      'public pool', 'nature center', 'garden',
+      'waterfront', 'pier ', 'beach', 'boardwalk',
+      'forestry', 'tree planting', 'green space',
+      'central park', 'prospect park', 'flushing meadows',
+      'bronx zoo', 'coney island', 'randall',
     ];
 
     // Regex pattern to catch "_____ Park" references in text (e.g., "Stuyvesant Square Park")
-    const PARKS_NAME_REGEX = /\b\w[\w\s]*?\bpark\b/i;
+    const PARKS_NAME_REGEX = /\b\w[\w\s]*?\b(park|plaza|garden|playground)\b/i;
 
     // Tab CSS class mapping for section names
     const TAB_CLASS_MAP = {
@@ -1607,7 +1953,7 @@
         const isParksAgency = PARKS_AGENCIES.some(a => agency.includes(a));
         // Or if title/description mentions specific parks features or a named park
         const hasParksKeyword = PARKS_TITLE_KEYWORDS.some(kw => titleText.includes(kw));
-        const mentionsNamedPark = PARKS_NAME_REGEX.test(item.short_title || '');
+        const mentionsNamedPark = PARKS_NAME_REGEX.test(item.short_title || '') || PARKS_NAME_REGEX.test(titleText);
 
         if (isParksAgency || hasParksKeyword || mentionsNamedPark) {
           ids.add(item.request_id);
@@ -1726,9 +2072,10 @@
         const summaryText = generateSectionSummary(sectionName, items);
 
         // Find items with addresses for map previews
+        const stripHtmlTags = s => s.replace(/<[^>]*>/g, ' ').replace(/&nbsp;/gi, ' ').replace(/\s+/g, ' ').trim();
         const addressItems = items.filter(i => {
-          const desc1 = i.additional_description_1 || '';
-          const desc2 = i.additional_description_2 || '';
+          const desc1 = stripHtmlTags(i.additional_description_1 || '');
+          const desc2 = stripHtmlTags(i.additional_description_2 || '');
           return /\d+\s+\w+.*(?:street|avenue|boulevard|road|place|drive|broadway|plaza)/i.test(desc1 + ' ' + desc2);
         }).slice(0, 3);
 
@@ -1736,7 +2083,7 @@
         if (addressItems.length > 0) {
           addressHtml = `<div class="overview-section-addresses">
             ${addressItems.map(item => {
-              const desc = (item.additional_description_1 || '') + ' ' + (item.additional_description_2 || '');
+              const desc = stripHtmlTags((item.additional_description_1 || '') + ' ' + (item.additional_description_2 || ''));
               const addrMatch = desc.match(/(\d+\s+[\w\s]+(?:Street|Avenue|Boulevard|Road|Place|Drive|Broadway|Plaza)[^,]*(?:,\s*[\w\s]+)?(?:,\s*(?:NY|New York)\s*\d*)?)/i);
               if (!addrMatch) return '';
               const addr = addrMatch[1].trim();
@@ -1796,11 +2143,22 @@
             : `<div class="ai-summary-badge"><div class="dot"></div>Summary</div><div class="ai-summary-text">${overviewText}</div>`}
         </div>
         ${renderOverviewHighlights(data, sections, parksItems)}
+        <div class="overview-city-map">
+          <div class="overview-city-map-header">
+            <h3>Today Across NYC</h3>
+            <div class="map-legend" id="overview-map-legend"></div>
+          </div>
+          <div id="overview-city-map-container"></div>
+        </div>
         <div class="overview-section-digests">
           ${sectionDigests}
           ${parksDigest}
         </div>
+        ${buildDataSourceNote(sections)}
       `;
+
+      // Initialize the overview city map
+      setTimeout(() => initOverviewCityMap(data), 100);
 
       // Trigger AI overview briefing
       if (hasApiKey()) {
@@ -2055,20 +2413,30 @@
     function renderTimelineChart(items) {
       return `<div style="display:flex;flex-direction:column;gap:0.5rem;">
         ${items.map((item, i) => {
-          const due = new Date(item.due_date);
-          const dueStr = due.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-          const daysOut = Math.ceil((due - currentDate) / (1000 * 60 * 60 * 24));
-          const urgency = daysOut <= 7 ? '#e53935' : daysOut <= 30 ? '#f57f17' : '#43a047';
+          const due = new Date(item.due_date || item.end_date || item.start_date);
+          const dueStr = isNaN(due) ? 'TBD' : due.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+          const daysOut = isNaN(due) ? null : Math.ceil((due - currentDate) / (1000 * 60 * 60 * 24));
+          const urgency = daysOut === null ? '#888' : daysOut <= 7 ? '#e53935' : daysOut <= 30 ? '#f57f17' : '#43a047';
           return `
             <div style="display:flex;align-items:center;gap:0.6rem;">
               <div style="min-width:90px;font-size:0.78rem;font-weight:700;color:${urgency};">${dueStr}</div>
               <div style="width:3px;height:28px;background:${urgency};border-radius:2px;flex-shrink:0;"></div>
               <div style="flex:1;">
                 <div style="font-size:0.82rem;font-weight:600;color:var(--text);">${escapeHtml(item.short_title || 'Untitled')}</div>
-                <div style="font-size:0.7rem;color:var(--text-muted);">${escapeHtml(item.agency_name || '')}${daysOut > 0 ? ` · ${daysOut} days` : ' · Today'}</div>
+                <div style="font-size:0.7rem;color:var(--text-muted);">${escapeHtml(item.agency_name || '')}${daysOut === null ? '' : daysOut > 0 ? ` · ${daysOut} days` : ' · Today'}</div>
               </div>
             </div>`;
         }).join('')}
+      </div>`;
+    }
+
+    function buildDataSourceNote(sections) {
+      const allExpected = ['Procurement', 'Changes in Personnel', 'Public Hearings and Meetings', 'Agency Rules', 'Contract Award Hearings', 'Public Comment on Contract Awards', 'Special Materials', 'Property Disposition', 'Court Notices'];
+      const present = new Set(Object.keys(sections));
+      const missing = allExpected.filter(s => !present.has(s));
+      if (missing.length === 0) return '';
+      return `<div style="margin-top:1rem;padding:0.75rem 1rem;background:#fff8e1;border:1px solid #ffe082;border-radius:10px;font-size:0.78rem;color:#6d4c00;">
+        <strong>Note:</strong> Some sections (${missing.join(', ')}) may not appear because the <a href="https://data.cityofnewyork.us/City-Government/City-Record-Online/dg92-zbpx" target="_blank" style="color:#6d4c00;font-weight:600;">NYC Open Data API</a> updates on a delay. The full printed edition is available at <a href="https://www.nyc.gov/site/dcas/about/city-record.page" target="_blank" style="color:#6d4c00;font-weight:600;">nyc.gov/cityrecord</a>.
       </div>`;
     }
 
@@ -2480,12 +2848,14 @@
       const agency = item.agency_name || '';
       const tags = buildItemTags(item, isPark && !isParksSection);
 
+      const quickLinks = buildQuickLinks(item);
       card.innerHTML = `
         <div class="item-card-header">
           <div>
             <div class="item-title">${escapeHtml(title)}</div>
             ${agency ? `<div class="item-agency">${escapeHtml(agency)}</div>` : ''}
             <div class="item-meta">${tags}</div>
+            ${quickLinks}
           </div>
           <div class="item-expand-icon">▸</div>
         </div>
@@ -2583,6 +2953,50 @@
         html += `<div class="detail-description">${sanitizeHtml(item.additional_description_2)}</div>`;
       }
 
+      // Extract URLs from descriptions for Zoom, forms, etc.
+      const allText = [item.additional_description_1, item.additional_description_2, item.address_to_request].filter(Boolean).join(' ');
+      const urlMatches = allText.match(/https?:\/\/[^\s<>"',)]+/gi) || [];
+
+      // External links
+      const links = [];
+
+      // Zoom/meeting links
+      urlMatches.forEach(url => {
+        if (/zoom\.(us|gov)/i.test(url)) {
+          links.push(`<a href="${escapeHtml(url)}" target="_blank" rel="noopener" class="zoom-link">📹 Join Zoom Meeting</a>`);
+        } else if (/webex|teams\.microsoft|meet\.google/i.test(url)) {
+          links.push(`<a href="${escapeHtml(url)}" target="_blank" rel="noopener" class="zoom-link">📹 Join Meeting</a>`);
+        } else if (/forms?\.|survey|register|signup|application/i.test(url)) {
+          links.push(`<a href="${escapeHtml(url)}" target="_blank" rel="noopener">📝 Open Form</a>`);
+        } else if (!/cityrecord|nyc\.gov\/site/i.test(url)) {
+          links.push(`<a href="${escapeHtml(url)}" target="_blank" rel="noopener">🔗 Link</a>`);
+        }
+      });
+
+      // Wikipedia — only for specific named places/buildings
+      const detailTitle = item.short_title || '';
+      const detailPlaceMatch = detailTitle.match(/\b([A-Z][\w'-]+(?:\s+[A-Z][\w'-]+)*\s+(?:Park|Bridge|Building|Tower|Center|Centre|Hospital|School|University|College|Museum|Library|Plaza|Garden|House|Station|Terminal|Island|Beach|Pool|Pier|Cemetery|Zoo))\b/);
+      if (detailPlaceMatch) {
+        links.push(`<a href="https://en.wikipedia.org/wiki/${encodeURIComponent(detailPlaceMatch[1])}" target="_blank" rel="noopener">📖 ${escapeHtml(detailPlaceMatch[1])} on Wikipedia</a>`);
+      }
+      if (item.agency_name) {
+        const agencyDirectUrl = getAgencyUrl(item.agency_name);
+        if (agencyDirectUrl) {
+          links.push(`<a href="${agencyDirectUrl}" target="_blank" rel="noopener">🏛 Agency Website</a>`);
+        } else {
+          links.push(`<a href="https://www.google.com/search?q=${encodeURIComponent(item.agency_name + ' NYC official site')}" target="_blank" rel="noopener">🏛 Agency Website</a>`);
+        }
+      }
+      if (item.request_id) {
+        links.push(`<a href="https://a856-cityrecord.nyc.gov/RequestDetail/${item.request_id}" target="_blank" rel="noopener">📋 City Record Online</a>`);
+      }
+      if (item.section_name === 'Procurement' || item.section_name === 'Contract Award Hearings') {
+        links.push(`<a href="https://a858-login.nyc.gov/osp/a/th/page.html" target="_blank" rel="noopener">PASSPort</a>`);
+      }
+      if (links.length > 0) {
+        html += `<div class="detail-links">${links.join('')}</div>`;
+      }
+
       return html;
     }
 
@@ -2643,6 +3057,128 @@
       } catch (err) {
         console.error('Geocoding failed:', err);
         el.innerHTML = '<p style="padding:1rem;color:var(--text-muted);text-align:center;">Could not load map</p>';
+      }
+    }
+
+    // ── Overview City Map ──
+    let overviewMapInstance = null;
+
+    async function initOverviewCityMap(data) {
+      const container = document.getElementById('overview-city-map-container');
+      if (!container) return;
+
+      // Collect items with addresses from descriptions or address_to_request
+      const addressItems = [];
+      const addrRegex = /(\d+\s+[\w\s]+(?:Street|Avenue|Boulevard|Road|Place|Drive|Broadway|Plaza|Way|Lane|Court|Terrace|Circle|Parkway|Walk|Square|Park)[^,.\n]*)/i;
+
+      data.forEach(item => {
+        const texts = [item.additional_description_1, item.additional_description_2, item.address_to_request].filter(Boolean).join(' ');
+        const match = texts.match(addrRegex);
+        if (match) {
+          addressItems.push({ item, address: match[1].trim() });
+        }
+      });
+
+      if (addressItems.length === 0) {
+        document.querySelector('.overview-city-map')?.remove();
+        return;
+      }
+
+      // Section color mapping for markers
+      const sectionColors = {
+        'Procurement': '#1565c0',
+        'Contract Award Hearings': '#283593',
+        'Public Comment on Contract Awards': '#4527a0',
+        'Public Hearings and Meetings': '#6a1b9a',
+        'Agency Rules': '#b71c1c',
+        'Changes in Personnel': '#e65100',
+        'Property Disposition': '#00695c',
+        'Special Materials': '#4e342e',
+        'Court Notices': '#37474f',
+      };
+
+      // Clean up old map
+      if (overviewMapInstance) {
+        overviewMapInstance.remove();
+        overviewMapInstance = null;
+      }
+
+      const map = L.map('overview-city-map-container', { scrollWheelZoom: true }).setView([40.7128, -74.006], 11);
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; OpenStreetMap &copy; CARTO',
+        maxZoom: 19,
+      }).addTo(map);
+      overviewMapInstance = map;
+
+      // Geocode each address with small delays to respect Nominatim rate limits
+      const markers = [];
+      const geocoded = new Set();
+
+      for (const { item, address } of addressItems.slice(0, 15)) {
+        // Skip duplicate addresses
+        const addrKey = address.toLowerCase().replace(/\s+/g, ' ');
+        if (geocoded.has(addrKey)) continue;
+        geocoded.add(addrKey);
+
+        try {
+          const fullAddress = address + ', New York, NY';
+          const resp = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(fullAddress)}&limit=1`);
+          const results = await resp.json();
+
+          if (results.length > 0) {
+            const lat = parseFloat(results[0].lat);
+            const lng = parseFloat(results[0].lon);
+            // Skip results outside NYC metro area
+            if (lat < 40.45 || lat > 40.95 || lng < -74.30 || lng > -73.65) continue;
+            const section = item.section_name || 'Other';
+            const color = sectionColors[section] || '#666';
+            const config = SECTION_CONFIG[section] || SECTION_CONFIG._default;
+
+            const icon = L.divIcon({
+              className: 'custom-map-marker',
+              html: `<div style="width:28px;height:28px;border-radius:50%;background:${color};border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;font-size:13px;">${config.icon}</div>`,
+              iconSize: [28, 28],
+              iconAnchor: [14, 14],
+              popupAnchor: [0, -16],
+            });
+
+            const marker = L.marker([lat, lng], { icon }).addTo(map);
+            const popupContent = `
+              <div class="map-popup-section" style="background:${config.bg};color:${config.color};">${section}</div>
+              <div class="map-popup-title">${escapeHtml(item.short_title || 'Untitled')}</div>
+              <div class="map-popup-agency">${escapeHtml(item.agency_name || '')}</div>
+              <div style="font-size:0.72rem;color:var(--text-muted);margin-bottom:0.4rem;">📍 ${escapeHtml(address)}</div>
+              <a class="map-popup-link" onclick="navigateToItem('${item.request_id}')">View full details →</a>
+            `;
+            marker.bindPopup(popupContent, { maxWidth: 260 });
+            markers.push(marker);
+          }
+
+          // Small delay between geocoding requests
+          await new Promise(r => setTimeout(r, 350));
+        } catch (e) {
+          console.warn('Geocoding failed for:', address, e);
+        }
+      }
+
+      // Fit bounds if we have markers
+      if (markers.length > 0) {
+        const group = L.featureGroup(markers);
+        map.fitBounds(group.getBounds().pad(0.1));
+      }
+
+      setTimeout(() => map.invalidateSize(), 200);
+
+      // Update legend with sections that have markers
+      const legendEl = document.getElementById('overview-map-legend');
+      if (legendEl && markers.length > 0) {
+        const foundSections = new Set(addressItems.filter(({ item, address }) => {
+          return geocoded.has(address.toLowerCase().replace(/\s+/g, ' '));
+        }).map(({ item }) => item.section_name));
+        legendEl.innerHTML = [...foundSections].map(s => {
+          const c = sectionColors[s] || '#666';
+          return `<span class="map-legend-item"><span class="map-legend-dot" style="background:${c};"></span>${s}</span>`;
+        }).join('');
       }
     }
 
