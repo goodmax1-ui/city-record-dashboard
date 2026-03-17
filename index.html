@@ -1273,7 +1273,35 @@
     let currentTab = 'overview';
     let currentSections = {};
     let currentParksItems = new Set();
-    const aiCache = {}; // Cache AI summaries by date+type
+    // Persistent AI cache backed by localStorage
+    const AI_CACHE_KEY = 'cityrecord_ai_cache';
+    const aiCache = (() => {
+      try {
+        const stored = JSON.parse(localStorage.getItem(AI_CACHE_KEY) || '{}');
+        // Prune entries older than 7 days to avoid bloating storage
+        const now = Date.now();
+        const pruned = {};
+        for (const [k, v] of Object.entries(stored)) {
+          if (v.ts && now - v.ts < 7 * 24 * 60 * 60 * 1000) {
+            pruned[k] = v;
+          }
+        }
+        localStorage.setItem(AI_CACHE_KEY, JSON.stringify(pruned));
+        // Return a flat key→text map for compatibility
+        const flat = {};
+        for (const [k, v] of Object.entries(pruned)) flat[k] = v.text;
+        return flat;
+      } catch (e) { return {}; }
+    })();
+
+    function saveAICache(key, text) {
+      aiCache[key] = text;
+      try {
+        const stored = JSON.parse(localStorage.getItem(AI_CACHE_KEY) || '{}');
+        stored[key] = { text, ts: Date.now() };
+        localStorage.setItem(AI_CACHE_KEY, JSON.stringify(stored));
+      } catch (e) { /* localStorage full or unavailable */ }
+    }
 
     // ── Claude API ──
     function getApiKey() {
@@ -1361,7 +1389,7 @@
 
       const result = await callClaude(prompt, AI_SYSTEM);
       if (result) {
-        aiCache[cacheKey] = result;
+        saveAICache(cacheKey, result);
       }
       return result;
     }
@@ -1804,7 +1832,7 @@
             } else {
               const aiText = await getAISummary('section', items);
               if (aiText) {
-                aiCache[cacheKey] = aiText;
+                saveAICache(cacheKey, aiText);
                 const el = document.getElementById(elId);
                 if (el) {
                   const formatted = formatAIText(aiText);
@@ -2333,7 +2361,7 @@
       let aiText = aiCache[cacheKey];
       if (!aiText) {
         aiText = await getAISummary('section', items);
-        if (aiText) aiCache[cacheKey] = aiText;
+        if (aiText) saveAICache(cacheKey, aiText);
       }
 
       if (aiText) {
