@@ -1429,6 +1429,7 @@
     // ── Configuration ──
     const API_BASE = 'https://data.cityofnewyork.us/resource/dg92-zbpx.json';
     const APP_TOKEN = ''; // Optional: add a Socrata app token for higher rate limits
+    const PDF_DATA_BASE = './data'; // Supplementary PDF-extracted JSON data
 
     // Section configuration: icon, color theme, and sort priority
     const SECTION_CONFIG = {
@@ -1523,8 +1524,8 @@
         links.push(`<a href="${agencyUrl}" target="_blank" rel="noopener" class="qlink-agency" onclick="event.stopPropagation()">🏛 Agency</a>`);
       }
 
-      // City Record Online link
-      if (item.request_id) {
+      // City Record Online link (not for PDF-sourced items)
+      if (item.request_id && item._source !== 'pdf') {
         links.push(`<a href="https://a856-cityrecord.nyc.gov/RequestDetail/${item.request_id}" target="_blank" rel="noopener" class="qlink-record" onclick="event.stopPropagation()">📋 Official</a>`);
       }
 
@@ -1887,31 +1888,63 @@
       fetchData(currentDate);
     }
 
-    // ── API Fetch ──
+    // ── API Fetch + PDF Merge ──
+    let pdfSections = new Set(); // Track which sections came from PDF
+
     async function fetchData(date) {
       showLoading(true);
       hideError();
       hideEmpty();
       hideTabBar();
       clearSections();
+      pdfSections = new Set();
 
       const dateStr = formatDateForAPI(date);
-      const url = `${API_BASE}?$where=start_date='${dateStr}T00:00:00.000'&$limit=50000` +
+      const apiUrl = `${API_BASE}?$where=start_date='${dateStr}T00:00:00.000'&$limit=50000` +
         (APP_TOKEN ? `&$$app_token=${APP_TOKEN}` : '');
+      const pdfUrl = `${PDF_DATA_BASE}/${dateStr}.json`;
 
       try {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const data = await response.json();
-        currentData = data;
+        // Fetch API and PDF data in parallel
+        const [apiResult, pdfResult] = await Promise.allSettled([
+          fetch(apiUrl).then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); }),
+          fetch(pdfUrl).then(r => { if (!r.ok) return null; return r.json(); }).catch(() => null),
+        ]);
+
+        const apiData = apiResult.status === 'fulfilled' ? apiResult.value : [];
+        const pdfData = pdfResult.status === 'fulfilled' ? pdfResult.value : null;
+
+        if (apiResult.status === 'rejected') {
+          throw new Error(apiResult.reason?.message || 'API fetch failed');
+        }
+
+        // Merge: PDF fills in sections missing from API
+        let mergedData = [...apiData];
+        if (pdfData && pdfData.notices && pdfData.notices.length > 0) {
+          const apiSectionNames = new Set(apiData.map(d => d.section_name));
+          const pdfNotices = pdfData.notices.filter(n => {
+            // Only include PDF notices for sections NOT in API data
+            if (!apiSectionNames.has(n.section_name)) {
+              pdfSections.add(n.section_name);
+              return true;
+            }
+            return false;
+          });
+          mergedData = [...apiData, ...pdfNotices];
+          if (pdfSections.size > 0) {
+            console.log(`PDF data supplemented ${pdfSections.size} sections: ${[...pdfSections].join(', ')}`);
+          }
+        }
+
+        currentData = mergedData;
         showLoading(false);
 
-        if (data.length === 0) {
+        if (mergedData.length === 0) {
           showEmpty();
           return;
         }
 
-        renderDashboard(data);
+        renderDashboard(mergedData);
       } catch (err) {
         showLoading(false);
         showError(`Failed to load City Record data. ${err.message}`);
@@ -2434,10 +2467,25 @@
       const allExpected = ['Procurement', 'Changes in Personnel', 'Public Hearings and Meetings', 'Agency Rules', 'Contract Award Hearings', 'Public Comment on Contract Awards', 'Special Materials', 'Property Disposition', 'Court Notices'];
       const present = new Set(Object.keys(sections));
       const missing = allExpected.filter(s => !present.has(s));
-      if (missing.length === 0) return '';
-      return `<div style="margin-top:1rem;padding:0.75rem 1rem;background:#fff8e1;border:1px solid #ffe082;border-radius:10px;font-size:0.78rem;color:#6d4c00;">
-        <strong>Note:</strong> Some sections (${missing.join(', ')}) may not appear because the <a href="https://data.cityofnewyork.us/City-Government/City-Record-Online/dg92-zbpx" target="_blank" style="color:#6d4c00;font-weight:600;">NYC Open Data API</a> updates on a delay. The full printed edition is available at <a href="https://www.nyc.gov/site/dcas/about/city-record.page" target="_blank" style="color:#6d4c00;font-weight:600;">nyc.gov/cityrecord</a>.
-      </div>`;
+      const fromPdf = [...pdfSections].filter(s => present.has(s));
+
+      let html = '';
+
+      // Show PDF supplemented sections
+      if (fromPdf.length > 0) {
+        html += `<div style="margin-top:1rem;padding:0.75rem 1rem;background:#eef2ff;border:1px solid #c7d2fe;border-radius:10px;font-size:0.78rem;color:#3730a3;">
+          <strong>📄 PDF data:</strong> ${fromPdf.join(', ')} sourced from the <a href="https://www.nyc.gov/site/dcas/about/city-record.page" target="_blank" style="color:#3730a3;font-weight:600;">printed edition</a> (API not yet updated).
+        </div>`;
+      }
+
+      // Show still-missing sections
+      if (missing.length > 0) {
+        html += `<div style="margin-top:${fromPdf.length > 0 ? '0.5' : '1'}rem;padding:0.75rem 1rem;background:#fff8e1;border:1px solid #ffe082;border-radius:10px;font-size:0.78rem;color:#6d4c00;">
+          <strong>Note:</strong> Some sections (${missing.join(', ')}) may not appear because the <a href="https://data.cityofnewyork.us/City-Government/City-Record-Online/dg92-zbpx" target="_blank" style="color:#6d4c00;font-weight:600;">NYC Open Data API</a> updates on a delay. The full printed edition is available at <a href="https://www.nyc.gov/site/dcas/about/city-record.page" target="_blank" style="color:#6d4c00;font-weight:600;">nyc.gov/cityrecord</a>.
+        </div>`;
+      }
+
+      return html;
     }
 
     function generateOverviewText(data, sections, parksItems) {
@@ -2849,10 +2897,11 @@
       const tags = buildItemTags(item, isPark && !isParksSection);
 
       const quickLinks = buildQuickLinks(item);
+      const pdfBadge = item._source === 'pdf' ? '<span class="item-tag" style="background:#eef2ff;color:#4338ca;font-size:0.6rem;">📄 PDF</span>' : '';
       card.innerHTML = `
         <div class="item-card-header">
           <div>
-            <div class="item-title">${escapeHtml(title)}</div>
+            <div class="item-title">${escapeHtml(title)} ${pdfBadge}</div>
             ${agency ? `<div class="item-agency">${escapeHtml(agency)}</div>` : ''}
             <div class="item-meta">${tags}</div>
             ${quickLinks}
@@ -2987,7 +3036,7 @@
           links.push(`<a href="https://www.google.com/search?q=${encodeURIComponent(item.agency_name + ' NYC official site')}" target="_blank" rel="noopener">🏛 Agency Website</a>`);
         }
       }
-      if (item.request_id) {
+      if (item.request_id && item._source !== 'pdf') {
         links.push(`<a href="https://a856-cityrecord.nyc.gov/RequestDetail/${item.request_id}" target="_blank" rel="noopener">📋 City Record Online</a>`);
       }
       if (item.section_name === 'Procurement' || item.section_name === 'Contract Award Hearings') {
