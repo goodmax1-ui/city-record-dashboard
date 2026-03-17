@@ -1,0 +1,3608 @@
+{
+  "date": "2026-03-16",
+  "source": "pdf",
+  "pdf_url": "https://www.nyc.gov/assets/dcas/downloads/pdf/cityrecord/cityrecord-03-16-26.pdf",
+  "extracted_at": "2026-03-17T10:00:00-04:00",
+  "notices": [
+    {
+      "request_id": "pdf-2026-03-16-0001",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Ahmed Qudratul",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Ahmed Qudratul \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 01/06/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0002",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Ahmed Rashed",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Ahmed Rashed \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0003",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Ahmed Sabbir",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Ahmed Sabbir \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0004",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Barnes Evan L",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Barnes Evan L \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0005",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Ahmed Talha T",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Ahmed Talha T \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0006",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Baronian Kenneth",
+      "type_of_notice_description": "Retired",
+      "additional_description_1": "Baronian Kenneth \u00b7 Title #70235 \u00b7 $140212.0000 \u00b7 Retired \u00b7 Permanent \u00b7 Effective 01/09/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0007",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Ahmmad Nowsher",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Ahmmad Nowsher \u00b7 Title #12626 \u00b7 $62517.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/28/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0008",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Barotova Shoira",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Barotova Shoira \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0009",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Akhtar Shanaj",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Akhtar Shanaj \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0010",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Barragato Joseph C",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Barragato Joseph C \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0011",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Aktar Taslima",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Aktar Taslima \u00b7 Title #70205 \u00b7 $19.1400 \u00b7 Resigned \u00b7 Provisional \u00b7 Effective 12/18/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0012",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Barreto Antonio J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Barreto Antonio J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0013",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Alami El Mehdi",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Alami El Mehdi \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0014",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bartow Joyce",
+      "type_of_notice_description": "Retired",
+      "additional_description_1": "Bartow Joyce \u00b7 Title #60817 \u00b7 $56508.0000 \u00b7 Retired \u00b7 Permanent \u00b7 Effective 01/02/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0015",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Alatorre Everardo J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Alatorre Everardo J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0016",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bassett Tawana E",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Bassett Tawana E \u00b7 Title #60817 \u00b7 $56508.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 01/06/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0017",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Alba Luis R",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Alba Luis R \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 12/27/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0018",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bastien Sierra D",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Bastien Sierra D \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0019",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Albano Kayla N",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Albano Kayla N \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0020",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Batista Jayleen V",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Batista Jayleen V \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0021",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Alcantara Ermel",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Alcantara Ermel \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 12/30/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0022",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Batista Hernand Fernando J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Batista Hernand Fernando J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0023",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Alese Christop J",
+      "type_of_notice_description": "Retired",
+      "additional_description_1": "Alese Christop J \u00b7 Title #70210 \u00b7 $109352.0000 \u00b7 Retired \u00b7 Permanent \u00b7 Effective 01/09/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0024",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bautista Antonne R",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Bautista Antonne R \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0025",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Alexander Devaughn R",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Alexander Devaughn R \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0026",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bautista Tahiz",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Bautista Tahiz \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0027",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Alexander Shadane S",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Alexander Shadane S \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0028",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bayne Cory M",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Bayne Cory M \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0029",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Alexander Tyler",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Alexander Tyler \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0030",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Beliaev David",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Beliaev David \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0031",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Alexis Armani A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Alexis Armani A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0032",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bell Ryan J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Bell Ryan J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0033",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Alfaro Justin L",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Alfaro Justin L \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0034",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bellerice Chelot",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Bellerice Chelot \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0035",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Algieri Dominic C",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Algieri Dominic C \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/29/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0036",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bello Rosenber",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Bello Rosenber \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 12/20/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0037",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Alhammami Saif A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Alhammami Saif A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0038",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Beltran Patricio G",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Beltran Patricio G \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0039",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Benjamin Donneil S",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Benjamin Donneil S \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0040",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "E Department Bennett Shelliss R",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "E Department Bennett Shelliss R \u00b7 Title #60817 \u00b7 $56508.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 01/07/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0041",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Berment Johnatha",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Berment Johnatha \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0042",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Title Berry Dqui E",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Title Berry Dqui E \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0043",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Ff Date Agency Bertuzzi Louis M",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Ff Date Agency Bertuzzi Louis M \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0044",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Ali Abdussab",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Ali Abdussab \u00b7 Title #70205 \u00b7 $19.1400 \u00b7 Resigned \u00b7 Provisional \u00b7 Effective 01/06/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0045",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Beshlian Jaclyn R",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Beshlian Jaclyn R \u00b7 Title #21849 \u00b7 $95520.0000 \u00b7 Resigned \u00b7 Provisional \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0046",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Ali Ahmed",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Ali Ahmed \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0047",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bhatti Waqas I",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Bhatti Waqas I \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0048",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Ali Elijah",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Ali Elijah \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0049",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Binanti Anthony",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Binanti Anthony \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0050",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Ali Kawchar",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Ali Kawchar \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0051",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bishop Nzinga N",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Bishop Nzinga N \u00b7 Title #70235 \u00b7 $119617.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0052",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Ali Sabah N",
+      "type_of_notice_description": "Dismissed",
+      "additional_description_1": "Ali Sabah N \u00b7 Title #70210 \u00b7 $109352.0000 \u00b7 Dismissed \u00b7 Permanent \u00b7 Effective 12/27/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0053",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Biswas Refayat A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Biswas Refayat A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0054",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Ali Sekndar",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Ali Sekndar \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0055",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Biyik Ali T",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Biyik Ali T \u00b7 Title #70210 \u00b7 $59065.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 12/27/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0056",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Alkhulaki Ali S",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Alkhulaki Ali S \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0057",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Blackstock Tiana I",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Blackstock Tiana I \u00b7 Title #71012 \u00b7 $57805.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 12/13/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0058",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Allen Daniel J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Allen Daniel J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0059",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Blair Demetry I",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Blair Demetry I \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0060",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Almendares Brian J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Almendares Brian J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/29/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0061",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Alvarado Daniel L",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Alvarado Daniel L \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0062",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Alvarez Stephani M",
+      "type_of_notice_description": "Increase",
+      "additional_description_1": "Alvarez Stephani M \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Increase \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0063",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Alvarez Gutierr Jose L",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Alvarez Gutierr Jose L \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0064",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Alvear Christia A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Alvear Christia A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0065",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Amaro Jomauris",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Amaro Jomauris \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0066",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Blake Johnatha A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Blake Johnatha A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0067",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Amato Michael J",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Amato Michael J \u00b7 Title #70210 \u00b7 $50620.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 09/21/22",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0068",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Blanchard Flavie E",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Blanchard Flavie E \u00b7 Title #70205 \u00b7 $19.1400 \u00b7 Resigned \u00b7 Provisional \u00b7 Effective 12/20/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0069",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Amato William Q",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Amato William Q \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0070",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Blanda Michael C",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Blanda Michael C \u00b7 Title #70235 \u00b7 $119617.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0071",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Amhay Souad S",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Amhay Souad S \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0072",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Blando Michael R",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Blando Michael R \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0073",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Anandagoda Chathura H",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Anandagoda Chathura H \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0074",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Blaszczak Stefan E",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Blaszczak Stefan E \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0075",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Andrea Michael J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Andrea Michael J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0076",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Blum Joseph C",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Blum Joseph C \u00b7 Title #70235 \u00b7 $125424.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0077",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Andrea Peter A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Andrea Peter A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0078",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bolanos Maria",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Bolanos Maria \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0079",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Angeles Aldana Heidy",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Angeles Aldana Heidy \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0080",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bonilla Jacqueli",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Bonilla Jacqueli \u00b7 Title #60817 \u00b7 $39206.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 12/13/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0081",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Anormaliza Michael A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Anormaliza Michael A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0082",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bonilla Joel O",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Bonilla Joel O \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0083",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Ansar Hannan",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Ansar Hannan \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0084",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bonilla Escamil Rodrigo J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Bonilla Escamil Rodrigo J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0085",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Apolinario Gabriel",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Apolinario Gabriel \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0086",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Borzon Michael W",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Borzon Michael W \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0087",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Apollon Loty",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Apollon Loty \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0088",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bowen Jr Carl T",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Bowen Jr Carl T \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 01/08/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0089",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Aponte Paredes Ignacio J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Aponte Paredes Ignacio J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0090",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Boyd Nyema M",
+      "type_of_notice_description": "Increase",
+      "additional_description_1": "Boyd Nyema M \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Increase \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0091",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Apuango Rojas John P",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Apuango Rojas John P \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0092",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Brabham Kason",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Brabham Kason \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0093",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Aquino Omar R",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Aquino Omar R \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0094",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Braccia Michael P",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Braccia Michael P \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0095",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Arango Castillo Anthony",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Arango Castillo Anthony \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0096",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Brache Alexis J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Brache Alexis J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0097",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Arias Kenneth B",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Arias Kenneth B \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0098",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bradham J C",
+      "type_of_notice_description": "Retired",
+      "additional_description_1": "Bradham J C \u00b7 Title #71013 \u00b7 $79995.0000 \u00b7 Retired \u00b7 Permanent \u00b7 Effective 01/02/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0099",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Arias Leilani A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Arias Leilani A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0100",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Brahimaj Ideal R",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Brahimaj Ideal R \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0101",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Arismendez Terence A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Arismendez Terence A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0102",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Brand Jesse T",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Brand Jesse T \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0103",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Armantrading Kyle",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Armantrading Kyle \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0104",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Brandao Tiago A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Brandao Tiago A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0105",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Arreaga Justin A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Arreaga Justin A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0106",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Braunstein Jennifer A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Braunstein Jennifer A \u00b7 Title #12626 \u00b7 $71894.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/28/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0107",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Arriaga Alexis",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Arriaga Alexis \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0108",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Arshad Noman",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Arshad Noman \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0109",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bravo Chacha Briget N",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Bravo Chacha Briget N \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0110",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Artis Tamika N",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Artis Tamika N \u00b7 Title #70205 \u00b7 $19.1400 \u00b7 Resigned \u00b7 Provisional \u00b7 Effective 12/31/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0111",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Brennan Aidan J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Brennan Aidan J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0112",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Aseng Richard",
+      "type_of_notice_description": "Retired",
+      "additional_description_1": "Aseng Richard \u00b7 Title #70260 \u00b7 $154751.0000 \u00b7 Retired \u00b7 Permanent \u00b7 Effective 01/09/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0113",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bresloff Samuel",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Bresloff Samuel \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0114",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Ashby Jai Born J",
+      "type_of_notice_description": "Increase",
+      "additional_description_1": "Ashby Jai Born J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Increase \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0115",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Brierre Korey S",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Brierre Korey S \u00b7 Title #70235 \u00b7 $119617.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0116",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Ashford Atara B",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Ashford Atara B \u00b7 Title #70265 \u00b7 $201503.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0117",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bright Jaden A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Bright Jaden A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0118",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Askari Sophia R",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Askari Sophia R \u00b7 Title #06944 \u00b7 $75000.0000 \u00b7 Appointed \u00b7 Provisional \u00b7 Effective 01/01/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0119",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Brissett Shaniqua",
+      "type_of_notice_description": "Decrease",
+      "additional_description_1": "Brissett Shaniqua \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Decrease \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0120",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Asrafi Syed",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Asrafi Syed \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0121",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Brito Christia A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Brito Christia A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0122",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Astacio Jacob D",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Astacio Jacob D \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 12/27/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0123",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Brito Kelvin",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Brito Kelvin \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0124",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Astudillo Avila Cristoph J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Astudillo Avila Cristoph J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0125",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Brito Ryan C",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Brito Ryan C \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0126",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Astudillo Lazo Andrea T",
+      "type_of_notice_description": "Increase",
+      "additional_description_1": "Astudillo Lazo Andrea T \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Increase \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0127",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Brito Ludena Denisse G",
+      "type_of_notice_description": "Increase",
+      "additional_description_1": "Brito Ludena Denisse G \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Increase \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0128",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Aulino Edward L",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Aulino Edward L \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/29/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0129",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Brooks Jayden D",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Brooks Jayden D \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0130",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Auriemmo Michael J",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Auriemmo Michael J \u00b7 Title #70235 \u00b7 $119617.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0131",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Brovakos Thomas M",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Brovakos Thomas M \u00b7 Title #70235 \u00b7 $119617.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0132",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Avalos Cabrera Hector",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Avalos Cabrera Hector \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0133",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Brown Francisc A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Brown Francisc A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0134",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Avery Alexande D",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Avery Alexande D \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0135",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Brown Tiffany",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Brown Tiffany \u00b7 Title #06996 \u00b7 $103000.0000 \u00b7 Appointed \u00b7 Provisional \u00b7 Effective 12/28/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0136",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Awais Muhammad",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Awais Muhammad \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0137",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bruce Isaiah D",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Bruce Isaiah D \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0138",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Ayora Jennyfer O",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Ayora Jennyfer O \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0139",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Brumbaugh William J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Brumbaugh William J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0140",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Brutus Ian C",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Brutus Ian C \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0141",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Ice Department Buchynski Maksim",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Ice Department Buchynski Maksim \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0142",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Buckley Patrick M",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Buckley Patrick M \u00b7 Title #70235 \u00b7 $119617.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0143",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Title Budhram Gavin Y",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Title Budhram Gavin Y \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0144",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Eff Date Agency Burke Dariel A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Eff Date Agency Burke Dariel A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0145",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Ayube Junior A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Ayube Junior A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0146",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Burks Travis",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Burks Travis \u00b7 Title #70235 \u00b7 $125424.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0147",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Aziz Md Abdul",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Aziz Md Abdul \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0148",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Butler Ruthlyn A",
+      "type_of_notice_description": "Retired",
+      "additional_description_1": "Butler Ruthlyn A \u00b7 Title #60817 \u00b7 $56508.0000 \u00b7 Retired \u00b7 Permanent \u00b7 Effective 01/01/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0149",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Babar Ishmeet",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Babar Ishmeet \u00b7 Title #70235 \u00b7 $119617.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0150",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Butt Stanley",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Butt Stanley \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0151",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Badiaga Mahamadu",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Badiaga Mahamadu \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0152",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Buttigheri Joseph G",
+      "type_of_notice_description": "Retired",
+      "additional_description_1": "Buttigheri Joseph G \u00b7 Title #70210 \u00b7 $109352.0000 \u00b7 Retired \u00b7 Permanent \u00b7 Effective 01/08/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0153",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bae Jason",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Bae Jason \u00b7 Title #92510 \u00b7 $346.5600 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/28/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0154",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Byrne Ryan T",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Byrne Ryan T \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0155",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bagalue Christop R",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Bagalue Christop R \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0156",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cabral Michelle L",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cabral Michelle L \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0157",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bah Ramatoul",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Bah Ramatoul \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0158",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cabrera Ramos Juan M",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Cabrera Ramos Juan M \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 01/09/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0159",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Baig Usman",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Baig Usman \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0160",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cacace Matthew A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cacace Matthew A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0161",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Baik Kihaen",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Baik Kihaen \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0162",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bailey Brianna",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Bailey Brianna \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0163",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bailey Debbie",
+      "type_of_notice_description": "Retired",
+      "additional_description_1": "Bailey Debbie \u00b7 Title #56056 \u00b7 $43460.0000 \u00b7 Retired \u00b7 Provisional \u00b7 Effective 12/30/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0164",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bain Suvadeep",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Bain Suvadeep \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0165",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bakar Muhammad A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Bakar Muhammad A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0166",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Bakayoko Brahima",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Bakayoko Brahima \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0167",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Caddle Jr Adrian D",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Caddle Jr Adrian D \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0168",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Ballesteros Eduardo E",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Ballesteros Eduardo E \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0169",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cai Sherry",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Cai Sherry \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 12/24/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0170",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Baptiste Deavion L",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Baptiste Deavion L \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0171",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cakin Fatih F",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cakin Fatih F \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0172",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Barahona Hilary D",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Barahona Hilary D \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0173",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Calixto Angel",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Calixto Angel \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0174",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Barba Ryan V",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Barba Ryan V \u00b7 Title #70235 \u00b7 $119617.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0175",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Callaghan Michael S",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Callaghan Michael S \u00b7 Title #70260 \u00b7 $141684.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 01/07/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0176",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Barbuto Jillian M",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Barbuto Jillian M \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0177",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Calore Nicholas A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Calore Nicholas A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0178",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Barcia Richard S",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Barcia Richard S \u00b7 Title #70235 \u00b7 $119617.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0179",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Camacho Ashley",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Camacho Ashley \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0180",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Camilo Francis J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Camilo Francis J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0181",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cordero Jeffrey",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cordero Jeffrey \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0182",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Camilo Jared G",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Camilo Jared G \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0183",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Corniel Alba R",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Corniel Alba R \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0184",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Campillo Boris J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Campillo Boris J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0185",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Campos Marvin",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Campos Marvin \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0186",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Canales Anthony C",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Canales Anthony C \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0187",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Canastillo Rikki Ja",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Canastillo Rikki Ja \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0188",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Candelario Jose Jhonatha",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Candelario Jose Jhonatha \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0189",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cano-Acero Daniel",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cano-Acero Daniel \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0190",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cortes-Valle Maria A",
+      "type_of_notice_description": "Retired",
+      "additional_description_1": "Cortes-Valle Maria A \u00b7 Title #90644 \u00b7 $43096.0000 \u00b7 Retired \u00b7 Provisional \u00b7 Effective 01/01/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0191",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Capuano Andrew C",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Capuano Andrew C \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0192",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cortez Luis M",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cortez Luis M \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0193",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cardenas Estefani",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cardenas Estefani \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0194",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cortez Jr Jean C",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cortez Jr Jean C \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0195",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Carillo John J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Carillo John J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0196",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cosme Taveras Liber M",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Cosme Taveras Liber M \u00b7 Title #10144 \u00b7 $48631.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 01/03/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0197",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Carmona Tiaralis S",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Carmona Tiaralis S \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0198",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cousins Kristan A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cousins Kristan A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0199",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cassara Andrew",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cassara Andrew \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0200",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cozzolino Gabriell",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cozzolino Gabriell \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0201",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cassidy Richard J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cassidy Richard J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0202",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Craig Jadon D",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Craig Jadon D \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0203",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Castagnaro Devin C",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Castagnaro Devin C \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0204",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Crawford Mason",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Crawford Mason \u00b7 Title #70210 \u00b7 $59065.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 01/02/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0205",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Castiglione Patrick J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Castiglione Patrick J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0206",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Crespo Jeff S",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Crespo Jeff S \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0207",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Castillo Ariana Y",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Castillo Ariana Y \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0208",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cruz Fabio J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cruz Fabio J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0209",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Castillo Humberto A",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Castillo Humberto A \u00b7 Title #70205 \u00b7 $19.1400 \u00b7 Resigned \u00b7 Provisional \u00b7 Effective 01/06/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0210",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cruz Riad C",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cruz Riad C \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0211",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Castillo Ivan N",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Castillo Ivan N \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0212",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cruz Zoraida",
+      "type_of_notice_description": "Retired",
+      "additional_description_1": "Cruz Zoraida \u00b7 Title #10144 \u00b7 $55157.0000 \u00b7 Retired \u00b7 Permanent \u00b7 Effective 01/02/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0213",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Castillo Jayson",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Castillo Jayson \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0214",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cruz Torres Rolandy A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cruz Torres Rolandy A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0215",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Castillo John E",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Castillo John E \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/29/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0216",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cruz Zeferino Martin",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cruz Zeferino Martin \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0217",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Castillo Medina Gerardo",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Castillo Medina Gerardo \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0218",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cuascut Iris M",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cuascut Iris M \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0219",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Castro George L",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Castro George L \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0220",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cueto Jonah M",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cueto Jonah M \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0221",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Ceesay Peter S",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Ceesay Peter S \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0222",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cyriaque Baldwin",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cyriaque Baldwin \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0223",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cepeda Justin C",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cepeda Justin C \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0224",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Dacosta Nilka K",
+      "type_of_notice_description": "Increase",
+      "additional_description_1": "Dacosta Nilka K \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Increase \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0225",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cerisier Dylan",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cerisier Dylan \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0226",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Dagostino Anthony C",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Dagostino Anthony C \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0227",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cerizier Kenley",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cerizier Kenley \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0228",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Daley Jessica V",
+      "type_of_notice_description": "Retired",
+      "additional_description_1": "Daley Jessica V \u00b7 Title #70210 \u00b7 $109352.0000 \u00b7 Retired \u00b7 Permanent \u00b7 Effective 01/09/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0229",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cespedes Lissette",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Cespedes Lissette \u00b7 Title #70205 \u00b7 $19.1400 \u00b7 Resigned \u00b7 Provisional \u00b7 Effective 12/30/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0230",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Dama Peter P",
+      "type_of_notice_description": "Retired",
+      "additional_description_1": "Dama Peter P \u00b7 Title #10033 \u00b7 $183451.0000 \u00b7 Retired \u00b7 Permanent \u00b7 Effective 08/23/23",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0231",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cevallos Gloria E",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Cevallos Gloria E \u00b7 Title #70235 \u00b7 $119617.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0232",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Daniel Khuvon K",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Daniel Khuvon K \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0233",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cevallos Ruben A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cevallos Ruben A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0234",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Daniels Anthony D",
+      "type_of_notice_description": "Retired",
+      "additional_description_1": "Daniels Anthony D \u00b7 Title #60817 \u00b7 $56508.0000 \u00b7 Retired \u00b7 Permanent \u00b7 Effective 01/01/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0235",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Chamblain Junior S",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Chamblain Junior S \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0236",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Danisewicz Jakub",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Danisewicz Jakub \u00b7 Title #70265 \u00b7 $165631.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0237",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Chang Nyasia E",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Chang Nyasia E \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0238",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Daria Anthony J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Daria Anthony J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0239",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Changoluisa Bus Fernando X",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Changoluisa Bus Fernando X \u00b7 Title #70210 \u00b7 $57976.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 01/08/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0240",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Dario James C",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Dario James C \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0241",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Chao Desserin G",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Chao Desserin G \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0242",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Das Kabya",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Das Kabya \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0243",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Chapman Michael T",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Chapman Michael T \u00b7 Title #70235 \u00b7 $125424.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0244",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Dasilva Rafaela",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Dasilva Rafaela \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0245",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Chariandy Romello",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Chariandy Romello \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0246",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "David Kine",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "David Kine \u00b7 Title #70235 \u00b7 $119617.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0247",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Charles Geran K",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Charles Geran K \u00b7 Title #60817 \u00b7 $56508.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0248",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "David Vereniqu A",
+      "type_of_notice_description": "Decrease",
+      "additional_description_1": "David Vereniqu A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Decrease \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0249",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Charles Herntz H",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Charles Herntz H \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0250",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Davis Lisa M",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Davis Lisa M \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0251",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Charles Joshua D",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Charles Joshua D \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0252",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Davison Tequan",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Davison Tequan \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0253",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Charles Kyannah Y",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Charles Kyannah Y \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0254",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "De La Cruz Angelis M",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "De La Cruz Angelis M \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0255",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Charles Shneider",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Charles Shneider \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0256",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "De La Cruz Reylin",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "De La Cruz Reylin \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0257",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Charles Stevens",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Charles Stevens \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0258",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "De Oleo Zabala Kevin M",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "De Oleo Zabala Kevin M \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0259",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Charubin Michael",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Charubin Michael \u00b7 Title #70235 \u00b7 $119617.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0260",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Dean Valerie",
+      "type_of_notice_description": "Retired",
+      "additional_description_1": "Dean Valerie \u00b7 Title #70205 \u00b7 $19.1400 \u00b7 Retired \u00b7 Provisional \u00b7 Effective 01/05/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0261",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Defonzo Patrick J",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Defonzo Patrick J \u00b7 Title #70235 \u00b7 $125424.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0262",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Chase Kamron D",
+      "type_of_notice_description": "Retired",
+      "additional_description_1": "Chase Kamron D \u00b7 Title #70210 \u00b7 $109352.0000 \u00b7 Retired \u00b7 Provisional \u00b7 Effective 01/06/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0263",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Degeorge Todd L",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Degeorge Todd L \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0264",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Dejesus Jason J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Dejesus Jason J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0265",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Delarosa Giana M",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Delarosa Giana M \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0266",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Delborrello Joseph L",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Delborrello Joseph L \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0267",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Delgado Alexande C",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Delgado Alexande C \u00b7 Title #70260 \u00b7 $141684.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 01/07/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0268",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Chaudhary Prasuram",
+      "type_of_notice_description": "Increase",
+      "additional_description_1": "Chaudhary Prasuram \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Increase \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0269",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Delgado Diego A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Delgado Diego A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/29/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0270",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Chauvet Patrice S",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Chauvet Patrice S \u00b7 Title #70235 \u00b7 $119617.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0271",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Delgado Arias Raymond",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Delgado Arias Raymond \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0272",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Chavez Edwin G",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Chavez Edwin G \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0273",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Delgreco Francesc R",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Delgreco Francesc R \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0274",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cheema Mustapha M",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cheema Mustapha M \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0275",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Delgrosso Joseph N",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Delgrosso Joseph N \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0276",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Chen Eric",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Chen Eric \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0277",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Delone Pecardy D",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Delone Pecardy D \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0278",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Chen Jia Hao",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Chen Jia Hao \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0279",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Delorbe Pedro A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Delorbe Pedro A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0280",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Chen Kaiqi",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Chen Kaiqi \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0281",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Dempkowski Jack C",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Dempkowski Jack C \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0282",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cheng Marc",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cheng Marc \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0283",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Dennis Justin A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Dennis Justin A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0284",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cheng Zhan",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cheng Zhan \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0285",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Chery Marie S",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Chery Marie S \u00b7 Title #70205 \u00b7 $19.1400 \u00b7 Resigned \u00b7 Provisional \u00b7 Effective 12/23/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0286",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Chhoeng Rassein R",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Chhoeng Rassein R \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 12/20/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0287",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Chicas Ortiz Yovani A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Chicas Ortiz Yovani A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0288",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Chikitasilpin Thanthai",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Chikitasilpin Thanthai \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0289",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Chin Jack",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Chin Jack \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0290",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Deolall Anil P",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Deolall Anil P \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0291",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Choudhury Rashed S",
+      "type_of_notice_description": "Increase",
+      "additional_description_1": "Choudhury Rashed S \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Increase \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0292",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Desai Ketan G",
+      "type_of_notice_description": "Retired",
+      "additional_description_1": "Desai Ketan G \u00b7 Title #21849 \u00b7 $116418.0000 \u00b7 Retired \u00b7 Provisional \u00b7 Effective 01/02/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0293",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Choudhury Shaad",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Choudhury Shaad \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0294",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Desai Ketan G",
+      "type_of_notice_description": "Retired",
+      "additional_description_1": "Desai Ketan G \u00b7 Title #21822 \u00b7 $64274.0000 \u00b7 Retired \u00b7 Permanent \u00b7 Effective 01/02/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0295",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Chowdhury Faisal",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Chowdhury Faisal \u00b7 Title #70235 \u00b7 $119617.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0296",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Descartes Jonathan",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Descartes Jonathan \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0297",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Chowdhury Kamrul I",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Chowdhury Kamrul I \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0298",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Despradel Almon Raysa I",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Despradel Almon Raysa I \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/29/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0299",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Chowdhury Zaidul I",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Chowdhury Zaidul I \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0300",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Devers Louis",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Devers Louis \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0301",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Chumpitaz Andre R",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Chumpitaz Andre R \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 12/31/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0302",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Dhanraj Chris K",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Dhanraj Chris K \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0303",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cibinskas Andrew T",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Cibinskas Andrew T \u00b7 Title #70235 \u00b7 $125424.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0304",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Dhillon Parminde",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Dhillon Parminde \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 01/09/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0305",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Citle Palestino Daniel",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Citle Palestino Daniel \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0306",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Diallo Smaila",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Diallo Smaila \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0307",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Civil Carleigh M",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Civil Carleigh M \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0308",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Diallo Yusufu",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Diallo Yusufu \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0309",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Clark Denise",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Clark Denise \u00b7 Title #60817 \u00b7 $56508.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 12/20/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0310",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Diamond Joshua",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Diamond Joshua \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0311",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Clark Lia S",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Clark Lia S \u00b7 Title #70235 \u00b7 $119617.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0312",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Diamond Justin M",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Diamond Justin M \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0313",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Clark Sanaa J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Clark Sanaa J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0314",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Diaz Moises",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Diaz Moises \u00b7 Title #60817 \u00b7 $40502.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0315",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Clayton Logan M",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Clayton Logan M \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0316",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Diaz Iii Heribert C",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Diaz Iii Heribert C \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0317",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Clemente Rodrig Kewin E",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Clemente Rodrig Kewin E \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0318",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Dibenedetto Michael A",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Dibenedetto Michael A \u00b7 Title #70210 \u00b7 $60363.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 12/29/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0319",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Clenkian Mark",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Clenkian Mark \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0320",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Diedrich Dennis M",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Diedrich Dennis M \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0321",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Clyne James J",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Clyne James J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0322",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Difiore Joseph P",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Difiore Joseph P \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0323",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Coarde Anthony",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Coarde Anthony \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0324",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Digangi Matthew J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Digangi Matthew J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0325",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cohen Shmuel",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cohen Shmuel \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0326",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Dimarinis Matthew L",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Dimarinis Matthew L \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0327",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Colasurdo Brianna N",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Colasurdo Brianna N \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 12/31/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0328",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Dipaolo Robert D",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Dipaolo Robert D \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0329",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Coleman Travis G",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Coleman Travis G \u00b7 Title #70210 \u00b7 $65387.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 01/05/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0330",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Divittorio Grace E",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Divittorio Grace E \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0331",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Collins Matthew J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Collins Matthew J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0332",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Dixon Ebony C",
+      "type_of_notice_description": "Decrease",
+      "additional_description_1": "Dixon Ebony C \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Decrease \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0333",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Collison Thomas J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Collison Thomas J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0334",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Dixon Murville M",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Dixon Murville M \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0335",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Colon Cielo P",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Colon Cielo P \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0336",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Doctor El Shomari T",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Doctor El Shomari T \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0337",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Colon Jeremy",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Colon Jeremy \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0338",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Dolan Tracey L",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Dolan Tracey L \u00b7 Title #70235 \u00b7 $125424.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0339",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Colon Justen E",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Colon Justen E \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0340",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Dominguez John P",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Dominguez John P \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 12/30/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0341",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Colon Matthew D",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Colon Matthew D \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0342",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Dominguez Cruz Angel J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Dominguez Cruz Angel J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0343",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Colon Sanchez Luisiana M",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Colon Sanchez Luisiana M \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0344",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Donahue Timothy B",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Donahue Timothy B \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0345",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Confesor-Galici Elizabet",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Confesor-Galici Elizabet \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 01/01/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0346",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Dong Yi Tao",
+      "type_of_notice_description": "Increase",
+      "additional_description_1": "Dong Yi Tao \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Increase \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0347",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Conner Shaquan G",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Conner Shaquan G \u00b7 Title #10209 \u00b7 $18.0000 \u00b7 Appointed \u00b7 Provisional \u00b7 Effective 01/04/26",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0348",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Donley Zachary C",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Donley Zachary C \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0349",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Connor Nolan C",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Connor Nolan C \u00b7 Title #70235 \u00b7 $119617.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0350",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Donzella Frank J",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Donzella Frank J \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0351",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Constantino Justin M",
+      "type_of_notice_description": "Promoted",
+      "additional_description_1": "Constantino Justin M \u00b7 Title #70235 \u00b7 $119617.0000 \u00b7 Promoted \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0352",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Dorismond Joseph W",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Dorismond Joseph W \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0353",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Contreras Nicole S",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Contreras Nicole S \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0354",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Dorozhynskyy Oleksand V",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Dorozhynskyy Oleksand V \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0355",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Conway Adashee K",
+      "type_of_notice_description": "Increase",
+      "additional_description_1": "Conway Adashee K \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Increase \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0356",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Doumbia Bangali",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Doumbia Bangali \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/31/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0357",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cooper Jillian A",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Cooper Jillian A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0358",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Dragovic Eliana",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Dragovic Eliana \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/17/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0359",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Cooper Shane A",
+      "type_of_notice_description": "Resigned",
+      "additional_description_1": "Cooper Shane A \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Resigned \u00b7 Permanent \u00b7 Effective 12/19/25",
+      "_source": "pdf"
+    },
+    {
+      "request_id": "pdf-2026-03-16-0360",
+      "start_date": "2026-03-16T00:00:00.000",
+      "section_name": "Changes in Personnel",
+      "agency_name": "Police Department",
+      "short_title": "Duberry Shaquill T",
+      "type_of_notice_description": "Appointed",
+      "additional_description_1": "Duberry Shaquill T \u00b7 Title #70210 \u00b7 $55942.0000 \u00b7 Appointed \u00b7 Permanent \u00b7 Effective 12/29/25",
+      "_source": "pdf"
+    }
+  ]
+}
