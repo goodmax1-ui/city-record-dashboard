@@ -1716,6 +1716,24 @@
     // through around the paper sheet.
     if (window.parent !== window) document.documentElement.classList.add('embedded');
 
+    // Scrolling inside the full-height iframe is a no-op, and a cross-origin
+    // frame can't scroll its parent directly — ask nycdash to do it instead.
+    function _crScrollTop() {
+      if (document.documentElement.classList.contains('embedded')) {
+        window.parent.postMessage({ type: 'record-scroll', y: 0 }, '*');
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+    function _crScrollToEl(el) {
+      if (!el) return;
+      if (document.documentElement.classList.contains('embedded')) {
+        window.parent.postMessage({ type: 'record-scroll', y: el.getBoundingClientRect().top + window.scrollY }, '*');
+      } else {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
     // ── Configuration ──
     const API_BASE = 'https://data.cityofnewyork.us/resource/dg92-zbpx.json';
     const APP_TOKEN = ''; // Optional: add a Socrata app token for higher rate limits
@@ -2367,7 +2385,7 @@
       const el = document.querySelector(`#tab-bar .tab-item[data-tab-key="${CSS.escape(key)}"]`);
       if (el) {
         el.click();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        _crScrollTop();
       }
     }
 
@@ -2492,7 +2510,7 @@
     // ── Lede stat strip (clickable) ──
     function renderLedeStats(data, sections, parksItems) {
       const stats = [];
-      stats.push({ num: data.length.toLocaleString(), lbl: 'Notices today', act: `document.querySelector('.overview-section-digests')?.scrollIntoView({behavior:'smooth'})` });
+      stats.push({ num: data.length.toLocaleString(), lbl: 'Notices today', act: `_crScrollToEl(document.querySelector('.overview-section-digests'))` });
       const totalDollars = data.reduce((s, i) => s + (parseFloat(i.contract_amount) > 0 ? parseFloat(i.contract_amount) : 0), 0);
       if (totalDollars > 0 && sections['Procurement']) {
         stats.push({ num: '$' + formatCurrency(totalDollars), lbl: 'Contract value', act: `switchToTab('Procurement')` });
@@ -2500,7 +2518,7 @@
       const hearings = (sections['Public Hearings and Meetings'] || []).length;
       if (hearings > 0) stats.push({ num: hearings, lbl: 'Hearings & meetings', act: `switchToTab('Public Hearings and Meetings')` });
       const deadlines = data.filter(i => i.due_date).length;
-      if (deadlines > 0) stats.push({ num: deadlines, lbl: 'Open deadlines', act: `document.getElementById('keydates')?.scrollIntoView({behavior:'smooth'})` });
+      if (deadlines > 0) stats.push({ num: deadlines, lbl: 'Open deadlines', act: `_crScrollToEl(document.getElementById('keydates'))` });
       const personnel = (sections['Changes in Personnel'] || []).length;
       if (personnel > 0) stats.push({ num: personnel.toLocaleString(), lbl: 'Personnel actions', act: `switchToTab('Changes in Personnel')` });
       if (parksItems.size > 0) stats.push({ num: parksItems.size, lbl: 'Parks notices', act: `switchToTab('parks')` });
@@ -3726,7 +3744,7 @@
       setTimeout(() => {
         const card = document.querySelector(`.item-card[data-request-id="${CSS.escape(requestId)}"]`);
         if (card) {
-          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          _crScrollToEl(card);
           if (window.innerWidth < 768) {
             card.classList.add('detail-open');
             const icon = card.querySelector('.item-expand-icon');

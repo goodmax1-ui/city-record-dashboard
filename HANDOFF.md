@@ -25,6 +25,18 @@ AI summaries on Claude Fable 5.
 
 ## Changes made
 
+### Round 5 — embedded scroll bridge (same session)
+
+Taps on summary links worked on mobile but couldn't reposition the view when
+embedded: the full-height iframe never scrolls itself and a cross-origin frame
+can't scroll its parent. `_crScrollTop()` / `_crScrollToEl(el)` now post
+`{type:'record-scroll', y}` to the parent when embedded (plain scrollIntoView
+standalone); used by switchToTab, navigateToItem, and the lede-stat jumps.
+nycdash listens and scrolls the page to iframe-top + y - 80 (its commit
+763f201, SW v51). Verified via same-origin harness: message fires with the
+correct offset, parent scrollTo computes right; smooth scroll doesn't animate
+headless (rAF throttled) — instant path proven.
+
 ### Round 4 — paper-sheet integration (same session)
 
 Max: page sat awkwardly with off-color white space around it. The gazette now
