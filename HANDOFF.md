@@ -9,7 +9,7 @@ Current state only — no history (see git log).
 - Working tree: clean except untracked `.claude/` (local, never commit)
 - Updated: 2026-07-11
 - Updated by: Claude
-- Task status: complete (awaiting Max's confirmation to push)
+- Task status: complete (pushed as 1d996c5, rebased onto Max's April embed-mode commits)
 
 ## Objective
 
@@ -25,7 +25,9 @@ AI summaries on Claude Fable 5.
 
 ## Changes made
 
-- Single commit on top of 5e3502b; files: index.html, HANDOFF.md
+- Single commit 1d996c5 on top of fed37f0; files: index.html, HANDOFF.md
+- Rebase note: kept 7284826's intent — no NYC Scanner button, `_postHeight`
+  iframe postMessage preserved
 - Behavioral effect:
   - Full dark editorial reskin (Roboto Condensed 900 masthead, amber accent,
     dark panels/charts/maps/modals) — replaces the light indigo/Playfair look
@@ -51,4 +53,4 @@ AI summaries on Claude Fable 5.
 | Environment | Check | Result |
 |---|---|---|
 | Local | :8097 static server, live Socrata data (Jul 10 2026 issue, 51 notices): tab nav, lede-stat nav, chart filter + chip clear, modal open/close, agency/quick links, keydate → item, digest header → tab, mobile 375px no overflow, zero console errors | pass |
-| Production | not deployed — push pending Max's confirmation | not run |
+| Production | pushed 1d996c5 to GitHub Pages; post-rebase local check (page loads, no scanner button, `_postHeight` present, no console errors) | pass — Max to confirm on cityrecord.maxgoodstein.com / nycdash /city-record |
