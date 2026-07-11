@@ -6,127 +6,132 @@
   <title>The City Record — Daily Dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Condensed:wght@700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
     :root {
-      --bg: #f0f4f8;
-      --surface: #ffffff;
-      --text: #0f172a;
-      --text-secondary: #475569;
-      --text-muted: #94a3b8;
-      --accent: #6366f1;
-      --accent-dark: #4338ca;
-      --accent-light: #eef2ff;
-      --border: #e2e8f0;
-      --parks-green: #059669;
-      --parks-green-light: #ecfdf5;
-      --parks-green-border: #a7f3d0;
-      --procurement-blue: #3b82f6;
-      --procurement-bg: #eff6ff;
-      --personnel-amber: #ea580c;
-      --personnel-bg: #fff7ed;
-      --hearing-purple: #7c3aed;
-      --hearing-bg: #f5f3ff;
-      --agency-teal: #0d9488;
-      --agency-bg: #f0fdfa;
-      --rule-red: #dc2626;
-      --rule-bg: #fef2f2;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-      --shadow-md: 0 4px 20px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
-      --shadow-lg: 0 16px 48px rgba(0,0,0,0.12), 0 6px 16px rgba(0,0,0,0.06);
-      --radius: 14px;
-      --radius-lg: 22px;
+      --bg: #0c0d10;
+      --surface: #15171d;
+      --surface-2: #1b1e26;
+      --text: #f2f3f5;
+      --text-secondary: #b9bec8;
+      --text-muted: #7e8591;
+      --accent: #f5a623;
+      --accent-deep: #e8963c;
+      --accent-dim: rgba(245,166,35,0.14);
+      --border: #262a33;
+      --border-soft: rgba(255,255,255,0.07);
+      --parks-green: #51cf66;
+      --parks-green-light: rgba(81,207,102,0.12);
+      --parks-green-border: rgba(81,207,102,0.35);
+      --procurement-blue: #5aa2ff;
+      --procurement-bg: rgba(90,162,255,0.12);
+      --personnel-amber: #ffa94d;
+      --personnel-bg: rgba(255,169,77,0.12);
+      --hearing-purple: #c77dff;
+      --hearing-bg: rgba(199,125,255,0.12);
+      --agency-teal: #3ddad0;
+      --agency-bg: rgba(61,218,208,0.12);
+      --rule-red: #ff6b6b;
+      --rule-bg: rgba(255,107,107,0.12);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+      --shadow-md: 0 6px 24px rgba(0,0,0,0.45);
+      --shadow-lg: 0 18px 50px rgba(0,0,0,0.6);
+      --radius: 12px;
+      --radius-lg: 16px;
+      --cond: 'Roboto Condensed', 'Arial Narrow', sans-serif;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    html { background: var(--bg); }
+
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: linear-gradient(180deg, #e8ecf4 0%, #f0f4f8 30%, #f8fafc 100%);
-      background-attachment: fixed;
+      background: var(--bg);
       color: var(--text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
 
+    ::selection { background: rgba(245,166,35,0.35); }
+
     /* ── Masthead ── */
     .masthead {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #312e81 100%);
-      color: white;
+      background: var(--bg);
+      color: var(--text);
       text-align: center;
-      padding: 2rem 1rem 1.5rem;
+      padding: 2.2rem 1rem 1.4rem;
       position: relative;
-      overflow: hidden;
+      border-bottom: 1px solid var(--border);
     }
 
     .masthead::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899, #f59e0b, #10b981);
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-deep), var(--accent), var(--accent-deep));
     }
 
-    .masthead::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%);
-      pointer-events: none;
+    .masthead .kicker {
+      font-family: var(--cond);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
     }
 
     .masthead h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.3rem;
-      position: relative;
+      font-family: var(--cond);
+      font-size: clamp(2.2rem, 6vw, 3.4rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      line-height: 1;
+      margin-bottom: 0.4rem;
     }
 
     .masthead .subtitle {
-      font-size: 0.7rem;
-      opacity: 0.45;
+      font-size: 0.68rem;
+      color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.25em;
+      letter-spacing: 0.28em;
       font-weight: 500;
-      position: relative;
     }
 
     .scanner-link {
       position: absolute;
-      top: 1rem;
-      right: 1.25rem;
-      color: rgba(255,255,255,0.7);
+      top: 0.9rem;
+      right: 1.1rem;
+      color: var(--text-secondary);
       text-decoration: none;
+      font-family: var(--cond);
       font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       padding: 0.35rem 0.75rem;
-      border: 1px solid rgba(255,255,255,0.25);
+      border: 1px solid var(--border);
       border-radius: 6px;
       transition: all 0.2s ease;
+      background: var(--surface);
     }
     .scanner-link:hover {
-      color: #fff;
-      background: rgba(255,255,255,0.12);
-      border-color: rgba(255,255,255,0.5);
+      color: var(--accent);
+      border-color: var(--accent);
     }
 
     /* ── Date Bar ── */
     .date-bar {
-      background: rgba(255,255,255,0.8);
+      background: rgba(12,13,16,0.88);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(226,232,240,0.6);
-      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -137,57 +142,56 @@
     }
 
     .date-bar button {
-      background: transparent;
+      background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 0.4rem 0.65rem;
+      border-radius: 8px;
+      padding: 0.4rem 0.7rem;
       cursor: pointer;
       font-size: 0.95rem;
-      color: var(--text-muted);
-      transition: all 0.2s;
+      color: var(--text-secondary);
+      transition: all 0.15s;
       display: flex;
       align-items: center;
     }
 
     .date-bar button:hover {
       background: var(--accent);
-      color: white;
+      color: #17130a;
       border-color: var(--accent);
-      transform: scale(1.05);
     }
 
     .date-display {
       font-weight: 700;
-      font-size: 1.15rem;
       color: var(--text);
-      min-width: 260px;
+      min-width: 220px;
       text-align: center;
     }
 
     .date-display input[type="date"] {
-      font-family: inherit;
-      font-size: 1rem;
-      font-weight: 600;
+      font-family: var(--cond);
+      font-size: 1.05rem;
+      font-weight: 700;
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 0.4rem 0.6rem;
+      padding: 0.35rem 0.6rem;
       color: var(--text);
-      background: transparent;
+      background: var(--surface);
       cursor: pointer;
+      color-scheme: dark;
     }
 
     .date-label {
-      font-size: 0.78rem;
+      font-size: 0.62rem;
       color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.18em;
     }
 
     /* ── Container ── */
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 1.5rem 1rem;
+      padding: 1.5rem 1rem 3rem;
     }
 
     /* ── Loading / Error / Empty ── */
@@ -210,12 +214,14 @@
 
     .loading-state p { color: var(--text-muted); font-size: 0.95rem; }
 
-    .error-state { color: #c0392b; }
-    .error-state h2 { margin-bottom: 0.5rem; }
+    .error-state { color: var(--rule-red); }
+    .error-state h2 { margin-bottom: 0.5rem; font-family: var(--cond); text-transform: uppercase; }
 
     .empty-state h2 {
       color: var(--text-secondary);
       margin-bottom: 0.5rem;
+      font-family: var(--cond);
+      text-transform: uppercase;
     }
 
     .empty-state p { color: var(--text-muted); }
@@ -223,15 +229,14 @@
     /* ── Tab Bar ── */
     .tab-bar {
       display: flex;
-      gap: 0.4rem;
+      gap: 0.35rem;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
-      padding: 0.4rem;
-      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      padding: 0.35rem;
+      background: var(--surface);
       border-radius: var(--radius-lg);
-      margin-bottom: 1.5rem;
-      box-shadow: var(--shadow-sm), inset 0 1px 2px rgba(0,0,0,0.04);
+      margin-bottom: 1.25rem;
       border: 1px solid var(--border);
     }
 
@@ -241,88 +246,75 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0.6rem 1rem;
+      padding: 0.55rem 0.95rem;
       cursor: pointer;
-      border-radius: 16px;
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 10px;
+      transition: background 0.15s, transform 0.15s;
       white-space: nowrap;
       flex-shrink: 0;
-      min-width: 0;
       position: relative;
       user-select: none;
+      border: 1px solid transparent;
     }
 
     .tab-item:hover {
-      background: rgba(99,102,241,0.08);
-      transform: translateY(-1px);
+      background: var(--surface-2);
     }
 
     .tab-item.active {
-      background: linear-gradient(135deg, var(--accent), #818cf8);
-      box-shadow: 0 4px 12px rgba(99,102,241,0.35);
-      transform: translateY(-1px);
+      background: var(--accent-dim);
+      border-color: rgba(245,166,35,0.4);
     }
 
-    .tab-item.active .tab-count,
-    .tab-item.active .tab-label {
-      color: white !important;
-    }
+    .tab-item.active .tab-label { color: var(--accent) !important; }
 
     .tab-item .tab-count {
-      font-size: 1.3rem;
-      font-weight: 800;
-      line-height: 1.2;
+      font-family: var(--cond);
+      font-size: 1.35rem;
+      font-weight: 900;
+      line-height: 1.15;
     }
 
     .tab-item .tab-label {
-      font-size: 0.58rem;
+      font-size: 0.56rem;
       color: var(--text-muted);
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
     }
 
     .tab-item.tab-overview .tab-count { color: var(--accent); }
     .tab-item.tab-procurement .tab-count { color: var(--procurement-blue); }
-    .tab-item.tab-contract-award-hearings .tab-count { color: #4338ca; }
-    .tab-item.tab-public-comment .tab-count { color: #6d28d9; }
+    .tab-item.tab-contract-award-hearings .tab-count { color: #8f9bff; }
+    .tab-item.tab-public-comment .tab-count { color: #b18cff; }
     .tab-item.tab-hearings .tab-count { color: var(--hearing-purple); }
     .tab-item.tab-rules .tab-count { color: var(--rule-red); }
     .tab-item.tab-personnel .tab-count { color: var(--personnel-amber); }
     .tab-item.tab-property .tab-count { color: var(--agency-teal); }
-    .tab-item.tab-court .tab-count { color: #78350f; }
-    .tab-item.tab-special .tab-count { color: #475569; }
+    .tab-item.tab-court .tab-count { color: #d0a97e; }
+    .tab-item.tab-special .tab-count { color: #9aa4b2; }
     .tab-item.tab-parks .tab-count { color: var(--parks-green); }
 
     /* ── Overview Panel ── */
     .overview-panel {
-      background: var(--surface);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      padding: 2rem;
+      background: transparent;
+      border-radius: 0;
+      border: none;
+      padding: 0;
       margin-bottom: 1.5rem;
-      box-shadow: var(--shadow-sm);
-      position: relative;
-      overflow: hidden;
     }
 
-    .overview-panel::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
-    }
-
-    .overview-panel h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 800;
-      margin-bottom: 1.25rem;
+    .overview-panel > h2 {
+      font-family: var(--cond);
+      font-size: 1.7rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 1rem;
       color: var(--text);
-      letter-spacing: -0.02em;
+      border-left: 4px solid var(--accent);
+      padding-left: 0.75rem;
+      line-height: 1.15;
     }
 
     .overview-text {
@@ -331,73 +323,190 @@
       color: var(--text-secondary);
     }
 
-    .overview-text p {
-      margin-bottom: 0.75rem;
+    .overview-text p { margin-bottom: 0.75rem; }
+    .overview-text p:last-child { margin-bottom: 0; }
+    .overview-text strong { color: var(--text); }
+
+    /* ── Lede stat strip ── */
+    .lede-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.6rem;
+      margin-bottom: 1.25rem;
     }
 
-    .overview-text strong {
+    .lede-stat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.8rem 0.9rem 0.7rem;
+      cursor: pointer;
+      transition: border-color 0.15s, transform 0.15s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lede-stat::after {
+      content: '\2192';
+      position: absolute;
+      top: 0.55rem;
+      right: 0.65rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+
+    .lede-stat:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .lede-stat:hover::after { opacity: 1; color: var(--accent); }
+
+    .lede-stat .num {
+      font-family: var(--cond);
+      font-size: 1.7rem;
+      font-weight: 900;
+      line-height: 1.1;
       color: var(--text);
+    }
+
+    .lede-stat .lbl {
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+    }
+
+    /* ── Key dates ── */
+    .keydates {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.1rem 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .keydates h3 {
+      font-family: var(--cond);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 0.7rem;
+    }
+
+    .keydate-row {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.45rem 0.4rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.12s;
+    }
+
+    .keydate-row:hover { background: var(--surface-2); }
+
+    .keydate-when {
+      font-family: var(--cond);
+      font-weight: 700;
+      font-size: 0.85rem;
+      min-width: 92px;
+      flex-shrink: 0;
+    }
+
+    .keydate-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .keydate-agency {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      max-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    /* ── Section digest header kicker ── */
+    .digest-kicker {
+      font-family: var(--cond);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin: 1.75rem 0 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .digest-kicker::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
     }
 
     .overview-highlights {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
+      gap: 0.75rem;
       margin-top: 1.25rem;
     }
 
     .overview-highlight-card {
-      padding: 1.1rem 1.25rem;
+      padding: 1rem 1.1rem;
       border-radius: var(--radius);
-      border: none;
+      border: 1px solid var(--border);
+      background: var(--surface);
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.2s;
       position: relative;
       overflow: hidden;
-      backdrop-filter: blur(4px);
-    }
-
-    .overview-highlight-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
-      transition: opacity 0.3s;
+      border-left-width: 3px;
     }
 
     .overview-highlight-card::after {
-      content: '→';
+      content: '\2192';
       position: absolute;
-      top: 1rem;
-      right: 1rem;
-      font-size: 0.9rem;
-      color: rgba(0,0,0,0.15);
-      transition: all 0.3s;
+      top: 0.85rem;
+      right: 0.9rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      transition: all 0.2s;
       font-weight: 700;
     }
 
     .overview-highlight-card:hover {
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-4px) scale(1.02);
-    }
-
-    .overview-highlight-card:hover::before {
-      opacity: 1;
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      box-shadow: var(--shadow-md);
     }
 
     .overview-highlight-card:hover::after {
-      transform: translateX(4px);
-      color: rgba(0,0,0,0.3);
+      transform: translateX(3px);
+      color: var(--accent);
     }
 
     .overview-highlight-card h3 {
-      font-size: 0.82rem;
+      font-family: var(--cond);
+      font-size: 0.78rem;
       font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
       margin-bottom: 0.35rem;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
+      color: var(--text);
     }
 
     .overview-highlight-card p {
@@ -405,6 +514,7 @@
       color: var(--text-secondary);
       line-height: 1.5;
       margin: 0;
+      padding-right: 1rem;
     }
 
     /* ── Section Blocks ── */
@@ -414,14 +524,10 @@
       border: 1px solid var(--border);
       margin-bottom: 1.25rem;
       overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: border-color 0.2s;
     }
 
-    .section-block:hover {
-      box-shadow: var(--shadow-md);
-      transform: translateY(-1px);
-    }
+    .section-block:hover { border-color: #333945; }
 
     .section-header {
       padding: 1rem 1.25rem;
@@ -433,9 +539,7 @@
       user-select: none;
     }
 
-    .section-header:hover {
-      background: #fafaf8;
-    }
+    .section-header:hover { background: var(--surface-2); }
 
     .section-header-left {
       display: flex;
@@ -446,40 +550,39 @@
     .section-icon {
       width: 40px;
       height: 40px;
-      border-radius: 12px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       flex-shrink: 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
     .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
+      font-family: var(--cond);
+      font-size: 1.15rem;
       font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
     }
 
     .section-count {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: var(--text-muted);
       font-weight: 500;
     }
 
     .section-toggle {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: var(--text-muted);
       transition: transform 0.2s;
     }
 
-    .section-block.expanded .section-toggle {
-      transform: rotate(180deg);
-    }
+    .section-block.expanded .section-toggle { transform: rotate(180deg); }
 
     .section-summary {
       padding: 0 1.25rem 0.75rem;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       color: var(--text-secondary);
       line-height: 1.5;
     }
@@ -489,23 +592,54 @@
       border-top: 1px solid var(--border);
     }
 
-    .section-block.expanded .section-items {
-      display: block;
+    .section-block.expanded .section-items { display: block; }
+
+    /* ── Filter chip ── */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: var(--accent-dim);
+      border: 1px solid rgba(245,166,35,0.45);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.3rem 0.7rem;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .filter-chip:hover { background: rgba(245,166,35,0.25); }
+    .filter-chip .x { font-weight: 900; }
+
+    .chart-hint {
+      font-size: 0.66rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
     }
 
     /* ── Item Cards ── */
     .item-card {
       padding: 0.9rem 1.25rem;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--border-soft);
       border-left: 3px solid transparent;
       cursor: pointer;
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: background 0.15s, border-color 0.15s, padding 0.15s;
     }
 
     .item-card:last-child { border-bottom: none; }
 
     .item-card:hover {
-      background: linear-gradient(90deg, #f8fafc, transparent);
+      background: var(--surface-2);
       border-left-color: var(--accent);
       padding-left: 1.5rem;
     }
@@ -525,41 +659,53 @@
     }
 
     .item-agency {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       color: var(--text-muted);
       margin-top: 0.2rem;
     }
 
+    .item-agency a {
+      color: var(--text-muted);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--text-muted);
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .item-agency a:hover { color: var(--accent); border-color: var(--accent); }
+
     .item-meta {
       display: flex;
-      gap: 0.75rem;
+      gap: 0.4rem;
       flex-wrap: wrap;
-      margin-top: 0.4rem;
+      margin-top: 0.45rem;
     }
 
     .item-tag {
-      font-size: 0.68rem;
-      padding: 0.2rem 0.6rem;
+      font-size: 0.66rem;
+      padding: 0.18rem 0.55rem;
       border-radius: 100px;
       font-weight: 600;
       white-space: nowrap;
     }
 
+    a.item-tag { text-decoration: none; transition: filter 0.15s; }
+    a.item-tag:hover { filter: brightness(1.35); }
+
     .tag-procurement { background: var(--procurement-bg); color: var(--procurement-blue); }
     .tag-personnel { background: var(--personnel-bg); color: var(--personnel-amber); }
     .tag-hearing { background: var(--hearing-bg); color: var(--hearing-purple); }
     .tag-parks { background: var(--parks-green-light); color: var(--parks-green); }
-    .tag-amount { background: #f0f0f0; color: var(--text-secondary); }
-    .tag-due { background: #fff8e1; color: #f57f17; }
-    .tag-category { background: #f5f5f5; color: var(--text-secondary); }
+    .tag-amount { background: rgba(245,166,35,0.14); color: var(--accent); }
+    .tag-due { background: rgba(255,169,77,0.14); color: #ffb85c; }
+    .tag-category { background: rgba(255,255,255,0.07); color: var(--text-secondary); }
 
     .parks-highlight {
       border-left: 3px solid var(--parks-green) !important;
-      background: var(--parks-green-light) !important;
+      background: rgba(81,207,102,0.06) !important;
     }
 
     .parks-highlight:hover {
-      background: #d5edda !important;
+      background: rgba(81,207,102,0.12) !important;
     }
 
     .item-expand-icon {
@@ -573,15 +719,13 @@
     .item-detail {
       display: none;
       padding: 0.75rem 1.25rem 1rem;
-      background: #fafaf8;
-      border-top: 1px solid #eee;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
       font-size: 0.88rem;
       animation: slideDown 0.2s ease;
     }
 
-    .item-card.detail-open .item-detail {
-      display: block;
-    }
+    .item-card.detail-open .item-detail { display: block; }
 
     @keyframes slideDown {
       from { opacity: 0; transform: translateY(-5px); }
@@ -597,37 +741,44 @@
 
     .detail-field label {
       display: block;
-      font-size: 0.7rem;
+      font-size: 0.66rem;
       color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      font-weight: 600;
+      letter-spacing: 0.08em;
+      font-weight: 700;
       margin-bottom: 0.1rem;
     }
 
     .detail-field span {
       color: var(--text);
       font-size: 0.85rem;
+      word-break: break-word;
     }
+
+    .detail-field a { color: var(--accent); text-decoration: none; }
+    .detail-field a:hover { text-decoration: underline; }
 
     .detail-description {
       margin-top: 0.5rem;
-      padding: 0.75rem;
-      background: white;
-      border-radius: 6px;
+      padding: 0.85rem;
+      background: var(--surface);
+      border-radius: 8px;
       border: 1px solid var(--border);
       font-size: 0.85rem;
       line-height: 1.6;
       color: var(--text-secondary);
       white-space: pre-wrap;
+      overflow-wrap: anywhere;
     }
+
+    .detail-description a { color: var(--accent); }
 
     /* ── Modal Overlay ── */
     .modal-overlay {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(15,23,42,0.4);
+      background: rgba(0,0,0,0.6);
       backdrop-filter: blur(4px);
       -webkit-backdrop-filter: blur(4px);
       z-index: 1000;
@@ -636,12 +787,11 @@
       padding: 2rem;
     }
 
-    .modal-overlay.active {
-      display: flex;
-    }
+    .modal-overlay.active { display: flex; }
 
     .modal {
       background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       max-width: 700px;
       width: 100%;
@@ -652,7 +802,7 @@
     }
 
     @keyframes modalIn {
-      from { opacity: 0; transform: scale(0.95); }
+      from { opacity: 0; transform: scale(0.96); }
       to { opacity: 1; transform: scale(1); }
     }
 
@@ -663,12 +813,16 @@
       align-items: flex-start;
       justify-content: space-between;
       gap: 1rem;
+      position: sticky;
+      top: 0;
+      background: var(--surface);
     }
 
     .modal-header h2 {
-      font-size: 1.15rem;
+      font-family: var(--cond);
+      font-size: 1.2rem;
       font-weight: 700;
-      line-height: 1.4;
+      line-height: 1.35;
     }
 
     .modal-close {
@@ -684,23 +838,16 @@
 
     .modal-close:hover { color: var(--text); }
 
-    .modal-body {
-      padding: 1.5rem;
-    }
+    .modal-body { padding: 1.5rem; }
 
-    .modal-body .detail-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .modal-body .detail-description {
-      margin-top: 1rem;
-    }
+    .modal-body .detail-grid { grid-template-columns: 1fr 1fr; }
+    .modal-body .detail-description { margin-top: 1rem; background: var(--bg); }
 
     .modal-tags {
       display: flex;
       gap: 0.5rem;
       flex-wrap: wrap;
-      margin-top: 0.75rem;
+      margin-bottom: 0.75rem;
     }
 
     /* ── Past Records Link ── */
@@ -714,55 +861,56 @@
     }
 
     .past-records h3 {
-      font-size: 1rem;
+      font-family: var(--cond);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
       color: var(--text-secondary);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
 
-    .past-records p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
+    .past-records p { font-size: 0.82rem; color: var(--text-muted); }
 
     /* ── Footer ── */
     .footer {
       text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.78rem;
+      padding: 2rem 1rem 2.5rem;
+      font-size: 0.75rem;
       color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      max-width: 700px;
+      margin: 0 auto;
     }
 
-    .footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+    .footer a { color: var(--accent); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
 
     /* ── Charts ── */
     .chart-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-top: 1.25rem;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
     }
 
     .chart-card {
-      background: linear-gradient(135deg, #fafbff, #f8fafc);
+      background: var(--surface);
       border-radius: var(--radius);
       border: 1px solid var(--border);
-      padding: 1.25rem;
-      transition: all 0.2s;
+      padding: 1.1rem 1.2rem;
+      transition: border-color 0.2s;
     }
 
-    .chart-card:hover {
-      box-shadow: var(--shadow-sm);
-    }
+    .chart-card:hover { border-color: #333945; }
 
     .chart-card h3 {
-      font-size: 0.72rem;
+      font-family: var(--cond);
+      font-size: 0.74rem;
       font-weight: 700;
       color: var(--accent);
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.12em;
       margin-bottom: 0.85rem;
     }
 
@@ -776,10 +924,16 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      border-radius: 6px;
+      padding: 0.1rem 0.25rem;
     }
 
+    .bar-row[data-flt] { cursor: pointer; }
+    .bar-row[data-flt]:hover { background: var(--surface-2); }
+    .bar-row.flt-active { background: var(--accent-dim); }
+
     .bar-label {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--text-secondary);
       min-width: 120px;
       text-align: right;
@@ -790,8 +944,8 @@
 
     .bar-track {
       flex: 1;
-      height: 22px;
-      background: var(--bg);
+      height: 18px;
+      background: rgba(255,255,255,0.05);
       border-radius: 100px;
       overflow: hidden;
     }
@@ -801,13 +955,15 @@
       border-radius: 100px;
       transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
       min-width: 2px;
+      opacity: 0.9;
     }
 
     .bar-value {
-      font-size: 0.72rem;
+      font-family: var(--cond);
+      font-size: 0.74rem;
       font-weight: 700;
       color: var(--text-secondary);
-      min-width: 30px;
+      min-width: 34px;
     }
 
     .donut-container {
@@ -825,16 +981,23 @@
     .donut-legend {
       display: flex;
       flex-direction: column;
-      gap: 0.3rem;
+      gap: 0.25rem;
+      min-width: 0;
     }
 
     .donut-legend-item {
       display: flex;
       align-items: center;
       gap: 0.4rem;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--text-secondary);
+      border-radius: 6px;
+      padding: 0.12rem 0.3rem;
     }
+
+    .donut-legend-item[data-flt] { cursor: pointer; }
+    .donut-legend-item[data-flt]:hover { background: var(--surface-2); }
+    .donut-legend-item.flt-active { background: var(--accent-dim); }
 
     .donut-legend-dot {
       width: 10px;
@@ -845,33 +1008,34 @@
 
     /* ── AI Summary ── */
     .ai-summary {
-      background: linear-gradient(135deg, #faf5ff 0%, #eff6ff 50%, #f0fdf4 100%);
-      border: 1px solid rgba(139,92,246,0.15);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
       border-radius: var(--radius);
-      padding: 1.5rem;
-      margin-bottom: 1rem;
-      position: relative;
+      padding: 1.25rem 1.4rem;
+      margin-bottom: 1.25rem;
     }
 
     .ai-summary-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      font-size: 0.65rem;
+      font-family: var(--cond);
+      font-size: 0.66rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #7c3aed;
-      margin-bottom: 0.75rem;
-      background: rgba(124,58,237,0.08);
-      padding: 0.25rem 0.6rem;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 0.7rem;
+      background: var(--accent-dim);
+      padding: 0.25rem 0.65rem;
       border-radius: 100px;
     }
 
     .ai-summary-badge .dot {
       width: 6px;
       height: 6px;
-      background: #7c3aed;
+      background: var(--accent);
       border-radius: 50%;
       animation: pulse 2s ease-in-out infinite;
     }
@@ -895,15 +1059,15 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      color: #6a5acd;
-      font-size: 0.88rem;
+      color: var(--accent);
+      font-size: 0.85rem;
     }
 
     .ai-loading .spinner {
       width: 16px;
       height: 16px;
-      border: 2px solid #d4d0f0;
-      border-top-color: #6a5acd;
+      border: 2px solid var(--border);
+      border-top-color: var(--accent);
       border-radius: 50%;
       animation: spin 0.8s linear infinite;
     }
@@ -915,13 +1079,13 @@
       right: 1.5rem;
       width: 42px;
       height: 42px;
-      border-radius: 14px;
-      background: var(--text);
-      color: white;
-      border: none;
+      border-radius: 12px;
+      background: var(--surface-2);
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
       cursor: pointer;
       font-size: 1.1rem;
-      box-shadow: var(--shadow-lg);
+      box-shadow: var(--shadow-md);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -929,13 +1093,13 @@
       transition: all 0.2s;
     }
 
-    .settings-btn:hover { transform: scale(1.08) rotate(30deg); }
+    .settings-btn:hover { transform: scale(1.08) rotate(30deg); color: var(--accent); border-color: var(--accent); }
 
     .settings-modal {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.6);
       z-index: 1001;
       align-items: center;
       justify-content: center;
@@ -946,6 +1110,7 @@
 
     .settings-panel {
       background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       max-width: 480px;
       width: 100%;
@@ -954,7 +1119,10 @@
     }
 
     .settings-panel h2 {
+      font-family: var(--cond);
       font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
       margin-bottom: 1rem;
     }
 
@@ -974,6 +1142,8 @@
       font-family: inherit;
       font-size: 0.9rem;
       margin-bottom: 1rem;
+      background: var(--bg);
+      color: var(--text);
     }
 
     .settings-panel .btn-row {
@@ -990,11 +1160,13 @@
       font-family: inherit;
       font-size: 0.85rem;
       font-weight: 600;
+      background: var(--surface-2);
+      color: var(--text);
     }
 
     .settings-panel .btn-primary {
       background: var(--accent);
-      color: white;
+      color: #17130a;
       border-color: var(--accent);
     }
 
@@ -1004,26 +1176,26 @@
       margin-bottom: 0.75rem;
     }
 
-    .settings-panel .status.connected { color: #2d6a4f; }
+    .settings-panel .status.connected { color: var(--parks-green); }
 
     /* ── Inline Map ── */
     .map-btn {
       display: inline-flex;
       align-items: center;
       gap: 0.3rem;
-      font-size: 0.72rem;
-      font-weight: 600;
+      font-size: 0.7rem;
+      font-weight: 700;
       padding: 0.2rem 0.55rem;
-      border-radius: 4px;
-      background: #e8f5e9;
-      color: #2e7d32;
+      border-radius: 5px;
+      background: var(--parks-green-light);
+      color: var(--parks-green);
       cursor: pointer;
-      border: none;
+      border: 1px solid var(--parks-green-border);
       font-family: inherit;
       transition: background 0.12s;
     }
 
-    .map-btn:hover { background: #c8e6c9; }
+    .map-btn:hover { background: rgba(81,207,102,0.25); }
 
     .inline-map-container {
       margin-top: 0.5rem;
@@ -1036,16 +1208,18 @@
     .inline-map {
       height: 200px;
       width: 100%;
+      background: var(--surface-2);
     }
 
     .map-address-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 0.5rem;
       padding: 0.4rem 0.6rem;
-      background: #f9f9f7;
+      background: var(--surface-2);
       border-top: 1px solid var(--border);
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--text-secondary);
     }
 
@@ -1053,18 +1227,18 @@
       color: var(--accent);
       text-decoration: none;
       font-weight: 600;
+      white-space: nowrap;
     }
 
     .map-address-bar a:hover { text-decoration: underline; }
 
     /* ── Overview City Map ── */
     .overview-city-map {
-      background: var(--card-bg);
-      border-radius: 16px;
+      background: var(--surface);
+      border-radius: var(--radius-lg);
       border: 1px solid var(--border);
       overflow: hidden;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      margin: 1.25rem 0;
     }
     .overview-city-map-header {
       display: flex;
@@ -1072,11 +1246,16 @@
       justify-content: space-between;
       padding: 0.75rem 1rem;
       border-bottom: 1px solid var(--border);
+      gap: 0.75rem;
+      flex-wrap: wrap;
     }
     .overview-city-map-header h3 {
-      font-size: 0.95rem;
+      font-family: var(--cond);
+      font-size: 0.8rem;
       font-weight: 700;
-      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
       margin: 0;
     }
     .overview-city-map-header .map-legend {
@@ -1088,7 +1267,7 @@
       display: flex;
       align-items: center;
       gap: 0.3rem;
-      font-size: 0.7rem;
+      font-size: 0.66rem;
       color: var(--text-muted);
     }
     .map-legend-dot {
@@ -1100,10 +1279,30 @@
     #overview-city-map-container {
       height: 350px;
       width: 100%;
+      background: var(--surface-2);
     }
     @media (max-width: 768px) {
       #overview-city-map-container { height: 260px; }
     }
+
+    /* Leaflet dark theming */
+    .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+      background: var(--surface-2);
+      color: var(--text);
+      box-shadow: var(--shadow-md);
+    }
+    .leaflet-container a.leaflet-popup-close-button { color: var(--text-muted); }
+    .leaflet-bar a {
+      background: var(--surface-2);
+      color: var(--text);
+      border-bottom-color: var(--border);
+    }
+    .leaflet-bar a:hover { background: var(--surface); }
+    .leaflet-control-attribution {
+      background: rgba(12,13,16,0.7) !important;
+      color: var(--text-muted) !important;
+    }
+    .leaflet-control-attribution a { color: var(--text-secondary) !important; }
     .leaflet-popup-content {
       font-family: inherit;
       font-size: 0.82rem;
@@ -1149,29 +1348,29 @@
       border-top: 1px solid var(--border);
     }
     .detail-links a {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 600;
-      color: var(--accent);
+      color: var(--text-secondary);
       text-decoration: none;
       padding: 0.35rem 0.75rem;
       border-radius: 100px;
       border: 1px solid var(--border);
-      background: var(--bg);
+      background: var(--surface-2);
       transition: all 0.15s;
     }
     .detail-links a:hover {
       background: var(--accent);
-      color: white;
+      color: #17130a;
       border-color: var(--accent);
     }
     .detail-links .zoom-link {
-      background: #dbeafe;
-      border-color: #93c5fd;
-      color: #1d4ed8;
+      background: var(--procurement-bg);
+      border-color: rgba(90,162,255,0.4);
+      color: var(--procurement-blue);
     }
     .detail-links .zoom-link:hover {
-      background: #2563eb;
-      color: white;
+      background: var(--procurement-blue);
+      color: #0c0d10;
     }
 
     /* ── Quick Links on Cards ── */
@@ -1182,88 +1381,92 @@
       margin-top: 0.5rem;
     }
     .item-quick-links a {
-      font-size: 0.68rem;
-      font-weight: 600;
+      font-size: 0.66rem;
+      font-weight: 700;
       text-decoration: none;
-      padding: 0.2rem 0.55rem;
+      padding: 0.18rem 0.55rem;
       border-radius: 100px;
       transition: all 0.15s;
       display: inline-flex;
       align-items: center;
       gap: 0.25rem;
+      border: 1px solid transparent;
     }
-    .item-quick-links a:hover { transform: translateY(-1px); }
+    .item-quick-links a:hover { transform: translateY(-1px); filter: brightness(1.25); }
     .qlink-wiki {
-      background: #f0f0f0;
-      color: #333;
-      border: 1px solid #ddd;
+      background: rgba(255,255,255,0.07);
+      color: var(--text-secondary);
+      border-color: var(--border);
     }
-    .qlink-wiki:hover { background: #333; color: white !important; border-color: #333; }
     .qlink-agency {
-      background: #e3f2fd;
-      color: #1565c0;
-      border: 1px solid #bbdefb;
+      background: var(--procurement-bg);
+      color: var(--procurement-blue);
+      border-color: rgba(90,162,255,0.3);
     }
-    .qlink-agency:hover { background: #1565c0; color: white !important; border-color: #1565c0; }
     .qlink-record {
-      background: #e8f5e9;
-      color: #2e7d32;
-      border: 1px solid #c8e6c9;
+      background: var(--parks-green-light);
+      color: var(--parks-green);
+      border-color: rgba(81,207,102,0.3);
     }
-    .qlink-record:hover { background: #2e7d32; color: white !important; border-color: #2e7d32; }
     .qlink-passport {
-      background: #fff3e0;
-      color: #e65100;
-      border: 1px solid #ffe0b2;
+      background: var(--personnel-bg);
+      color: var(--personnel-amber);
+      border-color: rgba(255,169,77,0.3);
     }
-    .qlink-passport:hover { background: #e65100; color: white !important; border-color: #e65100; }
+    .qlink-money {
+      background: rgba(245,166,35,0.12);
+      color: var(--accent);
+      border-color: rgba(245,166,35,0.3);
+    }
     .qlink-zoom {
-      background: #dbeafe;
-      color: #1d4ed8;
-      border: 1px solid #93c5fd;
+      background: var(--procurement-bg);
+      color: var(--procurement-blue);
+      border-color: rgba(90,162,255,0.3);
     }
-    .qlink-zoom:hover { background: #1d4ed8; color: white !important; border-color: #1d4ed8; }
     .qlink-form {
-      background: #fce4ec;
-      color: #c62828;
-      border: 1px solid #f8bbd0;
+      background: var(--rule-bg);
+      color: var(--rule-red);
+      border-color: rgba(255,107,107,0.3);
     }
-    .qlink-form:hover { background: #c62828; color: white !important; border-color: #c62828; }
 
     /* ── Responsive ── */
     @media (max-width: 768px) {
-      .masthead { padding: 1.25rem 1rem 1rem; }
-      .masthead h1 { font-size: 1.35rem; }
-      .masthead .subtitle { font-size: 0.6rem; letter-spacing: 0.12em; }
+      .masthead { padding: 1.5rem 1rem 1rem; }
+      .masthead h1 { font-size: 2rem; }
+      .masthead .subtitle { font-size: 0.56rem; letter-spacing: 0.18em; }
+      .scanner-link { position: static; display: inline-block; margin-top: 0.6rem; }
       .chart-row { grid-template-columns: 1fr; }
       .detail-grid { grid-template-columns: 1fr; }
-      .modal { margin: 0.5rem; max-height: 95vh; border-radius: 16px; }
+      .modal { margin: 0.5rem; max-height: 95vh; border-radius: 14px; }
       .modal-overlay { padding: 0.5rem; }
       .modal-body .detail-grid { grid-template-columns: 1fr; }
       .date-display { min-width: auto; }
       .date-bar { padding: 0.5rem 0.75rem; gap: 0.5rem; }
-      .date-label { font-size: 0.65rem; }
+      .date-label { font-size: 0.56rem; }
       .date-display input[type="date"] { font-size: 0.9rem; padding: 0.3rem 0.5rem; }
-      .tab-bar { gap: 0.25rem; padding: 0.35rem; margin-bottom: 1rem; }
-      .tab-item { padding: 0.5rem 0.7rem; border-radius: 10px; }
-      .tab-item .tab-count { font-size: 1rem; }
+      .tab-bar { gap: 0.25rem; padding: 0.3rem; margin-bottom: 1rem; border-radius: 12px; }
+      .tab-item { padding: 0.45rem 0.7rem; border-radius: 9px; }
+      .tab-item .tab-count { font-size: 1.05rem; }
       .tab-item .tab-label { font-size: 0.5rem; }
-      .container { padding: 0.75rem; }
-      .overview-panel { padding: 1.25rem; border-radius: 16px; }
-      .overview-panel h2 { font-size: 1.1rem; margin-bottom: 0.75rem; }
+      .container { padding: 0.75rem 0.75rem 2.5rem; }
+      .overview-panel > h2 { font-size: 1.3rem; }
       .ai-summary { padding: 1rem; }
       .ai-summary-text { font-size: 0.85rem; line-height: 1.55; }
       .overview-highlights { grid-template-columns: 1fr; gap: 0.6rem; }
       .overview-section-digest { padding: 1rem; border-radius: 14px; }
-      .overview-section-title { font-size: 0.95rem; }
+      .overview-section-title { font-size: 1rem; }
+      .lede-stats { grid-template-columns: repeat(2, 1fr); }
+      .keydate-agency { display: none; }
+      .bar-label { min-width: 0; flex: 0 0 40%; font-size: 0.66rem; }
+      .bar-track { height: 14px; }
       .donut-container { flex-direction: column; align-items: flex-start; }
       .donut-svg { width: 100px; height: 100px; }
-      .settings-btn { width: 38px; height: 38px; border-radius: 12px; font-size: 1rem; bottom: 1rem; right: 1rem; }
+      .settings-btn { width: 38px; height: 38px; border-radius: 11px; font-size: 1rem; bottom: 1rem; right: 1rem; }
     }
 
     @media (max-width: 380px) {
       .tab-item { padding: 0.4rem 0.5rem; }
-      .tab-item .tab-count { font-size: 0.9rem; }
+      .tab-item .tab-count { font-size: 0.95rem; }
       .tab-item .tab-label { font-size: 0.45rem; }
     }
 
@@ -1271,58 +1474,73 @@
     .overview-section-digests {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
+      gap: 1rem;
+      margin-top: 0.75rem;
     }
     .overview-section-digest {
-      background: white;
+      background: var(--surface);
       border-radius: var(--radius-lg);
-      padding: 1.5rem;
-      box-shadow: var(--shadow-sm);
+      padding: 1.25rem 1.4rem;
       border: 1px solid var(--border);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: border-color 0.2s;
       position: relative;
       overflow: hidden;
     }
 
-    .overview-section-digest:hover {
-      box-shadow: var(--shadow-md);
-      transform: translateY(-2px);
-    }
+    .overview-section-digest:hover { border-color: #333945; }
+
     .overview-section-header {
       display: flex;
       align-items: center;
       gap: 0.75rem;
       padding-left: 0.75rem;
       margin-bottom: 0.75rem;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: background 0.15s;
     }
+    .overview-section-header:hover { background: var(--surface-2); }
+    .overview-section-header:hover .overview-section-open { color: var(--accent); }
     .overview-section-icon {
       width: 40px;
       height: 40px;
-      border-radius: 12px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       flex-shrink: 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
     .overview-section-title {
-      font-family: 'Playfair Display', serif;
+      font-family: var(--cond);
       font-size: 1.1rem;
       font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
       color: var(--text);
       margin: 0;
     }
     .overview-section-count {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: var(--text-muted);
       font-weight: 500;
     }
-    .overview-section-summary {
-      font-size: 0.88rem;
+    .overview-section-open {
+      margin-left: auto;
+      font-family: var(--cond);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
       color: var(--text-muted);
-      line-height: 1.5;
+      white-space: nowrap;
+      padding-right: 0.5rem;
+      transition: color 0.15s;
+    }
+    .overview-section-summary {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
       margin-bottom: 0.5rem;
     }
     .overview-section-addresses {
@@ -1336,39 +1554,55 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 0.4rem;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: var(--text);
-      padding: 0.4rem 0.6rem;
-      background: var(--bg);
-      border-radius: 6px;
+      padding: 0.45rem 0.6rem;
+      background: var(--surface-2);
+      border-radius: 8px;
+      transition: background 0.15s;
     }
+    .overview-address-item:hover { background: #22262f; }
     .overview-address-pin { font-size: 0.9rem; }
     .overview-address-text { flex: 1; min-width: 150px; }
     .overview-address-item .map-toggle-btn {
-      font-size: 0.72rem;
-      padding: 0.2rem 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
       border: 1px solid var(--border);
-      background: white;
-      border-radius: 4px;
+      background: var(--surface);
+      border-radius: 5px;
       cursor: pointer;
-      color: var(--primary);
+      color: var(--accent);
     }
-    .overview-address-item .map-toggle-btn:hover { background: var(--bg); }
+    .overview-address-item .map-toggle-btn:hover { border-color: var(--accent); }
     .overview-address-item .inline-map-container {
       width: 100%;
       margin-top: 0.4rem;
     }
-    .overview-section-digest .chart-row {
-      margin-top: 0.5rem;
+    .overview-section-digest .chart-row { margin-top: 0.5rem; }
+
+    /* Data source notes */
+    .source-note {
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.76rem;
+      color: var(--text-muted);
     }
+    .source-note strong { color: var(--text-secondary); }
+    .source-note a { color: var(--accent); font-weight: 600; text-decoration: none; }
+    .source-note a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
   <!-- Masthead -->
   <header class="masthead">
+    <div class="kicker">New York City &middot; Official Journal</div>
     <h1>The City Record</h1>
-    <div class="subtitle">Unofficial Dashboard &middot; New York City Open Data</div>
+    <div class="subtitle">Unofficial Daily Digest &middot; NYC Open Data</div>
   </header>
 
   <!-- Date Navigation -->
@@ -1454,43 +1688,43 @@
     // Section configuration: icon, color theme, and sort priority
     const SECTION_CONFIG = {
       'Procurement': {
-        icon: '📋', bg: '#e3f2fd', color: '#1565c0', priority: 1,
+        icon: '📋', bg: 'rgba(90,162,255,0.14)', color: '#5aa2ff', priority: 1,
         tagClass: 'tag-procurement'
       },
       'Contract Award Hearings': {
-        icon: '🔨', bg: '#e8eaf6', color: '#283593', priority: 2,
+        icon: '🔨', bg: 'rgba(143,155,255,0.14)', color: '#8f9bff', priority: 2,
         tagClass: 'tag-procurement'
       },
       'Public Comment on Contract Awards': {
-        icon: '💬', bg: '#ede7f6', color: '#4527a0', priority: 3,
+        icon: '💬', bg: 'rgba(177,140,255,0.14)', color: '#b18cff', priority: 3,
         tagClass: 'tag-hearing'
       },
       'Public Hearings and Meetings': {
-        icon: '🏛️', bg: '#f3e5f5', color: '#6a1b9a', priority: 4,
+        icon: '🏛️', bg: 'rgba(199,125,255,0.14)', color: '#c77dff', priority: 4,
         tagClass: 'tag-hearing'
       },
       'Agency Rules': {
-        icon: '⚖️', bg: '#fce4ec', color: '#b71c1c', priority: 5,
+        icon: '⚖️', bg: 'rgba(255,107,107,0.14)', color: '#ff6b6b', priority: 5,
         tagClass: 'tag-category'
       },
       'Changes in Personnel': {
-        icon: '👤', bg: '#fff3e0', color: '#e65100', priority: 6,
+        icon: '👤', bg: 'rgba(255,169,77,0.14)', color: '#ffa94d', priority: 6,
         tagClass: 'tag-personnel'
       },
       'Property Disposition': {
-        icon: '🏢', bg: '#e0f2f1', color: '#00695c', priority: 7,
+        icon: '🏢', bg: 'rgba(61,218,208,0.14)', color: '#3ddad0', priority: 7,
         tagClass: 'tag-category'
       },
       'Court Notices': {
-        icon: '🏛️', bg: '#efebe9', color: '#4e342e', priority: 8,
+        icon: '🏛️', bg: 'rgba(208,169,126,0.14)', color: '#d0a97e', priority: 8,
         tagClass: 'tag-category'
       },
       'Special Materials': {
-        icon: '📄', bg: '#f5f5f5', color: '#616161', priority: 9,
+        icon: '📄', bg: 'rgba(154,164,178,0.14)', color: '#9aa4b2', priority: 9,
         tagClass: 'tag-category'
       },
       '_default': {
-        icon: '📌', bg: '#f5f5f5', color: '#616161', priority: 99,
+        icon: '📌', bg: 'rgba(154,164,178,0.14)', color: '#9aa4b2', priority: 99,
         tagClass: 'tag-category'
       }
     };
@@ -1552,6 +1786,11 @@
       // PASSPort for procurement
       if (item.section_name === 'Procurement' || item.section_name === 'Contract Award Hearings') {
         links.push(`<a href="https://a858-login.nyc.gov/osp/a/th/page.html" target="_blank" rel="noopener" class="qlink-passport" onclick="event.stopPropagation()">🔑 PASSPort</a>`);
+      }
+
+      // Checkbook NYC — trace the money for contract notices
+      if (item.contract_amount && parseFloat(item.contract_amount) > 0) {
+        links.push(`<a href="https://www.checkbooknyc.com/" target="_blank" rel="noopener" class="qlink-money" onclick="event.stopPropagation()" title="NYC spending transparency">💵 Checkbook NYC</a>`);
       }
 
       // Wikipedia — only for specific named places, buildings, parks (not generic titles)
@@ -1690,11 +1929,13 @@
             'Content-Type': 'application/json',
             'x-api-key': apiKey,
             'anthropic-version': '2023-06-01',
+            'anthropic-beta': 'server-side-fallback-2026-06-01',
             'anthropic-dangerous-direct-browser-access': 'true',
           },
           body: JSON.stringify({
-            model: 'claude-haiku-4-5-20251001',
+            model: 'claude-fable-5',
             max_tokens: 1024,
+            fallbacks: [{ model: 'claude-opus-4-8' }],
             system: systemPrompt,
             messages: [{ role: 'user', content: prompt }],
           }),
@@ -1707,7 +1948,12 @@
         }
 
         const result = await response.json();
-        return result.content[0].text;
+        if (result.stop_reason === 'refusal') {
+          console.warn('Claude declined the request', result.stop_details);
+          return null;
+        }
+        const textBlock = (result.content || []).find(b => b.type === 'text');
+        return textBlock ? textBlock.text : null;
       } catch (err) {
         console.error('Claude API call failed:', err);
         return null;
@@ -2046,6 +2292,7 @@
         const el = document.createElement('div');
         const cls = TAB_CLASS_MAP[tab.key] || 'tab-overview';
         el.className = `tab-item ${cls}${tab.key === currentTab ? ' active' : ''}`;
+        el.dataset.tabKey = tab.key;
         const config = SECTION_CONFIG[tab.key];
         const icon = tab.key === 'overview' ? '📊' : (tab.key === 'parks' ? '🌳' : (config ? config.icon : '📌'));
         el.innerHTML = `
@@ -2054,12 +2301,41 @@
         `;
         el.addEventListener('click', () => {
           currentTab = tab.key;
+          sectionFilter = null;
           container.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
           el.classList.add('active');
           renderCurrentTab();
         });
         container.appendChild(el);
       });
+    }
+
+    // Programmatically switch to a tab by key (section name, 'overview', 'parks')
+    function switchToTab(key) {
+      const el = document.querySelector(`#tab-bar .tab-item[data-tab-key="${CSS.escape(key)}"]`);
+      if (el) {
+        el.click();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // Per-section chart filter state (agency/category label, or null)
+    let sectionFilter = null;
+
+    function itemMatchesFilter(item, label) {
+      if (!label) return true;
+      const desc = item.additional_description_1 || '';
+      const reasonMatch = desc.match(/Reason For Change:\s*([^;]+)/i);
+      return item.agency_name === label ||
+        item.category_description === label ||
+        item.selection_method_description === label ||
+        item.section_name === label ||
+        (reasonMatch && reasonMatch[1].trim() === label);
+    }
+
+    function setSectionFilter(label) {
+      sectionFilter = (sectionFilter === label) ? null : label;
+      renderCurrentTab();
     }
 
     function renderCurrentTab() {
@@ -2079,10 +2355,19 @@
         const sectionEntries = Object.entries(bySection).sort((a, b) => b[1] - a[1]);
         if (sectionEntries.length > 1) {
           const chartsDiv = document.createElement('div');
-          chartsDiv.innerHTML = '<div class="chart-row">' + renderChartCard({ title: 'Parks Notices by Type', type: 'donut', data: sectionEntries }) + '</div>';
+          chartsDiv.innerHTML = '<div class="chart-row">' + renderChartCard({ title: 'Parks Notices by Type', type: 'donut', data: sectionEntries }) + '</div>' +
+            '<div class="chart-hint">Click a legend entry to filter the notices below.</div>';
           sectionsContainer.appendChild(chartsDiv);
+          attachChartFilters(chartsDiv);
         }
-        renderParksSpotlight(sectionsContainer, parksData, currentParksItems);
+        if (sectionFilter) {
+          const bar = document.createElement('div');
+          bar.className = 'filter-bar';
+          bar.innerHTML = `<span class="filter-chip">Filtered: ${escapeHtml(sectionFilter)} <span class="x">&times;</span></span>`;
+          bar.querySelector('.filter-chip').addEventListener('click', () => setSectionFilter(sectionFilter));
+          sectionsContainer.appendChild(bar);
+        }
+        renderParksSpotlight(sectionsContainer, parksData.filter(i => itemMatchesFilter(i, sectionFilter)), currentParksItems);
         // Auto-expand
         const block = sectionsContainer.querySelector('.section-block');
         if (block) block.classList.add('expanded');
@@ -2092,14 +2377,87 @@
         const chartsHtml = renderSectionCharts(currentTab, items);
         if (chartsHtml) {
           const chartsDiv = document.createElement('div');
-          chartsDiv.innerHTML = chartsHtml;
+          chartsDiv.innerHTML = chartsHtml +
+            '<div class="chart-hint">Click a chart row or legend entry to filter the notices below.</div>';
           sectionsContainer.appendChild(chartsDiv);
+          attachChartFilters(chartsDiv);
         }
-        renderSection(sectionsContainer, currentTab, items, currentParksItems);
+        if (sectionFilter) {
+          const bar = document.createElement('div');
+          bar.className = 'filter-bar';
+          bar.innerHTML = `<span class="filter-chip">Filtered: ${escapeHtml(sectionFilter)} <span class="x">&times;</span></span>`;
+          bar.querySelector('.filter-chip').addEventListener('click', () => setSectionFilter(sectionFilter));
+          sectionsContainer.appendChild(bar);
+        }
+        const visibleItems = items.filter(i => itemMatchesFilter(i, sectionFilter));
+        renderSection(sectionsContainer, currentTab, visibleItems, currentParksItems);
         // Auto-expand
         const block = sectionsContainer.querySelector('.section-block');
         if (block) block.classList.add('expanded');
       }
+    }
+
+    // Make chart bars, donut legends, and timeline rows interactive
+    function attachChartFilters(root) {
+      root.querySelectorAll('[data-flt]').forEach(el => {
+        if (el.dataset.flt === sectionFilter) el.classList.add('flt-active');
+        el.addEventListener('click', () => setSectionFilter(el.dataset.flt));
+      });
+      root.querySelectorAll('[data-item-id]').forEach(el => {
+        el.style.cursor = 'pointer';
+        el.addEventListener('click', () => navigateToItem(el.dataset.itemId));
+      });
+    }
+
+    // Jump to a section tab with a chart filter pre-applied
+    function openSectionFiltered(sectionKey, label) {
+      switchToTab(sectionKey);
+      sectionFilter = label;
+      renderCurrentTab();
+    }
+
+    // ── Lede stat strip (clickable) ──
+    function renderLedeStats(data, sections, parksItems) {
+      const stats = [];
+      stats.push({ num: data.length.toLocaleString(), lbl: 'Notices today', act: `document.querySelector('.overview-section-digests')?.scrollIntoView({behavior:'smooth'})` });
+      const totalDollars = data.reduce((s, i) => s + (parseFloat(i.contract_amount) > 0 ? parseFloat(i.contract_amount) : 0), 0);
+      if (totalDollars > 0 && sections['Procurement']) {
+        stats.push({ num: '$' + formatCurrency(totalDollars), lbl: 'Contract value', act: `switchToTab('Procurement')` });
+      }
+      const hearings = (sections['Public Hearings and Meetings'] || []).length;
+      if (hearings > 0) stats.push({ num: hearings, lbl: 'Hearings & meetings', act: `switchToTab('Public Hearings and Meetings')` });
+      const deadlines = data.filter(i => i.due_date).length;
+      if (deadlines > 0) stats.push({ num: deadlines, lbl: 'Open deadlines', act: `document.getElementById('keydates')?.scrollIntoView({behavior:'smooth'})` });
+      const personnel = (sections['Changes in Personnel'] || []).length;
+      if (personnel > 0) stats.push({ num: personnel.toLocaleString(), lbl: 'Personnel actions', act: `switchToTab('Changes in Personnel')` });
+      if (parksItems.size > 0) stats.push({ num: parksItems.size, lbl: 'Parks notices', act: `switchToTab('parks')` });
+      return `<div class="lede-stats">${stats.map(s =>
+        `<div class="lede-stat" onclick="${s.act}"><div class="num">${s.num}</div><div class="lbl">${s.lbl}</div></div>`
+      ).join('')}</div>`;
+    }
+
+    // ── Key dates list (clickable rows) ──
+    function renderKeyDates(data) {
+      const today = new Date(currentDate); today.setHours(0, 0, 0, 0);
+      const dated = data
+        .filter(i => i.due_date || (i.section_name === 'Public Hearings and Meetings' && i.end_date))
+        .map(i => ({ item: i, when: new Date(i.due_date || i.end_date) }))
+        .filter(d => !isNaN(d.when) && d.when >= today)
+        .sort((a, b) => a.when - b.when)
+        .slice(0, 6);
+      if (dated.length === 0) return '';
+      const rows = dated.map(({ item, when }) => {
+        const days = Math.ceil((when - today) / 86400000);
+        const color = days <= 7 ? '#ff6b6b' : days <= 30 ? '#ffa94d' : '#51cf66';
+        const whenStr = when.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + (days === 0 ? ' · Today' : ` · ${days}d`);
+        const kind = item.due_date ? 'Due' : 'Hearing';
+        return `<div class="keydate-row" data-item-id="${escapeHtml(item.request_id || '')}" title="View details">
+          <span class="keydate-when" style="color:${color}">${whenStr}</span>
+          <span class="keydate-title">${escapeHtml(item.short_title || 'Untitled')} <span style="color:var(--text-muted);font-weight:400;">(${kind})</span></span>
+          <span class="keydate-agency">${escapeHtml(item.agency_name || '')}</span>
+        </div>`;
+      }).join('');
+      return `<div class="keydates" id="keydates"><h3>Key Dates Ahead</h3>${rows}</div>`;
     }
 
     // ── Overview Panel ──
@@ -2152,13 +2510,14 @@
         }
 
         sectionDigests += `
-          <div class="overview-section-digest">
-            <div class="overview-section-header" style="border-left: 4px solid ${config.color};">
+          <div class="overview-section-digest" data-section="${escapeHtml(sectionName)}">
+            <div class="overview-section-header" style="border-left: 4px solid ${config.color};" onclick="switchToTab(this.closest('.overview-section-digest').dataset.section)" title="Open ${escapeHtml(sectionName)}">
               <span class="overview-section-icon" style="background:${config.bg};color:${config.color};">${config.icon}</span>
               <div>
                 <h3 class="overview-section-title">${sectionName}</h3>
                 <span class="overview-section-count">${items.length} notice${items.length !== 1 ? 's' : ''}</span>
               </div>
+              <span class="overview-section-open">Open section &rarr;</span>
             </div>
             <div class="ai-section-overview" id="ai-overview-section-${sectionId}">
               <div class="overview-section-summary">${summaryText}</div>
@@ -2175,13 +2534,14 @@
         const parksData = data.filter(i => parksItems.has(i.request_id));
         const parksSummary = generateParksSummary(parksData);
         parksDigest = `
-          <div class="overview-section-digest">
-            <div class="overview-section-header" style="border-left: 4px solid #2d6a4f;">
-              <span class="overview-section-icon" style="background:#e8f5e9;color:#2d6a4f;">🌳</span>
+          <div class="overview-section-digest" data-section="parks">
+            <div class="overview-section-header" style="border-left: 4px solid var(--parks-green);" onclick="switchToTab('parks')" title="Open Parks">
+              <span class="overview-section-icon" style="background:var(--parks-green-light);color:var(--parks-green);">🌳</span>
               <div>
                 <h3 class="overview-section-title">Parks & Recreation</h3>
                 <span class="overview-section-count">${parksItems.size} notice${parksItems.size !== 1 ? 's' : ''} across sections</span>
               </div>
+              <span class="overview-section-open">Open section &rarr;</span>
             </div>
             <div class="overview-section-summary">${parksSummary}</div>
           </div>
@@ -2190,12 +2550,14 @@
 
       panel.innerHTML = `
         <h2>Daily Briefing &mdash; ${dateStr}</h2>
+        ${renderLedeStats(data, sections, parksItems)}
         <div class="ai-summary" id="ai-overview">
           ${hasApiKey()
             ? '<div class="ai-loading"><div class="spinner"></div>Generating AI briefing...</div>'
             : `<div class="ai-summary-badge"><div class="dot"></div>Summary</div><div class="ai-summary-text">${overviewText}</div>`}
         </div>
         ${renderOverviewHighlights(data, sections, parksItems)}
+        ${renderKeyDates(data)}
         <div class="overview-city-map">
           <div class="overview-city-map-header">
             <h3>Today Across NYC</h3>
@@ -2203,12 +2565,26 @@
           </div>
           <div id="overview-city-map-container"></div>
         </div>
+        <div class="digest-kicker">Inside this issue</div>
         <div class="overview-section-digests">
           ${sectionDigests}
           ${parksDigest}
         </div>
         ${buildDataSourceNote(sections)}
       `;
+
+      // Wire up overview interactions: key-date + timeline rows open the item,
+      // chart rows/legends jump into the section with that filter applied
+      panel.querySelectorAll('[data-item-id]').forEach(el => {
+        el.style.cursor = 'pointer';
+        el.addEventListener('click', () => navigateToItem(el.dataset.itemId));
+      });
+      panel.querySelectorAll('.overview-section-digest [data-flt]').forEach(el => {
+        el.addEventListener('click', () => {
+          const sec = el.closest('.overview-section-digest').dataset.section;
+          if (sec) openSectionFiltered(sec, el.dataset.flt);
+        });
+      });
 
       // Initialize the overview city map
       setTimeout(() => initOverviewCityMap(data), 100);
@@ -2422,7 +2798,7 @@
         const pct = Math.max((value / maxVal) * 100, 2);
         const color = CHART_COLORS[i % CHART_COLORS.length];
         return `
-          <div class="bar-row">
+          <div class="bar-row" data-flt="${escapeHtml(label)}" title="Filter to ${escapeHtml(label)}">
             <div class="bar-label" title="${escapeHtml(label)}">${escapeHtml(label)}</div>
             <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${color}"></div></div>
             <div class="bar-value">$${formatCurrency(value)}</div>
@@ -2457,7 +2833,7 @@
           paths += `<path d="M${x1},${y1} A${r},${r} 0 ${largeArc},1 ${x2},${y2} L${ix1},${iy1} A${r2},${r2} 0 ${largeArc},0 ${ix2},${iy2} Z" fill="${color}" opacity="0.85"/>`;
         }
         currentAngle = endAngle;
-        legendHtml += `<div class="donut-legend-item"><div class="donut-legend-dot" style="background:${color}"></div>${escapeHtml(name)} (${count})</div>`;
+        legendHtml += `<div class="donut-legend-item" data-flt="${escapeHtml(name)}" title="Filter to ${escapeHtml(name)}"><div class="donut-legend-dot" style="background:${color}"></div>${escapeHtml(name)} (${count})</div>`;
       });
 
       return `<svg class="donut-svg" viewBox="0 0 120 120">${paths}</svg><div class="donut-legend">${legendHtml}</div>`;
@@ -2469,9 +2845,9 @@
           const due = new Date(item.due_date || item.end_date || item.start_date);
           const dueStr = isNaN(due) ? 'TBD' : due.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
           const daysOut = isNaN(due) ? null : Math.ceil((due - currentDate) / (1000 * 60 * 60 * 24));
-          const urgency = daysOut === null ? '#888' : daysOut <= 7 ? '#e53935' : daysOut <= 30 ? '#f57f17' : '#43a047';
+          const urgency = daysOut === null ? '#7e8591' : daysOut <= 7 ? '#ff6b6b' : daysOut <= 30 ? '#ffa94d' : '#51cf66';
           return `
-            <div style="display:flex;align-items:center;gap:0.6rem;">
+            <div data-item-id="${escapeHtml(item.request_id || '')}" title="View details" style="display:flex;align-items:center;gap:0.6rem;border-radius:6px;padding:0.1rem 0.25rem;">
               <div style="min-width:90px;font-size:0.78rem;font-weight:700;color:${urgency};">${dueStr}</div>
               <div style="width:3px;height:28px;background:${urgency};border-radius:2px;flex-shrink:0;"></div>
               <div style="flex:1;">
@@ -2493,15 +2869,15 @@
 
       // Show PDF supplemented sections
       if (fromPdf.length > 0) {
-        html += `<div style="margin-top:1rem;padding:0.75rem 1rem;background:#eef2ff;border:1px solid #c7d2fe;border-radius:10px;font-size:0.78rem;color:#3730a3;">
-          <strong>📄 PDF data:</strong> ${fromPdf.join(', ')} sourced from the <a href="https://www.nyc.gov/site/dcas/about/city-record.page" target="_blank" style="color:#3730a3;font-weight:600;">printed edition</a> (API not yet updated).
+        html += `<div class="source-note">
+          <strong>📄 PDF data:</strong> ${fromPdf.join(', ')} sourced from the <a href="https://www.nyc.gov/site/dcas/about/city-record.page" target="_blank">printed edition</a> (API not yet updated).
         </div>`;
       }
 
       // Show still-missing sections
       if (missing.length > 0) {
-        html += `<div style="margin-top:${fromPdf.length > 0 ? '0.5' : '1'}rem;padding:0.75rem 1rem;background:#fff8e1;border:1px solid #ffe082;border-radius:10px;font-size:0.78rem;color:#6d4c00;">
-          <strong>Note:</strong> Some sections (${missing.join(', ')}) may not appear because the <a href="https://data.cityofnewyork.us/City-Government/City-Record-Online/dg92-zbpx" target="_blank" style="color:#6d4c00;font-weight:600;">NYC Open Data API</a> updates on a delay. The full printed edition is available at <a href="https://www.nyc.gov/site/dcas/about/city-record.page" target="_blank" style="color:#6d4c00;font-weight:600;">nyc.gov/cityrecord</a>.
+        html += `<div class="source-note">
+          <strong>Note:</strong> Some sections (${missing.join(', ')}) may not appear because the <a href="https://data.cityofnewyork.us/City-Government/City-Record-Online/dg92-zbpx" target="_blank">NYC Open Data API</a> updates on a delay. The full printed edition is available at <a href="https://www.nyc.gov/site/dcas/about/city-record.page" target="_blank">nyc.gov/cityrecord</a>.
         </div>`;
       }
 
@@ -2603,7 +2979,7 @@
         const pct = Math.max((value / maxVal) * 100, 2);
         const color = CHART_COLORS[i % CHART_COLORS.length];
         return `
-          <div class="bar-row">
+          <div class="bar-row" data-flt="${escapeHtml(label)}" title="Filter to ${escapeHtml(label)}">
             <div class="bar-label" title="${escapeHtml(label)}">${escapeHtml(label)}</div>
             <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${color}"></div></div>
             <div class="bar-value">${value}</div>
@@ -2620,7 +2996,7 @@
         const biggest = allWithAmount.reduce((max, i) =>
           parseFloat(i.contract_amount) > parseFloat(max.contract_amount) ? i : max);
         cards.push({
-          bg: '#e3f2fd',
+          color: '#5aa2ff',
           title: '💰 Largest Contract',
           text: `$${formatCurrency(parseFloat(biggest.contract_amount))} — ${biggest.short_title || 'Untitled'} (${biggest.agency_name || 'Unknown Agency'})`,
           requestId: biggest.request_id
@@ -2632,7 +3008,7 @@
       if (withDue.length > 0) {
         const soonest = withDue.sort((a, b) => new Date(a.due_date) - new Date(b.due_date))[0];
         cards.push({
-          bg: '#fff8e1',
+          color: '#ffa94d',
           title: '📅 Next Deadline',
           text: `${formatDate(soonest.due_date)} — ${soonest.short_title || 'Untitled'}`,
           requestId: soonest.request_id
@@ -2644,7 +3020,7 @@
         const parksData = data.filter(i => parksItems.has(i.request_id));
         const parksText = parksData.slice(0, 2).map(i => i.short_title || 'Untitled').join('; ');
         cards.push({
-          bg: '#e8f5e9',
+          color: '#51cf66',
           title: '🌳 Parks Spotlight',
           text: `${parksItems.size} notice${parksItems.size !== 1 ? 's' : ''}: ${parksText}`,
           requestId: parksData[0].request_id,
@@ -2657,8 +3033,8 @@
       return `
         <div class="overview-highlights">
           ${cards.map(c => `
-            <div class="overview-highlight-card" style="background:${c.bg};cursor:pointer;" onclick="navigateToItem('${c.requestId}')">
-              <h3>${c.title}</h3>
+            <div class="overview-highlight-card" style="border-left-color:${c.color};" onclick="navigateToItem('${c.requestId}')">
+              <h3 style="color:${c.color};">${c.title}</h3>
               <p>${escapeHtml(c.text)}</p>
             </div>
           `).join('')}
@@ -2693,7 +3069,7 @@
       block.className = 'section-block';
       block.id = 'section-parks-spotlight';
 
-      const config = { icon: '🌳', bg: '#e8f5e9', color: '#2d6a4f' };
+      const config = { icon: '🌳', bg: 'rgba(81,207,102,0.12)', color: '#51cf66' };
 
       block.innerHTML = `
         <div class="section-header" style="background: ${config.bg};">
@@ -2907,18 +3283,25 @@
       const card = document.createElement('div');
       const isPark = isParksItem(item, parksItems);
       card.className = `item-card${isPark && !isParksSection ? ' parks-highlight' : ''}`;
+      if (item.request_id) card.dataset.requestId = item.request_id;
 
       const title = item.short_title || item.type_of_notice_description || 'Untitled Notice';
       const agency = item.agency_name || '';
       const tags = buildItemTags(item, isPark && !isParksSection);
 
       const quickLinks = buildQuickLinks(item);
-      const pdfBadge = item._source === 'pdf' ? '<span class="item-tag" style="background:#eef2ff;color:#4338ca;font-size:0.6rem;">📄 PDF</span>' : '';
+      const pdfBadge = item._source === 'pdf' ? '<span class="item-tag" style="background:rgba(143,155,255,0.14);color:#8f9bff;font-size:0.6rem;">📄 PDF</span>' : '';
+      const agencyUrl = getAgencyUrl(agency);
+      const agencyHtml = agency
+        ? (agencyUrl
+            ? `<div class="item-agency"><a href="${agencyUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Open agency website">${escapeHtml(agency)}</a></div>`
+            : `<div class="item-agency">${escapeHtml(agency)}</div>`)
+        : '';
       card.innerHTML = `
         <div class="item-card-header">
           <div>
             <div class="item-title">${escapeHtml(title)} ${pdfBadge}</div>
-            ${agency ? `<div class="item-agency">${escapeHtml(agency)}</div>` : ''}
+            ${agencyHtml}
             <div class="item-meta">${tags}</div>
             ${quickLinks}
           </div>
@@ -3005,6 +3388,13 @@
               </div>
             </div>
           </div>`;
+        } else if (label === 'Email') {
+          html += `<div class="detail-field"><label>Email</label><span><a href="mailto:${escapeHtml(value)}">${escapeHtml(value)}</a></span></div>`;
+        } else if (label === 'Phone') {
+          html += `<div class="detail-field"><label>Phone</label><span><a href="tel:${escapeHtml(String(value).replace(/[^\d+]/g, ''))}">${escapeHtml(value)}</a></span></div>`;
+        } else if (label === 'Agency') {
+          const aUrl = getAgencyUrl(value);
+          html += `<div class="detail-field"><label>Agency</label><span>${aUrl ? `<a href="${aUrl}" target="_blank" rel="noopener">${escapeHtml(value)}</a>` : escapeHtml(value)}</span></div>`;
         } else {
           html += `<div class="detail-field"><label>${label}</label><span>${escapeHtml(value)}</span></div>`;
         }
@@ -3104,8 +3494,8 @@
         }
 
         const map = L.map(mapId, { scrollWheelZoom: false }).setView([lat, lng], found ? 16 : 12);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; OpenStreetMap contributors',
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+          attribution: '&copy; OpenStreetMap &copy; CARTO',
           maxZoom: 19,
         }).addTo(map);
 
@@ -3151,15 +3541,15 @@
 
       // Section color mapping for markers
       const sectionColors = {
-        'Procurement': '#1565c0',
-        'Contract Award Hearings': '#283593',
-        'Public Comment on Contract Awards': '#4527a0',
-        'Public Hearings and Meetings': '#6a1b9a',
-        'Agency Rules': '#b71c1c',
-        'Changes in Personnel': '#e65100',
-        'Property Disposition': '#00695c',
-        'Special Materials': '#4e342e',
-        'Court Notices': '#37474f',
+        'Procurement': '#5aa2ff',
+        'Contract Award Hearings': '#8f9bff',
+        'Public Comment on Contract Awards': '#b18cff',
+        'Public Hearings and Meetings': '#c77dff',
+        'Agency Rules': '#ff6b6b',
+        'Changes in Personnel': '#ffa94d',
+        'Property Disposition': '#3ddad0',
+        'Special Materials': '#9aa4b2',
+        'Court Notices': '#d0a97e',
       };
 
       // Clean up old map
@@ -3169,7 +3559,7 @@
       }
 
       const map = L.map('overview-city-map-container', { scrollWheelZoom: true }).setView([40.7128, -74.006], 11);
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; OpenStreetMap &copy; CARTO',
         maxZoom: 19,
       }).addTo(map);
@@ -3256,36 +3646,21 @@
       const sectionName = item.section_name || 'Other';
 
       // Switch to the right tab
-      const tabs = document.querySelectorAll('.tab-item');
-      for (const tab of tabs) {
-        const label = tab.querySelector('.tab-label');
-        if (label) {
-          const tabKey = Object.keys(TAB_LABELS).find(k => TAB_LABELS[k] && label.textContent.includes(TAB_LABELS[k]));
-          if (tabKey === sectionName) {
-            tab.click();
-            break;
-          }
-        }
-      }
+      switchToTab(sectionName);
 
       // After tab renders, find and open the item card
       setTimeout(() => {
-        const cards = document.querySelectorAll('.item-card');
-        for (const card of cards) {
-          const titleEl = card.querySelector('.item-title');
-          if (titleEl && titleEl.textContent === (item.short_title || item.type_of_notice_description || 'Untitled Notice')) {
-            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            // Open it
-            if (window.innerWidth < 768) {
-              card.classList.add('detail-open');
-              const icon = card.querySelector('.item-expand-icon');
-              if (icon) icon.textContent = '▾';
-            } else {
-              openModal(item);
-            }
-            break;
+        const card = document.querySelector(`.item-card[data-request-id="${CSS.escape(requestId)}"]`);
+        if (card) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          if (window.innerWidth < 768) {
+            card.classList.add('detail-open');
+            const icon = card.querySelector('.item-expand-icon');
+            if (icon) icon.textContent = '▾';
+            return;
           }
         }
+        if (window.innerWidth >= 768) openModal(item);
       }, 100);
     }
 
