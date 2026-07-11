@@ -9,7 +9,7 @@ Current state only — no history (see git log).
 - Working tree: clean except untracked `.claude/` (local, never commit)
 - Updated: 2026-07-11
 - Updated by: Claude
-- Task status: complete (pushed as 1d996c5, rebased onto Max's April embed-mode commits)
+- Task status: gazette reskin committed locally; push pending Max's confirmation
 
 ## Objective
 
@@ -24,6 +24,19 @@ AI summaries on Claude Fable 5.
 - Do not touch: `data/*.json` (PDF-extracted supplements), CNAME
 
 ## Changes made
+
+### Round 2 — gazette reskin (same session)
+
+Max: the dark redesign "looks too AI". Reskinned as a period government
+gazette: newsprint paper palette (#f2ecdd / ink #1f1a10 / oxblood #7a1f1f),
+UnifrakturMaguntia blackletter masthead + Old Standard TT serif, double-rule
+borders, sharp corners, small-caps labels, bracketed [TAG] text instead of
+pills, section marks (§/❧) instead of emoji (all emoji removed), muted-ink
+chart palette, light CARTO map tiles with sepia filter. All round-1
+interactivity (drilldowns, filters, Fable 5 summaries) unchanged. Old
+`--text*` var names are aliased to ink vars for legacy inline styles.
+
+### Round 1 — dark editorial redesign
 
 - Single commit 1d996c5 on top of fed37f0; files: index.html, HANDOFF.md
 - Rebase note: kept 7284826's intent — no NYC Scanner button, `_postHeight`
