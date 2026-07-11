@@ -9,7 +9,7 @@ Current state only — no history (see git log).
 - Working tree: clean except untracked `.claude/` (local, never commit)
 - Updated: 2026-07-11
 - Updated by: Claude
-- Task status: complete — gazette reskin deployed as 9bc07aa
+- Task status: summary-link pass committed on top of the deployed gazette reskin (9bc07aa); push pending Max's confirmation
 
 ## Objective
 
@@ -24,6 +24,21 @@ AI summaries on Claude Fable 5.
 - Do not touch: `data/*.json` (PDF-extracted supplements), CNAME
 
 ## Changes made
+
+### Round 3 — clickable summary text (same session)
+
+Every generated summary sentence now links somewhere sensible via a shared
+`.txt-link` span + one delegated document click listener:
+- notice titles in the overview Summary, hearings/rules/parks mentions ->
+  `itemLink()` -> navigateToItem (detail view)
+- agency / notice-type / personnel-reason mentions in section digests and
+  section summaries -> `filterLink()` -> openSectionFiltered (section tab with
+  filter chip applied); parks digest "N in Section" links filter the parks view
+- the total contract $ figure -> Procurement tab unfiltered
+- AI briefing text: `linkifyKnownItems()` wraps exact short_title matches
+  (>= 12 chars) with item links after markdown formatting
+- `itemMatchesFilter` also matches `type_of_notice_description` now (enables
+  "35 Awards" -> filter Award)
 
 ### Round 2 — gazette reskin (same session)
 

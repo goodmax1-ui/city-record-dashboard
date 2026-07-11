@@ -1604,6 +1604,16 @@
     .source-note strong { color: var(--ink-soft); font-style: normal; }
     .source-note a { color: var(--accent); font-weight: 700; text-decoration: none; border-bottom: 1px dotted var(--accent); font-style: normal; }
     .source-note a:hover { border-bottom-style: solid; }
+
+    /* Inline links inside generated summary text */
+    .txt-link {
+      cursor: pointer;
+      border-bottom: 1px dotted var(--ink-faint);
+    }
+    .txt-link:hover {
+      color: var(--accent);
+      border-bottom: 1px solid var(--accent);
+    }
   </style>
 </head>
 <body>
@@ -1984,8 +1994,24 @@
         let safe = escapeHtml(p);
         // Convert **bold** to <strong>
         safe = safe.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-        return `<p>${safe}</p>`;
+        return `<p>${linkifyKnownItems(safe)}</p>`;
       }).join('');
+    }
+
+    // Wrap exact notice titles the AI mentions with links to the notice
+    function linkifyKnownItems(html) {
+      let out = html;
+      for (const item of currentData) {
+        const t = item.short_title;
+        if (!t || t.length < 12 || !item.request_id) continue;
+        const et = escapeHtml(t);
+        const idx = out.indexOf(et);
+        if (idx === -1) continue;
+        out = out.slice(0, idx) +
+          `<span class="txt-link" data-item-id="${escapeHtml(item.request_id)}">${et}</span>` +
+          out.slice(idx + et.length);
+      }
+      return out;
     }
 
     async function getAISummary(type, data) {
@@ -2337,6 +2363,7 @@
       const desc = item.additional_description_1 || '';
       const reasonMatch = desc.match(/Reason For Change:\s*([^;]+)/i);
       return item.agency_name === label ||
+        item.type_of_notice_description === label ||
         item.category_description === label ||
         item.selection_method_description === label ||
         item.section_name === label ||
@@ -2425,6 +2452,26 @@
       sectionFilter = label;
       renderCurrentTab();
     }
+
+    // Inline text links inside generated summary sentences.
+    // itemLink -> opens the notice; filterLink -> opens the section
+    // pre-filtered to an agency / notice type / reason.
+    function itemLink(item, text) {
+      if (!item || !item.request_id) return text;
+      return `<span class="txt-link" data-item-id="${escapeHtml(item.request_id)}">${text}</span>`;
+    }
+
+    function filterLink(sectionKey, label, text) {
+      return `<span class="txt-link" data-sec="${escapeHtml(sectionKey)}" data-label="${escapeHtml(label)}">${text}</span>`;
+    }
+
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('.txt-link');
+      if (!link) return;
+      e.stopPropagation();
+      if (link.dataset.itemId) navigateToItem(link.dataset.itemId);
+      else if (link.dataset.sec) openSectionFiltered(link.dataset.sec, link.dataset.label);
+    });
 
     // ── Lede stat strip (clickable) ──
     function renderLedeStats(data, sections, parksItems) {
@@ -2917,11 +2964,11 @@
         } else {
           procText += `posting procurement notices`;
         }
-        if (totalAmount > 0) procText += ` worth <strong>$${formatCurrency(totalAmount)}</strong>`;
+        if (totalAmount > 0) procText += ` worth <strong>${filterLink('Procurement', '', '$' + formatCurrency(totalAmount))}</strong>`;
         procText += '. ';
         if (topContracts.length > 0) {
           procText += 'Notable: ' + topContracts.map(c =>
-            `${escapeHtml(c.short_title || 'Untitled')} ($${formatCurrency(parseFloat(c.contract_amount))})`
+            itemLink(c, `${escapeHtml(c.short_title || 'Untitled')} ($${formatCurrency(parseFloat(c.contract_amount))})`)
           ).join('; ');
         }
         html += procText + '.</p>';
@@ -2931,21 +2978,22 @@
       const cah = sections['Contract Award Hearings'];
       if (cah && cah.length > 0) {
         const cahAgencies = [...new Set(cah.map(c => c.agency_name))].filter(Boolean);
-        const cahNames = cah.slice(0, 3).map(c => escapeHtml(c.short_title || 'Untitled'));
-        html += `<p><strong>Contract Award Hearings:</strong> Public hearings are scheduled for contracts at ${cahAgencies.slice(0, 3).join(', ')}${cahAgencies.length > 3 ? ', and others' : ''}, including ${cahNames.join('; ')}.</p>`;
+        const cahAgencyLinks = cahAgencies.slice(0, 3).map(a => filterLink('Contract Award Hearings', a, escapeHtml(a)));
+        const cahNames = cah.slice(0, 3).map(c => itemLink(c, escapeHtml(c.short_title || 'Untitled')));
+        html += `<p><strong>Contract Award Hearings:</strong> Public hearings are scheduled for contracts at ${cahAgencyLinks.join(', ')}${cahAgencies.length > 3 ? ', and others' : ''}, including ${cahNames.join('; ')}.</p>`;
       }
 
       // Hearings & Meetings — describe the topics
       const hearings = sections['Public Hearings and Meetings'];
       if (hearings && hearings.length > 0) {
-        const hearingTitles = hearings.slice(0, 3).map(h => escapeHtml(h.short_title || h.agency_name || 'Untitled'));
+        const hearingTitles = hearings.slice(0, 3).map(h => itemLink(h, escapeHtml(h.short_title || h.agency_name || 'Untitled')));
         html += `<p><strong>Public Hearings & Meetings:</strong> ${hearingTitles.join('; ')}${hearings.length > 3 ? '; and more' : ''}.</p>`;
       }
 
       // Agency Rules — describe what's changing
       const rules = sections['Agency Rules'];
       if (rules && rules.length > 0) {
-        const ruleDescs = rules.slice(0, 2).map(r => escapeHtml(r.short_title || 'Untitled'));
+        const ruleDescs = rules.slice(0, 2).map(r => itemLink(r, escapeHtml(r.short_title || 'Untitled')));
         html += `<p><strong>Agency Rules:</strong> ${ruleDescs.join('; ')}.</p>`;
       }
 
@@ -2964,10 +3012,10 @@
         const biggestAgency = Object.entries(topAgencies).sort((a, b) => b[1] - a[1])[0];
         let persText = `<p><strong>Personnel:</strong> `;
         if (topReasons.length > 0) {
-          persText += topReasons.map(([r, c]) => `${c.toLocaleString()} ${r.toLowerCase()}`).join(', ');
+          persText += topReasons.map(([r, c]) => filterLink('Changes in Personnel', r, `${c.toLocaleString()} ${escapeHtml(r.toLowerCase())}`)).join(', ');
         }
         if (biggestAgency) {
-          persText += `. Largest volume at ${escapeHtml(biggestAgency[0])}`;
+          persText += `. Largest volume at ${filterLink('Changes in Personnel', biggestAgency[0], escapeHtml(biggestAgency[0]))}`;
         }
         html += persText + '.</p>';
       }
@@ -2975,7 +3023,7 @@
       // Parks
       if (parksItems.size > 0) {
         const parksData = data.filter(i => parksItems.has(i.request_id));
-        const parksTitles = parksData.slice(0, 2).map(p => escapeHtml(p.short_title || 'Untitled'));
+        const parksTitles = parksData.slice(0, 2).map(p => itemLink(p, escapeHtml(p.short_title || 'Untitled')));
         html += `<p><strong>Parks & Recreation:</strong> ${parksTitles.join('; ')}.</p>`;
       }
 
@@ -3117,7 +3165,7 @@
         const section = item.section_name || 'Other';
         types[section] = (types[section] || 0) + 1;
       });
-      const parts = Object.entries(types).map(([k, v]) => `${v} in ${k}`);
+      const parts = Object.entries(types).map(([k, v]) => filterLink('parks', k, `${v} in ${escapeHtml(k)}`));
       return parts.join(' &middot; ');
     }
 
@@ -3228,7 +3276,7 @@
         const withDue = items.filter(i => i.due_date);
         summary = `${items.length} procurement notice${items.length !== 1 ? 's' : ''}`;
         if (topTypes.length > 0) {
-          summary += ': ' + topTypes.map(([t, c]) => `${c} ${t}${c !== 1 ? 's' : ''}`).join(', ');
+          summary += ': ' + topTypes.map(([t, c]) => filterLink(sectionName, t, `${c} ${escapeHtml(t)}${c !== 1 ? 's' : ''}`)).join(', ');
         }
         if (totalAmount > 0) {
           summary += ` · $${formatCurrency(totalAmount)} in listed contract values`;
@@ -3244,20 +3292,20 @@
         if (totalAmount > 0) {
           summary += ` · $${formatCurrency(totalAmount)} total value`;
         }
-        summary += '. ' + topAgencies.map(([name, count]) => `${name}: ${count}`).join(' · ');
+        summary += '. ' + topAgencies.map(([name, count]) => filterLink(sectionName, name, `${escapeHtml(name)}: ${count}`)).join(' · ');
       } else if (sectionName === 'Public Comment on Contract Awards') {
         summary = `${items.length} contract award${items.length !== 1 ? 's' : ''} open for public comment. `;
-        summary += topAgencies.map(([name, count]) => `${name}: ${count}`).join(' · ');
+        summary += topAgencies.map(([name, count]) => filterLink(sectionName, name, `${escapeHtml(name)}: ${count}`)).join(' · ');
       } else if (sectionName === 'Public Hearings and Meetings') {
         summary = `${items.length} public hearing${items.length !== 1 ? 's' : ''} and meeting${items.length !== 1 ? 's' : ''} scheduled. `;
-        summary += topAgencies.map(([name, count]) => `${name}: ${count}`).join(' · ');
+        summary += topAgencies.map(([name, count]) => filterLink(sectionName, name, `${escapeHtml(name)}: ${count}`)).join(' · ');
       } else if (sectionName === 'Agency Rules') {
         const ruleTypes = topTypes.length > 0
-          ? topTypes.map(([t, c]) => `${c} ${t}`).join(', ')
+          ? topTypes.map(([t, c]) => filterLink(sectionName, t, `${c} ${escapeHtml(t)}`)).join(', ')
           : '';
         summary = `${items.length} rule${items.length !== 1 ? 's' : ''} published`;
         if (ruleTypes) summary += ': ' + ruleTypes;
-        summary += '. ' + topAgencies.map(([name, count]) => `${name}: ${count}`).join(' · ');
+        summary += '. ' + topAgencies.map(([name, count]) => filterLink(sectionName, name, `${escapeHtml(name)}: ${count}`)).join(' · ');
       } else if (sectionName === 'Changes in Personnel') {
         // Summarize by action type (appointed, resigned, etc.) from type_of_notice_description
         const actions = {};
@@ -3268,21 +3316,21 @@
         const topActions = Object.entries(actions).sort((a, b) => b[1] - a[1]).slice(0, 5);
         summary = `${items.length.toLocaleString()} personnel action${items.length !== 1 ? 's' : ''} today`;
         if (topActions.length > 0) {
-          summary += ': ' + topActions.map(([a, c]) => `${c.toLocaleString()} ${a.toLowerCase()}`).join(', ');
+          summary += ': ' + topActions.map(([a, c]) => filterLink(sectionName, a, `${c.toLocaleString()} ${escapeHtml(a.toLowerCase())}`)).join(', ');
         }
-        summary += '. ' + topAgencies.map(([name, count]) => `${name}: ${count.toLocaleString()}`).join(' · ');
+        summary += '. ' + topAgencies.map(([name, count]) => filterLink(sectionName, name, `${escapeHtml(name)}: ${count.toLocaleString()}`)).join(' · ');
       } else if (sectionName === 'Property Disposition') {
         summary = `${items.length} propert${items.length !== 1 ? 'ies' : 'y'} listed for public sale or disposition. `;
-        summary += topAgencies.map(([name, count]) => `${name}: ${count}`).join(' · ');
+        summary += topAgencies.map(([name, count]) => filterLink(sectionName, name, `${escapeHtml(name)}: ${count}`)).join(' · ');
       } else if (sectionName === 'Court Notices') {
         summary = `${items.length} court notice${items.length !== 1 ? 's' : ''} published. `;
-        summary += topAgencies.map(([name, count]) => `${name}: ${count}`).join(' · ');
+        summary += topAgencies.map(([name, count]) => filterLink(sectionName, name, `${escapeHtml(name)}: ${count}`)).join(' · ');
       } else if (sectionName === 'Special Materials') {
         summary = `${items.length} special notice${items.length !== 1 ? 's' : ''} and announcement${items.length !== 1 ? 's' : ''}. `;
-        summary += topAgencies.map(([name, count]) => `${name}: ${count}`).join(' · ');
+        summary += topAgencies.map(([name, count]) => filterLink(sectionName, name, `${escapeHtml(name)}: ${count}`)).join(' · ');
       } else {
         summary = `${items.length} notice${items.length !== 1 ? 's' : ''} from `;
-        summary += topAgencies.map(([name, count]) => `${name} (${count})`).join(', ');
+        summary += topAgencies.map(([name, count]) => filterLink(sectionName, name, `${escapeHtml(name)} (${count})`)).join(', ');
       }
 
       return summary;
