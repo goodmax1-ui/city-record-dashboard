@@ -9,7 +9,7 @@ Current state only — no history (see git log).
 - Working tree: clean except untracked `.claude/` (local, never commit)
 - Updated: 2026-07-11
 - Updated by: Claude
-- Task status: gazette reskin committed locally; push pending Max's confirmation
+- Task status: complete — gazette reskin deployed as 9bc07aa
 
 ## Objective
 
