@@ -9,7 +9,7 @@ Current state only — no history (see git log).
 - Working tree: clean except untracked `.claude/` (local, never commit)
 - Updated: 2026-07-11
 - Updated by: Claude
-- Task status: summary-link pass committed on top of the deployed gazette reskin (9bc07aa); push pending Max's confirmation
+- Task status: rounds 1-4 deployed; latest = paper-sheet integration
 
 ## Objective
 
@@ -24,6 +24,15 @@ AI summaries on Claude Fable 5.
 - Do not touch: `data/*.json` (PDF-extracted supplements), CNAME
 
 ## Changes made
+
+### Round 4 — paper-sheet integration (same session)
+
+Max: page sat awkwardly with off-color white space around it. The gazette now
+renders as a max-1200px paper sheet centered on a dark desk (#0f1117, matching
+nycdash --bg) with an edge shadow; under 1240px the sheet is full-bleed. When
+iframed (window.parent !== window) the html element gets class `embedded` ->
+transparent background, so nycdash's own background shows through around the
+sheet. Standalone visitors see the dark desk.
 
 ### Round 3 — clickable summary text (same session)
 

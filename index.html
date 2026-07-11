@@ -45,7 +45,11 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html { background: var(--paper); color-scheme: light; }
+    /* The page renders as a paper sheet on a dark desk. Standalone, the
+       desk matches nycdash's background; inside the nycdash iframe the desk
+       is transparent so the app's own background shows through. */
+    html { background: #0f1117; color-scheme: light; }
+    html.embedded { background: transparent; }
 
     body {
       font-family: var(--serif);
@@ -53,6 +57,14 @@
       color: var(--ink);
       line-height: 1.55;
       -webkit-font-smoothing: antialiased;
+      max-width: 1200px;
+      margin: 0 auto;
+      min-height: 100vh;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.5), 0 0 70px rgba(0,0,0,0.55);
+    }
+
+    @media (max-width: 1240px) {
+      body { box-shadow: none; }
     }
 
     ::selection { background: rgba(122,31,31,0.22); }
@@ -1700,6 +1712,10 @@
   </footer>
 
   <script>
+    // Inside the nycdash iframe, let the parent page's background show
+    // through around the paper sheet.
+    if (window.parent !== window) document.documentElement.classList.add('embedded');
+
     // ── Configuration ──
     const API_BASE = 'https://data.cityofnewyork.us/resource/dg92-zbpx.json';
     const APP_TOKEN = ''; // Optional: add a Socrata app token for higher rate limits
